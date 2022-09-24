@@ -1,6 +1,7 @@
 theme = 'DoIt'
 title = 'SAMZONG'
 defaultContentLanguage = "zh-cn"
+baseURL = 'https://samzong.me'
 
 [author]
   name = "Samzong Lu"
