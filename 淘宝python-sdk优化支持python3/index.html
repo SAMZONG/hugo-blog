@@ -1,0 +1,235 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title class=pjax-title>淘宝Python SDK 优化支持 Python3 - SAMZONG</title><meta name=Description content><meta property="og:title" content="淘宝Python SDK 优化支持 Python3"><meta property="og:description" content="淘宝开放平台的SDK，Python的 SDK 是在2012年，仅支持Python2.7 及以上，但不支持Python3；二现在是2102年了，像我这样"><meta property="og:type" content="article"><meta property="og:url" content="https://samzong.me/%E6%B7%98%E5%AE%9Dpython-sdk%E4%BC%98%E5%8C%96%E6%94%AF%E6%8C%81python3/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-04-14T10:43:00+00:00"><meta property="article:modified_time" content="2022-04-14T10:43:00+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="淘宝Python SDK 优化支持 Python3"><meta name=twitter:description content="淘宝开放平台的SDK，Python的 SDK 是在2012年，仅支持Python2.7 及以上，但不支持Python3；二现在是2102年了，像我这样"><meta name=application-name content="SAMZONG"><meta name=apple-mobile-web-app-title content="SAMZONG"><meta name=theme-color content="#f8f8f8"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=canonical href=https://samzong.me/%E6%B7%98%E5%AE%9Dpython-sdk%E4%BC%98%E5%8C%96%E6%94%AF%E6%8C%81python3/><link rel=prev href=https://samzong.me/git-%E4%BF%AE%E5%A4%8D%E5%8E%86%E5%8F%B2%E9%94%99%E8%AF%AF%E7%9A%84author%E4%BF%A1%E6%81%AF/><link rel=next href=https://samzong.me/sql-%E5%AF%B9%E6%97%B6%E9%97%B4%E6%95%B4%E7%82%B9%E7%9A%84%E5%A4%84%E7%90%86/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload='this.onload=null,this.rel="stylesheet"' href=/lib/fontawesome-free/all.min.css><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload='this.onload=null,this.rel="stylesheet"' href=/lib/animate/animate.min.css><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"淘宝Python SDK 优化支持 Python3","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/samzong.me\/%E6%B7%98%E5%AE%9Dpython-sdk%E4%BC%98%E5%8C%96%E6%94%AF%E6%8C%81python3\/"},"genre":"posts","keywords":"Python","wordcount":1410,"url":"https:\/\/samzong.me\/%E6%B7%98%E5%AE%9Dpython-sdk%E4%BC%98%E5%8C%96%E6%94%AF%E6%8C%81python3\/","datePublished":"2022-04-14T10:43:00+00:00","dateModified":"2022-04-14T10:43:00+00:00","publisher":{"@type":"Organization","name":"samzong.lu"},"author":{"@type":"Person","name":"samzong.lu"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>function setTheme(e){document.body.setAttribute("theme",e),document.documentElement.style.setProperty("color-scheme",e==="light"?"light":"dark")}function saveTheme(e){window.localStorage&&localStorage.setItem("theme",e)}function getMeta(e){const t=document.getElementsByTagName("meta");for(let n=0;n<t.length;n++)if(t[n].getAttribute("name")===e)return t[n];return""}if(window.localStorage&&localStorage.getItem("theme")){let e=localStorage.getItem("theme");e==="light"||e==="dark"||e==="black"?setTheme(e):setTheme(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}else""==="light"||""==="dark"||""==="black"?(setTheme(""),saveTheme("")):(saveTheme("auto"),setTheme(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));let metaColors={light:"#f8f8f8",dark:"#252627",black:"#000000"};getMeta("theme-color").content=metaColors[document.body.getAttribute("theme")]</script><div id=back-to-top></div><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=SAMZONG>SAMZONG</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>🤖 全部文章 </a><a class=menu-item href=/tags/>🏷 标签 </a><a class=menu-item href=/categories/>📖 分类 </a><a class=menu-item href=https://github.com/samzong/ title=GitHub rel="noopener noreferrer" target=_blank><i class='fab fa-github fa-fw'></i> GitHub </a><span class="menu-item delimiter"></span><a href=# onclick=return!1 class="menu-item language" title=选择语言>简体中文<i class="fas fa-chevron-right fa-fw"></i>
+<select class=language-select title="Select Language" id=language-select-desktop onchange="location=this.value"><option value=/%E6%B7%98%E5%AE%9Dpython-sdk%E4%BC%98%E5%8C%96%E6%94%AF%E6%8C%81python3/ selected>简体中文</option></select>
+</a><span class="menu-item search" id=search-desktop><input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
+<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-desktop title=搜索><i class="fas fa-search fa-fw"></i></a>
+<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-desktop title=清空><i class="fas fa-times-circle fa-fw"></i></a>
+<span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin"></i></span>
+</span><a href=# onclick=return!1 class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=SAMZONG>SAMZONG</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
+<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-mobile title=搜索><i class="fas fa-search fa-fw"></i></a>
+<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-mobile title=清空><i class="fas fa-times-circle fa-fw"></i></a>
+<span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin"></i></span></div><a href=# onclick=return!1 class=search-cancel id=search-cancel-mobile>取消</a></div><a class=menu-item href=/posts/ title>🤖全部文章</a><a class=menu-item href=/tags/ title>🏷标签</a><a class=menu-item href=/categories/ title>📖分类</a><a class=menu-item href=https://github.com/samzong/ title=GitHub rel="noopener noreferrer" target=_blank><i class='fab fa-github fa-fw'></i>GitHub</a><a href=# onclick=return!1 class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+</a><a href=# onclick=return!1 class=menu-item title=选择语言>简体中文<i class="fas fa-chevron-right fa-fw"></i>
+<select class=language-select title="Select Language" onchange="location=this.value"><option value=/%E6%B7%98%E5%AE%9Dpython-sdk%E4%BC%98%E5%8C%96%E6%94%AF%E6%8C%81python3/ selected>简体中文</option></select></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","wide")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","false")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">淘宝Python SDK 优化支持 Python3</h1><div class=post-meta><div class=post-meta-line><span class=post-author><i class="author fas fa-user-circle fa-fw"></i><a href=/ title=Author rel=author class=author>samzong.lu</a>
+</span>&nbsp;<span class=post-category>收录于 </span>&nbsp;<span class=post-category>类别 <a href=/categories/python/><i class="far fa-folder fa-fw"></i>Python</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2022-04-14>2022-04-14</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2022-04-14>2022-04-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1410 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div></div><div class="details toc" id=toc-static kept=true><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><a href=#install--usage>Install & Usage</a></li><li><a href=#持续补充sdk能力>持续补充SDK能力</a></li><li><a href=#使用说明>使用说明</a></li><li><a href=#适配部分介绍>适配部分介绍</a><ul><li><a href=#1-python3-int替代了long>1. Python3 int替代了long</a></li><li><a href=#2-用items替代iteritems>2. 用items替代iteritems</a></li><li><a href=#3-dict方法优化>3. dict方法优化</a></li><li><a href=#4-unicode-对象需要编码>4. unicode 对象需要编码</a></li><li><a href=#5-soketpy-httpconnection>5. soket.py HttpConnection</a></li><li><a href=#6-urllib方法升级>6. urllib方法升级</a></li><li><a href=#7-jsonobj-异常抛出>7. jsonobj 异常抛出</a></li><li><a href=#8-is-not-修改为->8. is not 修改为 !=</a></li></ul></li><li><a href=#pypi-howto>pypi HowTo</a></li></ul></nav></div></div><div class=content id=content><div class="details admonition note open"><div class="details-summary admonition-title"><i class="icon fas fa-pencil-alt fa-fwnote"></i>注意<i class="details-icon fas fa-angle-right fa-fw"></i></div><div class=details-content><div class=admonition-content>本文最后更新于 <span class=timeago datetime=2022-04-14T10:43:00 title="April 14, 2022">2022-04-14</span>，文中内容可能已过时。</div></div></div><p>淘宝开放平台的SDK，Python的 SDK 是在2012年，仅支持Python2.7 及以上，但不支持Python3；二现在是2102年了，像我这样的新手都是直接从Python3开始的</p><ul><li>我已经把这个项目开放在 GitHub <a href=https://github.com/SAMZONG/taobao-openapi target=_blank rel="noopener noreferrer">https://github.com/SAMZONG/taobao-openapi</a></li><li>同时放在了 Python pypi 软件仓库 <a href=https://pypi.org/project/taobao-openapi/ target=_blank rel="noopener noreferrer">https://pypi.org/project/taobao-openapi/</a></li></ul><h2 id=install--usage class=headerLink><a href=#install--usage class=header-mark></a>1. Install & Usage</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>pip install taobao-openapi
+</span></span></code></pre></td></tr></table></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>taobao</span><span class=o>-</span><span class=n>openapi</span> <span class=k>as</span> <span class=n>tbapi</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=持续补充sdk能力 class=headerLink><a href=#%e6%8c%81%e7%bb%ad%e8%a1%a5%e5%85%85sdk%e8%83%bd%e5%8a%9b class=header-mark></a>2. 持续补充SDK能力</h2><p>淘宝开放平台后台下载获取到的SDK文件，会根据应用的权限生产对应的SDK包，所以你可能获取到的是几十个或者上百个</p><p>NOTE: <strong>如果你有其他的SDK没有在文档中找到，可以反馈给我或者提 <code>Pull requests</code>，大家一起扩充SDK</strong></p><ul><li>v1.0.6 fix 文档错误</li><li>v1.0.4 增加更多接口</li><li>v1.0.3 增加更多接口</li><li>v1.0.2 添加 Wdt QimenCloud-openapi</li><li>v1.0.1 适配 taobao-openapi</li></ul><h2 id=使用说明 class=headerLink><a href=#%e4%bd%bf%e7%94%a8%e8%af%b4%e6%98%8e class=header-mark></a>3. 使用说明</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python3 data-lang=python3><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>top.api</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>json</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>app_key</span> <span class=o>=</span> 
+</span></span><span class=line><span class=cl><span class=n>app_secret</span> <span class=o>=</span> 
+</span></span><span class=line><span class=cl><span class=n>session_key</span> <span class=o>=</span> 
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>trade_rates_get_request</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>	<span class=n>req</span> <span class=o>=</span> <span class=n>top</span><span class=o>.</span><span class=n>api</span><span class=o>.</span><span class=n>TraderatesGetRequest</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>	<span class=n>req</span><span class=o>.</span><span class=n>set_app_info</span><span class=p>(</span><span class=n>top</span><span class=o>.</span><span class=n>appinfo</span><span class=p>(</span><span class=n>app_key</span><span class=p>,</span> <span class=n>app_secret</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=n>req</span><span class=o>.</span><span class=n>fields</span> <span class=o>=</span> <span class=s2>&#34;tid,oid,role,nick,result,created,rated_nick,item_title,item_price,content,reply,num_iid&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=n>req</span><span class=o>.</span><span class=n>rate_type</span> <span class=o>=</span> <span class=s2>&#34;get&#34;</span>
+</span></span><span class=line><span class=cl>	<span class=n>req</span><span class=o>.</span><span class=n>role</span> <span class=o>=</span> <span class=s2>&#34;buyer&#34;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>		<span class=n>resp</span> <span class=o>=</span> <span class=n>req</span><span class=o>.</span><span class=n>getResponse</span><span class=p>(</span><span class=n>session_key</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=k>except</span> <span class=ne>Exception</span> <span class=k>as</span> <span class=n>e</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>		<span class=nb>print</span><span class=p>(</span><span class=n>e</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s1>&#39;__main__&#39;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>	<span class=n>result</span> <span class=o>=</span> <span class=n>trade_rates_get_request</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>	<span class=nb>print</span><span class=p>(</span><span class=n>result</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=适配部分介绍 class=headerLink><a href=#%e9%80%82%e9%85%8d%e9%83%a8%e5%88%86%e4%bb%8b%e7%bb%8d class=header-mark></a>4. 适配部分介绍</h2><blockquote><p>以下为了省时间，基本引用了 <a href=https://blog.csdn.net/starryhwj/article/details/103026402 target=_blank rel="noopener noreferrer">https://blog.csdn.net/starryhwj/article/details/103026402</a> 补充了8
+同时感谢 <a href=https://github.com/ymj4023 target=_blank rel="noopener noreferrer">@ymj4023</a></p></blockquote><h3 id=1-python3-int替代了long class=headerLink><a href=#1-python3-int%e6%9b%bf%e4%bb%a3%e4%ba%86long class=header-mark></a>4.1 1. Python3 int替代了long</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python3 data-lang=python3><span class=line><span class=cl><span class=n>FROM</span><span class=p>:</span> <span class=nb>str</span><span class=p>(</span><span class=n>long</span><span class=p>(</span><span class=n>time</span><span class=o>.</span><span class=n>time</span><span class=p>()</span> <span class=o>*</span> <span class=mi>1000</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>TO</span><span class=p>:</span> <span class=n>P_TIMESTAMP</span><span class=p>:</span> <span class=nb>str</span><span class=p>(</span><span class=nb>int</span><span class=p>(</span><span class=n>time</span><span class=o>.</span><span class=n>time</span><span class=p>()</span> <span class=o>*</span> <span class=mi>1000</span><span class=p>))</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=2-用items替代iteritems class=headerLink><a href=#2-%e7%94%a8items%e6%9b%bf%e4%bb%a3iteritems class=header-mark></a>4.2 2. 用items替代iteritems</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python3 data-lang=python3><span class=line><span class=cl><span class=n>FROM</span><span class=p>:</span> <span class=k>for</span> <span class=n>key</span><span class=p>,</span> <span class=n>value</span> <span class=ow>in</span> <span class=n>application_parameter</span><span class=o>.</span><span class=n>iteritems</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>TO</span><span class=p>:</span> <span class=k>for</span> <span class=n>key</span><span class=p>,</span> <span class=n>value</span> <span class=ow>in</span> <span class=n>application_parameter</span><span class=o>.</span><span class=n>items</span><span class=p>():</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=3-dict方法优化 class=headerLink><a href=#3-dict%e6%96%b9%e6%b3%95%e4%bc%98%e5%8c%96 class=header-mark></a>4.3 3. dict方法优化</h3><p>查阅资料，发现有人说到dict methods dict.keys(), dict.items() and dict.values() return “views” instead of lists.这样就显而易见知道怎么改了：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python3 data-lang=python3><span class=line><span class=cl><span class=n>FROM</span><span class=p>:</span> <span class=n>keys</span> <span class=o>=</span> <span class=n>keys</span><span class=o>.</span><span class=n>sort</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>TO</span><span class=p>:</span> <span class=n>keys</span> <span class=o>=</span> <span class=nb>sorted</span><span class=p>(</span><span class=n>keys</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=4-unicode-对象需要编码 class=headerLink><a href=#4-unicode-%e5%af%b9%e8%b1%a1%e9%9c%80%e8%a6%81%e7%bc%96%e7%a0%81 class=header-mark></a>4.4 4. unicode 对象需要编码</h3><p>英文意思很明确，unicode对象在哈希之前必须进行编码转换，想起之前又看到过中文字符在python中是以unicode存在的，所以：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python3 data-lang=python3><span class=line><span class=cl><span class=n>FROM</span><span class=p>:</span> <span class=n>sign</span> <span class=o>=</span> <span class=n>hashlib</span><span class=o>.</span><span class=n>md5</span><span class=p>(</span><span class=n>parameters</span><span class=p>))</span><span class=o>.</span><span class=n>hexdigest</span><span class=p>()</span><span class=o>.</span><span class=n>upper</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>TO</span><span class=p>:</span> <span class=n>sign</span> <span class=o>=</span> <span class=n>hashlib</span><span class=o>.</span><span class=n>md5</span><span class=p>(</span><span class=n>parameters</span><span class=o>.</span><span class=n>encode</span><span class=p>(</span><span class=s2>&#34;utf-8&#34;</span><span class=p>))</span><span class=o>.</span><span class=n>hexdigest</span><span class=p>()</span><span class=o>.</span><span class=n>upper</span><span class=p>()</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=5-soketpy-httpconnection class=headerLink><a href=#5-soketpy-httpconnection class=header-mark></a>4.5 5. soket.py HttpConnection</h3><p>这是花费时间最长的一个错误。首先，直接看最后，错误在soket.py里，心凉了半截，难道这里的调用都不一样了,再网上看又是python 3.X的http模块，去百度了半天也没有发现类似的错误，只能自己硬着头皮去看模块，功夫不负有心人，其实也很简单，在类HTTPConnection的初始化函数是这样定义的:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python3 data-lang=python3><span class=line><span class=cl><span class=n>FROM</span><span class=p>:</span> <span class=n>connection</span> <span class=o>=</span> <span class=n>httplib</span><span class=o>.</span><span class=n>HTTPConnection</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>__domain</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>__port</span><span class=p>,</span> <span class=kc>False</span><span class=p>,</span> <span class=n>timeout</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>TO</span><span class=p>:</span> <span class=n>connection</span> <span class=o>=</span> <span class=n>httplib</span><span class=o>.</span><span class=n>HTTPConnection</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>__domain</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>__port</span><span class=p>,</span> <span class=n>timeout</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>比较下参数发现，python 2比3多了一个参数，去掉即可，这个错误主要是是报错的地方和修改的地方不在一起，所以很难插出原因。</p></blockquote><h3 id=6-urllib方法升级 class=headerLink><a href=#6-urllib%e6%96%b9%e6%b3%95%e5%8d%87%e7%ba%a7 class=header-mark></a>4.6 6. urllib方法升级</h3><p>官方文档是这样解释的：urllib has been split up in Python 3. The urllib.urlencode() function is now urllib.parse.urlencode(), and the urllib.urlopen() function is now urllib.request.urlopen()</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python3 data-lang=python3><span class=line><span class=cl><span class=n>FROM</span><span class=p>:</span> <span class=n>url</span> <span class=o>=</span> <span class=n>N_REST</span> <span class=o>+</span> <span class=s2>&#34;?&#34;</span> <span class=o>+</span> <span class=n>urllib</span><span class=o>.</span><span class=n>parse</span><span class=o>.</span><span class=n>urlencode</span><span class=p>(</span><span class=n>sys_parameters</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>TO</span><span class=p>:</span> <span class=n>url</span> <span class=o>=</span> <span class=n>N_REST</span> <span class=o>+</span> <span class=s2>&#34;?&#34;</span> <span class=o>+</span> <span class=n>urllib</span><span class=o>.</span><span class=n>urlencode</span><span class=p>(</span><span class=n>sys_parameters</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=7-jsonobj-异常抛出 class=headerLink><a href=#7-jsonobj-%e5%bc%82%e5%b8%b8%e6%8a%9b%e5%87%ba class=header-mark></a>4.7 7. jsonobj 异常抛出</h3><p>这个错误是在API调用出异常的时候暴露出来的。原因前面已经提到了，稍微查了下替代的方法：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python3 data-lang=python3><span class=line><span class=cl><span class=k>if</span> <span class=s2>&#34;error_response&#34;</span> <span class=ow>in</span> <span class=n>jsonobj</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=n>P_CODE</span> <span class=ow>in</span> <span class=n>jsonobj</span><span class=p>[</span><span class=s2>&#34;error_response&#34;</span><span class=p>]:</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=8-is-not-修改为- class=headerLink><a href=#8-is-not-%e4%bf%ae%e6%94%b9%e4%b8%ba- class=header-mark></a>4.8 8. is not 修改为 !=</h3><p>在if 需要使用反向时，应该是 != ，而不是使用 is not ；这个也是 PyCharm 给的建议，所以在使用时，所以简单调整下就好了</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python3 data-lang=python3><span class=line><span class=cl><span class=n>FROM</span><span class=p>:</span> <span class=k>if</span> <span class=n>respone</span><span class=o>.</span><span class=n>status</span> <span class=ow>is</span> <span class=ow>not</span> <span class=mi>200</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>TO</span><span class=p>:</span> <span class=k>if</span> <span class=n>response</span><span class=o>.</span><span class=n>status</span> <span class=o>!=</span> <span class=mi>200</span><span class=p>:</span>
+</span></span></code></pre></td></tr></table></div></div><hr><p>以上调整之后，基本就可以正常跑起来了，基本是可以支持Python3的使用，我试过了Python3.6-3.9，都是OK的。</p><h2 id=pypi-howto class=headerLink><a href=#pypi-howto class=header-mark></a>5. pypi HowTo</h2><p>把你的库上传到pypi 之前，主要依赖的是 setup.py，下方是对应的demo</p><ul><li>打包 python3 steup.py sdist</li><li>twine upload dist/*</li></ul><blockquote><p>注意： 需要先安装 setuptools twine</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python3 data-lang=python3><span class=line><span class=cl><span class=c1># /usr/bin/env python3</span>
+</span></span><span class=line><span class=cl><span class=c1># -*- coding: utf-8 -*-</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>setuptools</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>distutils.core</span> <span class=kn>import</span> <span class=n>setup</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>codecs</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>os</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>sys</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>	<span class=kn>from</span> <span class=nn>setuptools</span> <span class=kn>import</span> <span class=n>setup</span><span class=p>,</span> <span class=n>find_packages</span>
+</span></span><span class=line><span class=cl><span class=k>except</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>	<span class=kn>from</span> <span class=nn>distutils</span> <span class=kn>import</span> <span class=n>setup</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=s1>&#39;README.md&#39;</span><span class=p>,</span> <span class=s1>&#39;r&#39;</span><span class=p>,</span> <span class=n>encoding</span><span class=o>=</span><span class=s2>&#34;utf-8&#34;</span><span class=p>)</span> <span class=k>as</span> <span class=n>fp</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>	<span class=n>readme</span> <span class=o>=</span> <span class=n>fp</span><span class=o>.</span><span class=n>read</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>VERSION</span> <span class=o>=</span> <span class=s2>&#34;1.0.0&#34;</span>
+</span></span><span class=line><span class=cl><span class=n>LICENSE</span> <span class=o>=</span> <span class=s2>&#34;MIT&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>setup</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>	<span class=n>name</span><span class=o>=</span><span class=s1>&#39;taobao-openapi&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>	<span class=n>version</span><span class=o>=</span><span class=n>VERSION</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>	<span class=n>description</span><span class=o>=</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>		<span class=s1>&#39;集合了淘宝开放平台的商铺OPEN API，并适配了Python3&#39;</span>
+</span></span><span class=line><span class=cl>	<span class=p>),</span>
+</span></span><span class=line><span class=cl>	<span class=n>long_description</span><span class=o>=</span><span class=n>readme</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>	<span class=n>long_description_content_type</span><span class=o>=</span><span class=s1>&#39;text/markdown&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>	<span class=n>author</span><span class=o>=</span><span class=s1>&#39;samzong.lu&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>	<span class=n>author_email</span><span class=o>=</span><span class=s1>&#39;samzong.lu@gmail.com&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>	<span class=n>maintainer</span><span class=o>=</span><span class=s1>&#39;samzong.lu&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>	<span class=n>maintainer_email</span><span class=o>=</span><span class=s1>&#39;samzong.lu@gmail.com&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>	<span class=n>license</span><span class=o>=</span><span class=n>LICENSE</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>	<span class=n>packages</span><span class=o>=</span><span class=n>find_packages</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>	<span class=n>platforms</span><span class=o>=</span><span class=p>[</span><span class=s2>&#34;all&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>	<span class=n>url</span><span class=o>=</span><span class=s1>&#39;https://github.com/SAMZONG/taobao-sdk-python3&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>	<span class=n>install_requires</span><span class=o>=</span><span class=p>[</span>
+</span></span><span class=line><span class=cl>		<span class=s2>&#34;requests&#34;</span>
+</span></span><span class=line><span class=cl>		<span class=p>],</span>
+</span></span><span class=line><span class=cl>	<span class=n>classifiers</span><span class=o>=</span><span class=p>[</span>
+</span></span><span class=line><span class=cl>		<span class=s1>&#39;Development Status :: 4 - Beta&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=s1>&#39;Operating System :: OS Independent&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=s1>&#39;Intended Audience :: Developers&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=s1>&#39;License :: OSI Approved :: BSD License&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=s1>&#39;Programming Language :: Python&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=s1>&#39;Programming Language :: Python :: Implementation&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=s1>&#39;Programming Language :: Python :: 3&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=s1>&#39;Programming Language :: Python :: 3.4&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=s1>&#39;Programming Language :: Python :: 3.5&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=s1>&#39;Programming Language :: Python :: 3.6&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=s1>&#39;Programming Language :: Python :: 3.7&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=s1>&#39;Programming Language :: Python :: 3.8&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=s1>&#39;Programming Language :: Python :: 3.9&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>		<span class=s1>&#39;Topic :: Software Development :: Libraries&#39;</span>
+</span></span><span class=line><span class=cl>		<span class=p>],</span>
+</span></span><span class=line><span class=cl>	<span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div></div><h2>相关内容</h2><div class=related-container><div class=related-item-container><h2 class=related-title><a href=/poetry-%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/>Poetry 使用笔记</a></h2></div><div class=related-item-container><h2 class=related-title><a href=/python-%E5%A4%9A%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/>Pyenv Python多版本管理利器</a></h2></div><div class=related-item-container><h2 class=related-title><a href=/%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98python%E5%AE%A2%E6%88%B7%E7%AB%AF/>bypy 百度网盘Python客户端</a></h2></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2022-04-14</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-mardown href=/%E6%B7%98%E5%AE%9Dpython-sdk%E4%BC%98%E5%8C%96%E6%94%AF%E6%8C%81python3/index.md target=_blank rel="noopener noreferrer">阅读原始文档</a></span></div><div class=post-info-share><span><a href=# onclick=return!1 title="分享到 Twitter" data-sharer=twitter data-url=https://samzong.me/%E6%B7%98%E5%AE%9Dpython-sdk%E4%BC%98%E5%8C%96%E6%94%AF%E6%8C%81python3/ data-title="淘宝Python SDK 优化支持 Python3" data-via=samzong_lu data-hashtags=Python><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Facebook" data-sharer=facebook data-url=https://samzong.me/%E6%B7%98%E5%AE%9Dpython-sdk%E4%BC%98%E5%8C%96%E6%94%AF%E6%8C%81python3/ data-hashtag=Python><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="分享到 微博" data-sharer=weibo data-url=https://samzong.me/%E6%B7%98%E5%AE%9Dpython-sdk%E4%BC%98%E5%8C%96%E6%94%AF%E6%8C%81python3/ data-title="淘宝Python SDK 优化支持 Python3" data-ralateuid=3181653281><i class="fab fa-weibo fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/python/>Python</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/git-%E4%BF%AE%E5%A4%8D%E5%8E%86%E5%8F%B2%E9%94%99%E8%AF%AF%E7%9A%84author%E4%BF%A1%E6%81%AF/ class=prev rel=prev title="Git 修复历史错误的 Author 信息"><i class="fas fa-angle-left fa-fw"></i>Git 修复历史错误的 Author 信息</a>
+<a href=/sql-%E5%AF%B9%E6%97%B6%E9%97%B4%E6%95%B4%E7%82%B9%E7%9A%84%E5%A4%84%E7%90%86/ class=next rel=next title="SQL 对时间整点的处理">SQL 对时间整点的处理<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main></div><div id=fixed-buttons><a href=#back-to-top id=back-to-top-button class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><div id=cookieconsent-container></div><div class=assets><link rel=stylesheet href=/lib/cookieconsent/cookieconsent.min.css><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/fuse/fuse.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/tablesort/tablesort.min.js></script><script type=text/javascript src=/lib/cookieconsent/cookieconsent.min.js defer></script><script type=text/javascript src=/lib/topbar/topbar.min.js></script><script type=text/javascript src=/lib/pjax/pjax.min.js></script><script type=text/javascript src=/js/theme.min.js defer></script></div><div class=pjax-assets><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{},cookieconsent:{content:{dismiss:" dismiss",link:"https://samzong.me",message:"这是一个提示语"},enable:!0,palette:{button:{background:"#f0f0f0"},popup:{background:"#1aa3ff"}},theme:"edgeless"},lightGallery:{actualSize:!1,exThumbImage:"data-thumbnail",hideBarsDelay:2e3,selector:".lightgallery",speed:400,thumbContHeight:80,thumbWidth:80,thumbnail:!0},math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},search:{distance:100,findAllMatches:!1,fuseIndexURL:"/index.json",highlightTag:"em",ignoreFieldNorm:!1,ignoreLocation:!1,isCaseSensitive:!1,location:0,maxResultLength:10,minMatchCharLength:2,noResultsFound:"没有找到结果",snippetLength:50,threshold:.3,type:"fuse",useExtendedSearch:!1},sharerjs:!0,table:{sort:!0},twemoji:!0}</script><script type=text/javascript src=/lib/twemoji/twemoji.min.js defer></script><script type=text/javascript src=/js/twemoji.min.js defer></script><script type=text/javascript src=/lib/lightgallery/lightgallery.min.js></script><script type=text/javascript src=/lib/lightgallery/lg-thumbnail.min.js></script><script type=text/javascript src=/lib/lightgallery/lg-zoom.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/lib/katex/katex.min.js defer></script><script type=text/javascript src=/lib/katex/auto-render.min.js defer></script><script type=text/javascript src=/lib/katex/copy-tex.min.js defer></script><script type=text/javascript src=/lib/katex/mhchem.min.js defer></script><script type=text/javascript src=/js/katex.min.js defer></script><script type=text/javascript src=/js/cookieconsent.min.js defer></script><link rel=stylesheet href=/lib/lightgallery/lightgallery.min.css><link rel=stylesheet href=/lib/katex/katex.min.css><link rel=preload as=style onload='this.onload=null,this.rel="stylesheet"' href=/lib/katex/copy-tex.min.css><noscript><link rel=stylesheet href=/lib/katex/copy-tex.min.css></noscript></div></body></html>

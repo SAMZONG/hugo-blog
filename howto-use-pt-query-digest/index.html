@@ -1,0 +1,261 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title class=pjax-title>HowTo Use pt-query-digest - SAMZONG</title><meta name=Description content><meta property="og:title" content="HowTo Use pt-query-digest"><meta property="og:description" content="0.1 1. 简介索引可以我们更快速的执行查询，但是肯定存在不合理的索引，如果想找到那些索引不是很合适的查询，并在它们成为问题前进行优化，则可以使用p"><meta property="og:type" content="article"><meta property="og:url" content="https://samzong.me/howto-use-pt-query-digest/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2016-09-22T15:20:12+00:00"><meta property="article:modified_time" content="2022-09-25T00:50:15+08:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="HowTo Use pt-query-digest"><meta name=twitter:description content="0.1 1. 简介索引可以我们更快速的执行查询，但是肯定存在不合理的索引，如果想找到那些索引不是很合适的查询，并在它们成为问题前进行优化，则可以使用p"><meta name=application-name content="SAMZONG"><meta name=apple-mobile-web-app-title content="SAMZONG"><meta name=theme-color content="#f8f8f8"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=canonical href=https://samzong.me/howto-use-pt-query-digest/><link rel=prev href=https://samzong.me/%E7%94%9F%E8%80%85%E5%AD%A4%E7%8B%AC/><link rel=next href=https://samzong.me/%E5%86%99%E7%9A%84%E5%BE%AE%E5%8D%9A/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload='this.onload=null,this.rel="stylesheet"' href=/lib/fontawesome-free/all.min.css><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload='this.onload=null,this.rel="stylesheet"' href=/lib/animate/animate.min.css><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"HowTo Use pt-query-digest","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/samzong.me\/howto-use-pt-query-digest\/"},"genre":"posts","keywords":"MySQL","wordcount":2131,"url":"https:\/\/samzong.me\/howto-use-pt-query-digest\/","datePublished":"2016-09-22T15:20:12+00:00","dateModified":"2022-09-25T00:50:15+08:00","publisher":{"@type":"Organization","name":"Samzong"},"author":{"@type":"Person","name":"Samzong"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>function setTheme(e){document.body.setAttribute("theme",e),document.documentElement.style.setProperty("color-scheme",e==="light"?"light":"dark")}function saveTheme(e){window.localStorage&&localStorage.setItem("theme",e)}function getMeta(e){const t=document.getElementsByTagName("meta");for(let n=0;n<t.length;n++)if(t[n].getAttribute("name")===e)return t[n];return""}if(window.localStorage&&localStorage.getItem("theme")){let e=localStorage.getItem("theme");e==="light"||e==="dark"||e==="black"?setTheme(e):setTheme(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}else""==="light"||""==="dark"||""==="black"?(setTheme(""),saveTheme("")):(saveTheme("auto"),setTheme(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));let metaColors={light:"#f8f8f8",dark:"#252627",black:"#000000"};getMeta("theme-color").content=metaColors[document.body.getAttribute("theme")]</script><div id=back-to-top></div><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=SAMZONG>SAMZONG</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>🤖 全部文章 </a><a class=menu-item href=/tags/>🏷 标签 </a><a class=menu-item href=/categories/>📖 分类 </a><a class=menu-item href=https://github.com/samzong/ title=GitHub rel="noopener noreferrer" target=_blank><i class='fab fa-github fa-fw'></i> GitHub </a><span class="menu-item delimiter"></span><a href=# onclick=return!1 class="menu-item language" title=选择语言>简体中文<i class="fas fa-chevron-right fa-fw"></i>
+<select class=language-select title="Select Language" id=language-select-desktop onchange="location=this.value"><option value=/howto-use-pt-query-digest/ selected>简体中文</option></select>
+</a><span class="menu-item search" id=search-desktop><input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
+<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-desktop title=搜索><i class="fas fa-search fa-fw"></i></a>
+<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-desktop title=清空><i class="fas fa-times-circle fa-fw"></i></a>
+<span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin"></i></span>
+</span><a href=# onclick=return!1 class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=SAMZONG>SAMZONG</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
+<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-mobile title=搜索><i class="fas fa-search fa-fw"></i></a>
+<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-mobile title=清空><i class="fas fa-times-circle fa-fw"></i></a>
+<span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin"></i></span></div><a href=# onclick=return!1 class=search-cancel id=search-cancel-mobile>取消</a></div><a class=menu-item href=/posts/ title>🤖全部文章</a><a class=menu-item href=/tags/ title>🏷标签</a><a class=menu-item href=/categories/ title>📖分类</a><a class=menu-item href=https://github.com/samzong/ title=GitHub rel="noopener noreferrer" target=_blank><i class='fab fa-github fa-fw'></i>GitHub</a><a href=# onclick=return!1 class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+</a><a href=# onclick=return!1 class=menu-item title=选择语言>简体中文<i class="fas fa-chevron-right fa-fw"></i>
+<select class=language-select title="Select Language" onchange="location=this.value"><option value=/howto-use-pt-query-digest/ selected>简体中文</option></select></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","wide")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","false")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">HowTo Use pt-query-digest</h1><div class=post-meta><div class=post-meta-line><span class=post-author><i class="author fas fa-user-circle fa-fw"></i><a href=/ title=Author rel=author class=author>Samzong</a>
+</span>&nbsp;<span class=post-category>收录于 </span>&nbsp;<span class=post-category>类别 <a href=/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/><i class="far fa-folder fa-fw"></i>数据库</a>&nbsp;<a href=/categories/mysql/><i class="far fa-folder fa-fw"></i>MySQL</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2016-09-22>2016-09-22</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2022-09-25>2022-09-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2131 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div></div><div class="details toc" id=toc-static kept=true><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><ul><li><a href=#1-简介>1. 简介</a></li><li><a href=#2-install-percona-toolkit--pt-query-digest>2. Install Percona Toolkit & pt-query-digest</a></li><li><a href=#3-开启-mysql慢日志>3. 开启 mysql慢日志</a><ul><li><ul><li><a href=#a-查看当前slow_query_log-状态>a. 查看当前‘slow_query_log’ 状态：</a></li><li><a href=#b-启动slow_log-配置>b. 启动slow_log, 配置</a></li></ul></li></ul></li><li><a href=#4-分析>4. 分析</a><ul><li><ul><li><a href=#a-简单使用方法>a. 简单使用方法：</a></li><li><a href=#b-从tcpdump包中分析通过tcpdump命令抓取一定时间网络数据包然后进行分析>b. 从tcpdump包中分析：通过tcpdump命令抓取一定时间网络数据包，然后进行分析：</a></li><li><a href=#c-pt-query-digest-还支持很对其他的数据包分析形势但是我们主要使用的还是针对慢日志进行分析>c. pt-query-digest 还支持很对其他的数据包分析形势，但是我们主要使用的还是针对慢日志进行分析</a></li></ul></li></ul></li><li><a href=#5-使用anemometer将pt-query-digest的mysql慢查询可视化>5. 使用Anemometer将pt-query-digest的MySQL慢查询可视化</a><ul><li><ul><li><a href=#51-安装>5.1 安装</a></li><li><a href=#52-配置>5.2 配置</a></li><li><a href=#53-导入>5.3 导入</a></li></ul></li></ul></li></ul></li></ul></nav></div></div><div class=content id=content><h3 id=1-简介 class=headerLink><a href=#1-%e7%ae%80%e4%bb%8b class=header-mark></a>0.1 1. 简介</h3><p>索引可以我们更快速的执行查询，但是肯定存在不合理的索引，如果想找到那些索引不是很合适的查询，并在它们成为问题前进行优化，则可以使用pt-query-digest的查询审查“review”功能，分析其EXPLAIN出来的执行计划。</p><p>pt-query-digest是用于分析mysql慢查询的一个工具，它可以分析binlog、General log、slowlog，也可以通过SHOWPROCESSLIST或者通过tcpdump抓取的MySQL协议数据来进行分析。可以把分析结果输出到文件中，分析过程是先对查询语句的条件进行参数化，然后对参数化以后的查询进行分组统计，统计出各查询的执行时间、次数、占比等，可以借助分析结果找出问题进行优化。</p><h3 id=2-install-percona-toolkit--pt-query-digest class=headerLink><a href=#2-install-percona-toolkit--pt-query-digest class=header-mark></a>0.2 2. Install Percona Toolkit & pt-query-digest</h3><p>percona-toolkit是一组高级命令行工具的集合，用来执行各种通过手工执行非常复杂和麻烦的mysql和系统任务。这些任务包括：</p><ul><li>检查master和slave数据的一致性</li><li>有效地对记录进行归档</li><li>查找重复的索引</li><li>对服务器信息进行汇总</li><li>分析来自日志和tcpdump的查询</li><li>当系统出问题的时候收集重要的系统信息</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>[root@ultrera ~]# wget percona.com/get/percona-toolkit.tar.gz
+</span></span><span class=line><span class=cl>--2016-09-22 09:17:00--  http://percona.com/get/percona-toolkit.tar.gz
+</span></span><span class=line><span class=cl>Resolving percona.com... 74.121.199.234, 74.121.199.234
+</span></span><span class=line><span class=cl>Connecting to percona.com|74.121.199.234|:80... connected.
+</span></span><span class=line><span class=cl>HTTP request sent, awaiting response... 301 Moved Permanently
+</span></span><span class=line><span class=cl>Location: https://www.percona.com/get/percona-toolkit.tar.gz [following]
+</span></span><span class=line><span class=cl>--2016-09-22 09:17:02--  https://www.percona.com/get/percona-toolkit.tar.gz
+</span></span><span class=line><span class=cl>Resolving www.percona.com... 74.121.199.234, 74.121.199.234
+</span></span><span class=line><span class=cl>Connecting to www.percona.com|74.121.199.234|:443... connected.
+</span></span><span class=line><span class=cl>HTTP request sent, awaiting response... 302 Found
+</span></span><span class=line><span class=cl>Location: https://www.percona.com/downloads/percona-toolkit/2.2.19/tarball/percona-toolkit-2.2.19.tar.gz [following]
+</span></span><span class=line><span class=cl>--2016-09-22 09:17:03--  https://www.percona.com/downloads/percona-toolkit/2.2.19/tarball/percona-toolkit-2.2.19.tar.gz
+</span></span><span class=line><span class=cl>Reusing existing connection to www.percona.com:443.
+</span></span><span class=line><span class=cl>HTTP request sent, awaiting response... 200 OK
+</span></span><span class=line><span class=cl>Length: 1425623 (1.4M) [application/x-gzip]
+</span></span><span class=line><span class=cl>Saving to: “percona-toolkit.tar.gz”
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>100%[=======================&gt;] 1,425,623    766K/s   in 1.8s
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>2016-09-22 09:17:05 (766 KB/s) - “percona-toolkit.tar.gz” saved [1425623/1425623]
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[root@ultrera ~]# tar xf percona-toolkit.tar.gz
+</span></span><span class=line><span class=cl>[root@ultrera ~]# ls
+</span></span><span class=line><span class=cl>percona-toolkit-2.2.19  percona-toolkit.tar.gz
+</span></span><span class=line><span class=cl>[root@ultrera ~]# cd percona-toolkit-2.2.19
+</span></span><span class=line><span class=cl>[root@ultrera percona-toolkit-2.2.19]# perl Makefile.PL
+</span></span><span class=line><span class=cl>Warning: prerequisite DBD::mysql 3 not found.
+</span></span><span class=line><span class=cl>Writing Makefile for percona-toolkit
+</span></span><span class=line><span class=cl>[root@ultrera percona-toolkit-2.2.19]# make
+</span></span><span class=line><span class=cl>cp bin/pt-mysql-summary blib/script/pt-mysql-summary
+</span></span><span class=line><span class=cl>....
+</span></span><span class=line><span class=cl>Manifying blib/man1/pt-index-usage.1p
+</span></span><span class=line><span class=cl>Manifying blib/man1/pt-duplicate-key-checker.1p
+</span></span><span class=line><span class=cl>Manifying blib/man1/pt-config-diff.1p
+</span></span><span class=line><span class=cl>Manifying blib/man1/pt-stalk.1p
+</span></span><span class=line><span class=cl>[root@ultrera percona-toolkit-2.2.19]# make install
+</span></span><span class=line><span class=cl>Installing /usr/local/share/man/man1/pt-query-digest.1p
+</span></span><span class=line><span class=cl>...
+</span></span><span class=line><span class=cl>Installing /usr/local/bin/pt-query-digest
+</span></span><span class=line><span class=cl>...
+</span></span><span class=line><span class=cl>Appending installation info to /usr/lib64/perl5/perllocal.pod
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>运行工具可能会遇到下面的错误: Can&rsquo;t locate Time/HiRes.pm in @INC</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl># 解决办法：
+</span></span><span class=line><span class=cl>[root@ultrera ~]# yum install -y perl-Time-HiRes
+</span></span><span class=line><span class=cl>[root@ultrera ~]# pt-query-digest --version
+</span></span><span class=line><span class=cl>pt-query-digest 2.2.19
+</span></span></code></pre></td></tr></table></div></div><h3 id=3-开启-mysql慢日志 class=headerLink><a href=#3-%e5%bc%80%e5%90%af-mysql%e6%85%a2%e6%97%a5%e5%bf%97 class=header-mark></a>0.3 3. 开启 mysql慢日志</h3><h5 id=a-查看当前slow_query_log-状态 class=headerLink><a href=#a-%e6%9f%a5%e7%9c%8b%e5%bd%93%e5%89%8dslow_query_log-%e7%8a%b6%e6%80%81 class=header-mark></a>0.3.0.1 a. 查看当前‘slow_query_log’ 状态：</h5><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>mysql&gt; show variables like &#39;%query%&#39;;
+</span></span><span class=line><span class=cl>+------------------------------+---------------------------------+
+</span></span><span class=line><span class=cl>| Variable_name                | Value                           |
+</span></span><span class=line><span class=cl>+------------------------------+---------------------------------+
+</span></span><span class=line><span class=cl>| binlog_rows_query_log_events | OFF                             |
+</span></span><span class=line><span class=cl>| ft_query_expansion_limit     | 20                              |
+</span></span><span class=line><span class=cl>| have_query_cache             | YES                             |
+</span></span><span class=line><span class=cl>| long_query_time              | 10.000000                       |
+</span></span><span class=line><span class=cl>| query_alloc_block_size       | 8192                            |
+</span></span><span class=line><span class=cl>| query_cache_limit            | 1048576                         |
+</span></span><span class=line><span class=cl>| query_cache_min_res_unit     | 4096                            |
+</span></span><span class=line><span class=cl>| query_cache_size             | 1048576                         |
+</span></span><span class=line><span class=cl>| query_cache_type             | OFF                             |
+</span></span><span class=line><span class=cl>| query_cache_wlock_invalidate | OFF                             |
+</span></span><span class=line><span class=cl>| query_prealloc_size          | 8192                            |
+</span></span><span class=line><span class=cl>| slow_query_log               | OFF                             |
+</span></span><span class=line><span class=cl>| slow_query_log_file          | /var/lib/mysql/ultrera-slow.log |
+</span></span><span class=line><span class=cl>+------------------------------+---------------------------------+
+</span></span><span class=line><span class=cl>13 rows in set (0.00 sec)
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>mysql&gt; show variables like &#39;log_queries_not_using_indexes&#39;;
+</span></span><span class=line><span class=cl>+-------------------------------+-------+
+</span></span><span class=line><span class=cl>| Variable_name                 | Value |
+</span></span><span class=line><span class=cl>+-------------------------------+-------+
+</span></span><span class=line><span class=cl>| log_queries_not_using_indexes | OFF   |
+</span></span><span class=line><span class=cl>+-------------------------------+-------+
+</span></span><span class=line><span class=cl>1 row in set (0.00 sec)
+</span></span></code></pre></td></tr></table></div></div><h5 id=b-启动slow_log-配置 class=headerLink><a href=#b-%e5%90%af%e5%8a%a8slow_log-%e9%85%8d%e7%bd%ae class=header-mark></a>0.3.0.2 b. 启动slow_log, 配置</h5><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl># 设定记录大于2s的sql
+</span></span><span class=line><span class=cl>mysql&gt; set global long_query_time=2;
+</span></span><span class=line><span class=cl>Query OK, 0 rows affected (0.00 sec)
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 设定log存放路径
+</span></span><span class=line><span class=cl>mysql&gt; set global slow_query_log_file=&#39;/tmp/ultraera-slow.log&#39;;
+</span></span><span class=line><span class=cl>Query OK, 0 rows affected (0.00 sec)
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 启用慢日志
+</span></span><span class=line><span class=cl>mysql&gt; set global slow_query_log=ON;
+</span></span><span class=line><span class=cl>Query OK, 0 rows affected (0.00 sec)
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 同时记录没有使用索引的sql
+</span></span><span class=line><span class=cl>mysql&gt; set global log_queries_not_using_indexes=on;
+</span></span><span class=line><span class=cl>Query OK, 0 rows affected (0.00 sec)
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>等待一段时间，slow.log 增大的非常快，实际生产中，注意不要被slow.log将磁盘撑满，影响到正常生产使用。</p></blockquote><h3 id=4-分析 class=headerLink><a href=#4-%e5%88%86%e6%9e%90 class=header-mark></a>0.4 4. 分析</h3><p>pt-query-digest可以从普通MySQL日志，慢查询日志以及二进制日志中分析查询，甚至可以从SHOW PROCESSLIST和MySQL协议的tcpdump中进行分析，如果没有指定文件，它从标准输入流（STDIN）中读取数据。</p><h5 id=a-简单使用方法 class=headerLink><a href=#a-%e7%ae%80%e5%8d%95%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95 class=header-mark></a>0.4.0.3 a. 简单使用方法：</h5><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>pt-query-digest slow.logs
+</span></span></code></pre></td></tr></table></div></div><p>输出信息如下：</p><div align=left>![](http://images.cnitblog.com/blog/288950/201312/14135450-6f7a732598054f7aa311e95cbd4df3b1.png)</div><ul>1. Overall这个部分是一个大致的概要信息(类似loadrunner给出的概要信息)，通过它可以对当前MySQL的查询性能做一个初步的评估，比如各个指标的最大值(max)，平均值(min)，95%分布值，中位数(median)，标准偏差(stddev)<li>查询的执行时间（Exec time）</li><li>锁占用的时间（Lock time）</li><li>MySQL执行器需要检查的行数（Rows examine）</li><li>最后返回给客户端的行数（Rows sent）</li><li>查询的大小。</li></ul><ul>2. Profile<li>Rank ： 整个分析中该“语句”的排名，一般也就是性能最慢的</li><li>Query ID ：每个查询都有一个</li><li>Response time ： “语句”的响应时间以及整体占比情况。</li><li>Calls ：“语句”的执行次数</li><li>R/Call ：每次执行的平均响应时间。</li><li>V/M</li></ul>##### 详细信息<p>列出上面Profile中每个Query ID的详细信息</p><h5 id=b-从tcpdump包中分析通过tcpdump命令抓取一定时间网络数据包然后进行分析 class=headerLink><a href=#b-%e4%bb%8etcpdump%e5%8c%85%e4%b8%ad%e5%88%86%e6%9e%90%e9%80%9a%e8%bf%87tcpdump%e5%91%bd%e4%bb%a4%e6%8a%93%e5%8f%96%e4%b8%80%e5%ae%9a%e6%97%b6%e9%97%b4%e7%bd%91%e7%bb%9c%e6%95%b0%e6%8d%ae%e5%8c%85%e7%84%b6%e5%90%8e%e8%bf%9b%e8%a1%8c%e5%88%86%e6%9e%90 class=header-mark></a>0.4.0.4 b. 从tcpdump包中分析：通过tcpdump命令抓取一定时间网络数据包，然后进行分析：</h5><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>pt-query-digest --type tcpdump mysql.tcp.txt
+</span></span></code></pre></td></tr></table></div></div><h5 id=c-pt-query-digest-还支持很对其他的数据包分析形势但是我们主要使用的还是针对慢日志进行分析 class=headerLink><a href=#c-pt-query-digest-%e8%bf%98%e6%94%af%e6%8c%81%e5%be%88%e5%af%b9%e5%85%b6%e4%bb%96%e7%9a%84%e6%95%b0%e6%8d%ae%e5%8c%85%e5%88%86%e6%9e%90%e5%bd%a2%e5%8a%bf%e4%bd%86%e6%98%af%e6%88%91%e4%bb%ac%e4%b8%bb%e8%a6%81%e4%bd%bf%e7%94%a8%e7%9a%84%e8%bf%98%e6%98%af%e9%92%88%e5%af%b9%e6%85%a2%e6%97%a5%e5%bf%97%e8%bf%9b%e8%a1%8c%e5%88%86%e6%9e%90 class=header-mark></a>0.4.0.5 c. pt-query-digest 还支持很对其他的数据包分析形势，但是我们主要使用的还是针对慢日志进行分析</h5><blockquote><p>更多的帮助文档，请查看官方文档：http://www.percona.com/doc/percona-toolkit/2.2/pt-query-digest.html</p></blockquote><h3 id=5-使用anemometer将pt-query-digest的mysql慢查询可视化 class=headerLink><a href=#5-%e4%bd%bf%e7%94%a8anemometer%e5%b0%86pt-query-digest%e7%9a%84mysql%e6%85%a2%e6%9f%a5%e8%af%a2%e5%8f%af%e8%a7%86%e5%8c%96 class=header-mark></a>0.5 5. 使用Anemometer将pt-query-digest的MySQL慢查询可视化</h3><ul><li>需要安装php 5.3 and over</li><li>需要预先配置mysql数据库</li><li>需要预先安装好pt-query-digest</li></ul><h5 id=51-安装 class=headerLink><a href=#51-%e5%ae%89%e8%a3%85 class=header-mark></a>0.5.0.6 5.1 安装</h5><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>[root@ultrera ~]# git clone https://github.com/box/Anemometer.git anemometer
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[root@ultrera ~]# mv anemometer /var/www/html
+</span></span><span class=line><span class=cl>[root@ultrera ~]# cd /var/www/html/anemometer/
+</span></span><span class=line><span class=cl>[root@ultrera anemometer]# mysql -h localhost -u root -p &lt; mysql56-install.sql
+</span></span><span class=line><span class=cl>[root@ultrera anemometer]# mysql -h localhost -u root -p -e &#34;grant all privileges on slow_query_log.* to &#39;anemometer&#39;@&#39;%&#39; identified by &#39;anemometer&#39;;&#34;
+</span></span></code></pre></td></tr></table></div></div><h5 id=52-配置 class=headerLink><a href=#52-%e9%85%8d%e7%bd%ae class=header-mark></a>0.5.0.7 5.2 配置</h5><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>[root@ultrera anemometer]# cp conf/sample.config.inc.php conf/config.inc.php
+</span></span><span class=line><span class=cl>[root@ultrera anemometer]# vim conf/config.inc.php
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># line 48,49 and line 284,285
+</span></span><span class=line><span class=cl>设置数据库的用户名和密码;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[root@ultrera anemometer]# vim conf/config.inc.php
+</span></span><span class=line><span class=cl># line 7,8
+</span></span><span class=line><span class=cl>设置数据库的用户名和密码;
+</span></span></code></pre></td></tr></table></div></div><h5 id=53-导入 class=headerLink><a href=#53-%e5%af%bc%e5%85%a5 class=header-mark></a>0.5.0.8 5.3 导入</h5><p>将pt-query-digest 的分析结果到anemometer；</p><blockquote><p>pt-query-digest version &lt; 2.2</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>$ pt-query-digest --user=anemometer --password=superSecurePass \
+</span></span><span class=line><span class=cl>                  --review h=db.example.com,D=slow_query_log,t=global_query_review \
+</span></span><span class=line><span class=cl>                  --review-history h=db.example.com,D=slow_query_log,t=global_query_review_history \
+</span></span><span class=line><span class=cl>                  --no-report --limit=0% \
+</span></span><span class=line><span class=cl>                  --filter=&#34; \$event-&gt;{Bytes} = length(\$event-&gt;{arg}) and \$event-&gt;{hostname}=\&#34;$HOSTNAME\&#34;&#34; \
+</span></span><span class=line><span class=cl>                  /var/lib/mysql/db.example.com-slow.log
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>pt-query-digest version >= 2.2</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>pt-query-digest --user=anemometer --password=superSecurePass \
+</span></span><span class=line><span class=cl>                  --review h=db.example.com,D=slow_query_log,t=global_query_review \
+</span></span><span class=line><span class=cl>                  --history h=db.example.com,D=slow_query_log,t=global_query_review_history \
+</span></span><span class=line><span class=cl>                  --no-report --limit=0% \
+</span></span><span class=line><span class=cl>                  --filter=&#34; \$event-&gt;{Bytes} = length(\$event-&gt;{arg}) and \$event-&gt;{hostname}=\&#34;$HOSTNAME\&#34;&#34; \
+</span></span><span class=line><span class=cl>                  /var/lib/mysql/db.example.com-slow.log
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Pipeline process 11 (aggregate fingerprint) caused an error: Argument &#34;57A&#34; isn&#39;t numeric in numeric gt (&gt;) at (eval 40) line 6, &lt;&gt; line 27.
+</span></span><span class=line><span class=cl>Pipeline process 11 (aggregate fingerprint) caused an error: Argument &#34;57B&#34; isn&#39;t numeric in numeric gt (&gt;) at (eval 40) line 6, &lt;&gt; line 28.
+</span></span><span class=line><span class=cl>Pipeline process 11 (aggregate fingerprint) caused an error: Argument &#34;57C&#34; isn&#39;t numeric in numeric gt (&gt;) at (eval 40) line 6, &lt;&gt; line 29.
+</span></span></code></pre></td></tr></table></div></div></div><h2>相关内容</h2><div class=related-container><div class=related-item-container><h2 class=related-title><a href=/sql-%E5%AF%B9%E6%97%B6%E9%97%B4%E6%95%B4%E7%82%B9%E7%9A%84%E5%A4%84%E7%90%86/>SQL 对时间整点的处理</a></h2></div><div class=related-item-container><h2 class=related-title><a href=/mysql-%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%85%E5%8A%A9-mycli/>MySQL 命令行辅助 mycli</a></h2></div><div class=related-item-container><h2 class=related-title><a href=/mysql-8-%E7%B4%A2%E5%BC%95%E5%88%9B%E5%BB%BA%E5%88%A0%E9%99%A4%E5%92%8C%E6%9F%A5%E7%9C%8B/>MySQL 索引创建、删除和查看</a></h2></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2022-09-25&nbsp;<a class=git-hash href=https://github.com/samzong/hugo-blog//commit/9243fe224eeb848d7de2b457afbea88d8d7497fa target=_blank title="commit by samzong.lu(samzong.lu@gmail.com) 9243fe224eeb848d7de2b457afbea88d8d7497fa: init new blog" rel="noopener noreferrer">
+<i class="fas fa-hashtag fa-fw"></i>9243fe2</a></span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-mardown href=/howto-use-pt-query-digest/index.md target=_blank rel="noopener noreferrer">阅读原始文档</a></span></div><div class=post-info-share><span><a href=# onclick=return!1 title="分享到 Twitter" data-sharer=twitter data-url=https://samzong.me/howto-use-pt-query-digest/ data-title="HowTo Use pt-query-digest" data-via=samzong_lu data-hashtags=MySQL><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Facebook" data-sharer=facebook data-url=https://samzong.me/howto-use-pt-query-digest/ data-hashtag=MySQL><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="分享到 微博" data-sharer=weibo data-url=https://samzong.me/howto-use-pt-query-digest/ data-title="HowTo Use pt-query-digest" data-ralateuid=3181653281><i class="fab fa-weibo fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/mysql/>MySQL</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/%E7%94%9F%E8%80%85%E5%AD%A4%E7%8B%AC/ class=prev rel=prev title=生者孤独><i class="fas fa-angle-left fa-fw"></i>生者孤独</a>
+<a href=/%E5%86%99%E7%9A%84%E5%BE%AE%E5%8D%9A/ class=next rel=next title=微博随笔>微博随笔<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main></div><div id=fixed-buttons><a href=#back-to-top id=back-to-top-button class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><div id=cookieconsent-container></div><div class=assets><link rel=stylesheet href=/lib/cookieconsent/cookieconsent.min.css><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/fuse/fuse.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/tablesort/tablesort.min.js></script><script type=text/javascript src=/lib/cookieconsent/cookieconsent.min.js defer></script><script type=text/javascript src=/lib/topbar/topbar.min.js></script><script type=text/javascript src=/lib/pjax/pjax.min.js></script><script type=text/javascript src=/js/theme.min.js defer></script></div><div class=pjax-assets><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{},cookieconsent:{content:{dismiss:" dismiss",link:"https://samzong.me",message:"这是一个提示语"},enable:!0,palette:{button:{background:"#f0f0f0"},popup:{background:"#1aa3ff"}},theme:"edgeless"},lightGallery:{actualSize:!1,exThumbImage:"data-thumbnail",hideBarsDelay:2e3,selector:".lightgallery",speed:400,thumbContHeight:80,thumbWidth:80,thumbnail:!0},math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},search:{distance:100,findAllMatches:!1,fuseIndexURL:"/index.json",highlightTag:"em",ignoreFieldNorm:!1,ignoreLocation:!1,isCaseSensitive:!1,location:0,maxResultLength:10,minMatchCharLength:2,noResultsFound:"没有找到结果",snippetLength:50,threshold:.3,type:"fuse",useExtendedSearch:!1},sharerjs:!0,table:{sort:!0},twemoji:!0}</script><script type=text/javascript src=/lib/twemoji/twemoji.min.js defer></script><script type=text/javascript src=/js/twemoji.min.js defer></script><script type=text/javascript src=/lib/lightgallery/lightgallery.min.js></script><script type=text/javascript src=/lib/lightgallery/lg-thumbnail.min.js></script><script type=text/javascript src=/lib/lightgallery/lg-zoom.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/lib/katex/katex.min.js defer></script><script type=text/javascript src=/lib/katex/auto-render.min.js defer></script><script type=text/javascript src=/lib/katex/copy-tex.min.js defer></script><script type=text/javascript src=/lib/katex/mhchem.min.js defer></script><script type=text/javascript src=/js/katex.min.js defer></script><script type=text/javascript src=/js/cookieconsent.min.js defer></script><link rel=stylesheet href=/lib/lightgallery/lightgallery.min.css><link rel=stylesheet href=/lib/katex/katex.min.css><link rel=preload as=style onload='this.onload=null,this.rel="stylesheet"' href=/lib/katex/copy-tex.min.css><noscript><link rel=stylesheet href=/lib/katex/copy-tex.min.css></noscript></div></body></html>

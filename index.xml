@@ -1,13 +1,13 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>SAMZONG</title><link>https://samzong.me/</link><description>SAMZONG</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 28 May 2022 22:27:18 +0000</lastBuildDate><atom:link href="https://samzong.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Hexo 增加admonition样式支持</title><link>https://samzong.me/posts/hexo-admonition/</link><pubDate>Sat, 28 May 2022 22:27:18 +0000</pubDate><author><name>Samzong Lu</name></author><guid>https://samzong.me/posts/hexo-admonition/</guid><description><![CDATA[<h2 id="背景" class="headerLink">
-    <a href="#%e8%83%8c%e6%99%af" class="header-mark"></a>背景</h2><p>除了在 Hexo 维护个人博客之外，目前经常用到的 2 个文档工具： 语雀和 Mkdocs 都是支持 admonition样式，所以也在考虑如何给 Hexo 博客文章也增加这样的能力。</p>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>SAMZONG</title><link>https://samzong.me/</link><description>SAMZONG</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 28 May 2022 22:27:18 +0000</lastBuildDate><atom:link href="https://samzong.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Hexo 增加admonition样式支持</title><link>https://samzong.me/hexo-admonition/</link><pubDate>Sat, 28 May 2022 22:27:18 +0000</pubDate><author><name>Samzong</name></author><guid>https://samzong.me/hexo-admonition/</guid><description><![CDATA[<h2 id="背景" class="headerLink">
+    <a href="#%e8%83%8c%e6%99%af" class="header-mark"></a>1. 背景</h2><p>除了在 Hexo 维护个人博客之外，目前经常用到的 2 个文档工具： 语雀和 Mkdocs 都是支持 admonition样式，所以也在考虑如何给 Hexo 博客文章也增加这样的能力。</p>
 <p>保证写作习惯的一致性，好在有人开发出对应的插件，感谢.</p>
 <ul>
 <li><a href="https://github.com/lxl80/hexo-admonition" target="_blank" rel="noopener noreferrer">https://github.com/lxl80/hexo-admonition</a></li>
 </ul>
 <h2 id="安装方式" class="headerLink">
-    <a href="#%e5%ae%89%e8%a3%85%e6%96%b9%e5%bc%8f" class="header-mark"></a>安装方式</h2><p>简单通过 2 个步骤即可，</p>
+    <a href="#%e5%ae%89%e8%a3%85%e6%96%b9%e5%bc%8f" class="header-mark"></a>2. 安装方式</h2><p>简单通过 2 个步骤即可，</p>
 <h3 id="安装插件" class="headerLink">
-    <a href="#%e5%ae%89%e8%a3%85%e6%8f%92%e4%bb%b6" class="header-mark"></a>安装插件</h3><p>采用 npm 安装，如下：</p>
+    <a href="#%e5%ae%89%e8%a3%85%e6%8f%92%e4%bb%b6" class="header-mark"></a>2.1 安装插件</h3><p>采用 npm 安装，如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -17,7 +17,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="样式配置" class="headerLink">
-    <a href="#%e6%a0%b7%e5%bc%8f%e9%85%8d%e7%bd%ae" class="header-mark"></a>样式配置</h3><p>你的 hexo 可能会使用不同主题，所以需要自己增加样式，将如下样式放入 hexo 主题的自定义样式文件中（如：<code>ext.css</code>），并按自己喜好修改：</p>
+    <a href="#%e6%a0%b7%e5%bc%8f%e9%85%8d%e7%bd%ae" class="header-mark"></a>2.2 样式配置</h3><p>你的 hexo 可能会使用不同主题，所以需要自己增加样式，将如下样式放入 hexo 主题的自定义样式文件中（如：<code>ext.css</code>），并按自己喜好修改：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -155,7 +155,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="使用说明" class="headerLink">
-    <a href="#%e4%bd%bf%e7%94%a8%e8%af%b4%e6%98%8e" class="header-mark"></a>使用说明</h2><p>Hexo-admonition 遵循一种简单的语法：每个块都以 <code>!!!</code> 开头，然后是代表提示类型的关键字（<code>type</code>）及标题（<code>title</code>）。例如:</p>
+    <a href="#%e4%bd%bf%e7%94%a8%e8%af%b4%e6%98%8e" class="header-mark"></a>3. 使用说明</h2><p>Hexo-admonition 遵循一种简单的语法：每个块都以 <code>!!!</code> 开头，然后是代表提示类型的关键字（<code>type</code>）及标题（<code>title</code>）。例如:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -190,7 +190,7 @@
 这是基于 hexo-admonition 插件渲染的一条提示信息。类型为 note，并设置了自定义标题。
 提示内容开头留 4 个空格，可以有多行，最后用空行结束此标记。</p>
 <h3 id="支持的类型" class="headerLink">
-    <a href="#%e6%94%af%e6%8c%81%e7%9a%84%e7%b1%bb%e5%9e%8b" class="header-mark"></a>支持的类型</h3><p>提示类型 <code>type</code> 将用作 CSS 类名称，暂支持如下类型：</p>
+    <a href="#%e6%94%af%e6%8c%81%e7%9a%84%e7%b1%bb%e5%9e%8b" class="header-mark"></a>3.1 支持的类型</h3><p>提示类型 <code>type</code> 将用作 CSS 类名称，暂支持如下类型：</p>
 <ul>
 <li><code>note</code></li>
 <li><code>info, todo</code></li>
@@ -198,7 +198,7 @@
 <li><code>error, failure, missing, fail</code></li>
 </ul>
 <h3 id="设置隐藏标题" class="headerLink">
-    <a href="#%e8%ae%be%e7%bd%ae%e9%9a%90%e8%97%8f%e6%a0%87%e9%a2%98" class="header-mark"></a>设置/隐藏标题</h3><p>标题 <code>title</code> 是可选的，当未设置时，将以 <code>type</code> 作为默认值:</p>
+    <a href="#%e8%ae%be%e7%bd%ae%e9%9a%90%e8%97%8f%e6%a0%87%e9%a2%98" class="header-mark"></a>3.2 设置/隐藏标题</h3><p>标题 <code>title</code> 是可选的，当未设置时，将以 <code>type</code> 作为默认值:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -227,7 +227,7 @@
 <p>!!! Warning &quot;&quot;
 这是一条不带标题的警告信息。</p>
 <h2 id="卡片演示" class="headerLink">
-    <a href="#%e5%8d%a1%e7%89%87%e6%bc%94%e7%a4%ba" class="header-mark"></a>卡片演示</h2><blockquote>
+    <a href="#%e5%8d%a1%e7%89%87%e6%bc%94%e7%a4%ba" class="header-mark"></a>4. 卡片演示</h2><blockquote>
 <p>主要四种类型：info, warning, error, note</p>
 </blockquote>
 <p>!!! note Hexo-admonition 插件使用示例
@@ -254,8 +254,8 @@
 这是基于 hexo-admonition 插件渲染的一条提示信息。类型为 attention，并设置了自定义标题。</p>
 <pre><code>提示内容开头留 4 个空格，可以有多行，最后用空行结束此标记。
 </code></pre>
-]]></description></item><item><title>国内环境搭建 MacOS K8s 开发环境</title><link>https://samzong.me/posts/%E5%9B%BD%E5%86%85%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-macos-k8s-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</link><pubDate>Tue, 17 May 2022 10:09:02 +0000</pubDate><author><name>Samzong Lu</name></author><guid>https://samzong.me/posts/%E5%9B%BD%E5%86%85%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-macos-k8s-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid><description><![CDATA[<h2 id="minikube" class="headerLink">
-    <a href="#minikube" class="header-mark"></a>Minikube</h2><p>在 Mac 上搭建开发环境，这里主要使用了 Kubernetes 官方推荐的 minikube 和 docker-for-desktop 环境</p>
+]]></description></item><item><title>国内环境搭建 MacOS K8s 开发环境</title><link>https://samzong.me/%E5%9B%BD%E5%86%85%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-macos-k8s-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</link><pubDate>Tue, 17 May 2022 10:09:02 +0000</pubDate><author><name>Samzong</name></author><guid>https://samzong.me/%E5%9B%BD%E5%86%85%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-macos-k8s-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid><description><![CDATA[<h2 id="minikube" class="headerLink">
+    <a href="#minikube" class="header-mark"></a>1. Minikube</h2><p>在 Mac 上搭建开发环境，这里主要使用了 Kubernetes 官方推荐的 minikube 和 docker-for-desktop 环境</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -266,18 +266,18 @@
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --registry-mirror<span class="o">=</span>https://vbj8usl3.mirror.aliyuncs.com
 </span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>MacOS隐藏Dock栏中特定应用</title><link>https://samzong.me/posts/macos%E9%9A%90%E8%97%8Fdock%E6%A0%8F%E4%B8%AD%E7%89%B9%E5%AE%9A%E5%BA%94%E7%94%A8/</link><pubDate>Sat, 07 May 2022 14:57:54 +0000</pubDate><author><name>Samzong Lu</name></author><guid>https://samzong.me/posts/macos%E9%9A%90%E8%97%8Fdock%E6%A0%8F%E4%B8%AD%E7%89%B9%E5%AE%9A%E5%BA%94%E7%94%A8/</guid><description><![CDATA[<h2 id="背景说明" class="headerLink">
-    <a href="#%e8%83%8c%e6%99%af%e8%af%b4%e6%98%8e" class="header-mark"></a>背景说明</h2><p>MacOS Dock 栏的空间是有限的，而且绝大部分应用都会占用一个 Dock 的槽位；但并不是所有软件都提供了 <code>Hidden  in Dock</code> 的能力，所以从来不点击，但一直存在，挺痛苦的。</p>
+</div>]]></description></item><item><title>MacOS隐藏Dock栏中特定应用</title><link>https://samzong.me/macos%E9%9A%90%E8%97%8Fdock%E6%A0%8F%E4%B8%AD%E7%89%B9%E5%AE%9A%E5%BA%94%E7%94%A8/</link><pubDate>Sat, 07 May 2022 14:57:54 +0000</pubDate><author><name>Samzong</name></author><guid>https://samzong.me/macos%E9%9A%90%E8%97%8Fdock%E6%A0%8F%E4%B8%AD%E7%89%B9%E5%AE%9A%E5%BA%94%E7%94%A8/</guid><description><![CDATA[<h2 id="背景说明" class="headerLink">
+    <a href="#%e8%83%8c%e6%99%af%e8%af%b4%e6%98%8e" class="header-mark"></a>1. 背景说明</h2><p>MacOS Dock 栏的空间是有限的，而且绝大部分应用都会占用一个 Dock 的槽位；但并不是所有软件都提供了 <code>Hidden  in Dock</code> 的能力，所以从来不点击，但一直存在，挺痛苦的。</p>
 <p style="color:red;font-size=16px">为不具备隐藏 Dock Icon 的应用附加隐藏能力</p>
 <blockquote>
 <p>符合这类特征的软件： a. 常驻应用，开机自启动，基本不会打开； b. 像我这样的 Alfred 爱好者</p>
 </blockquote>
 <p>之前了解到一些软件对系统的影响都比较大，基本上都是要接管 整个<code>Dock</code>，要关闭 <code>SIP</code>，使用成本太好，基本不值得采用。</p>
 <h2 id="全球同性交友网站" class="headerLink">
-    <a href="#%e5%85%a8%e7%90%83%e5%90%8c%e6%80%a7%e4%ba%a4%e5%8f%8b%e7%bd%91%e7%ab%99" class="header-mark"></a>全球同性交友网站</h2><p>下午在闲逛的时候，发现了这个仓库： <a href="https://github.com/FirePanther/MacOS-Hide-Dock-Icon" target="_blank" rel="noopener noreferrer">https://github.com/FirePanther/MacOS-Hide-Dock-Icon</a> ，一个非常简单的 PHP 脚本，貌似可以提供这个能力，于是我就简单的 Download ，按照 README.md 的方法执行了一下。</p>
+    <a href="#%e5%85%a8%e7%90%83%e5%90%8c%e6%80%a7%e4%ba%a4%e5%8f%8b%e7%bd%91%e7%ab%99" class="header-mark"></a>2. 全球同性交友网站</h2><p>下午在闲逛的时候，发现了这个仓库： <a href="https://github.com/FirePanther/MacOS-Hide-Dock-Icon" target="_blank" rel="noopener noreferrer">https://github.com/FirePanther/MacOS-Hide-Dock-Icon</a> ，一个非常简单的 PHP 脚本，貌似可以提供这个能力，于是我就简单的 Download ，按照 README.md 的方法执行了一下。</p>
 <p>很神奇的！ 满足了我的需求！ 所以，我在这里记录和分享给大家，如果你也需要的话。</p>
 <h2 id="操作步骤" class="headerLink">
-    <a href="#%e6%93%8d%e4%bd%9c%e6%ad%a5%e9%aa%a4" class="header-mark"></a>操作步骤</h2><blockquote>
+    <a href="#%e6%93%8d%e4%bd%9c%e6%ad%a5%e9%aa%a4" class="header-mark"></a>3. 操作步骤</h2><blockquote>
 <p>当然，你也可以直接 从这切换到 官方仓库的 <code>README.md</code> 去操作</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
@@ -338,12 +338,12 @@
 <p>以上，你就成功的隐藏这个需要的软件，经过在测试，脚本的健壮性很好:</p>
 <p>支持的 PC : <strong>2022 年 M1 Max MacOS12.3.1</strong></p>
 <h2 id="注意事项" class="headerLink">
-    <a href="#%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9" class="header-mark"></a>注意事项</h2><h3 id="确认对的-app-name" class="headerLink">
-    <a href="#%e7%a1%ae%e8%ae%a4%e5%af%b9%e7%9a%84-app-name" class="header-mark"></a>确认对的 App Name</h3><p><a class="lightgallery" href="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/image-20220507153226027.png?x-oss-process=image/resize,w_960,m_lfit" title="image-20220507153226027" data-thumbnail="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/image-20220507153226027.png?x-oss-process=image/resize,w_960,m_lfit">
+    <a href="#%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9" class="header-mark"></a>4. 注意事项</h2><h3 id="确认对的-app-name" class="headerLink">
+    <a href="#%e7%a1%ae%e8%ae%a4%e5%af%b9%e7%9a%84-app-name" class="header-mark"></a>4.1 确认对的 App Name</h3><p><a class="lightgallery" href="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/image-20220507153226027.png?x-oss-process=image/resize,w_960,m_lfit" title="image-20220507153226027" data-thumbnail="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/image-20220507153226027.png?x-oss-process=image/resize,w_960,m_lfit">
         
     </a></p>
 <h3 id="恢复被隐藏的应用" class="headerLink">
-    <a href="#%e6%81%a2%e5%a4%8d%e8%a2%ab%e9%9a%90%e8%97%8f%e7%9a%84%e5%ba%94%e7%94%a8" class="header-mark"></a>恢复被隐藏的应用</h3><p><strong>首先 &gt;</strong> 还是要退出App，这时Dock栏也不显示了，菜单栏也没有，所以不好使用 <code>邮件退出的方式</code>，那么接下来我们要找到下方这个软件：</p>
+    <a href="#%e6%81%a2%e5%a4%8d%e8%a2%ab%e9%9a%90%e8%97%8f%e7%9a%84%e5%ba%94%e7%94%a8" class="header-mark"></a>4.2 恢复被隐藏的应用</h3><p><strong>首先 &gt;</strong> 还是要退出App，这时Dock栏也不显示了，菜单栏也没有，所以不好使用 <code>邮件退出的方式</code>，那么接下来我们要找到下方这个软件：</p>
 <p><a class="lightgallery" href="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/image-20220507153525040.png?x-oss-process=image/resize,w_960,m_lfit" title="image-20220507153525040" data-thumbnail="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/image-20220507153525040.png?x-oss-process=image/resize,w_960,m_lfit">
         
     </a></p>
@@ -385,15 +385,15 @@
 </div>
 </div><p>然后再次启动 App，那么就会出现在 Dock 栏并且不再隐藏</p>
 <h2 id="结语" class="headerLink">
-    <a href="#%e7%bb%93%e8%af%ad" class="header-mark"></a>结语</h2><p>没事儿还是要逛逛 Github</p>
-]]></description></item><item><title>满足预期的文档站 Mkdocs</title><link>https://samzong.me/posts/%E6%BB%A1%E8%B6%B3%E9%A2%84%E6%9C%9F%E7%9A%84%E6%96%87%E6%A1%A3%E7%AB%99-mkdocs/</link><pubDate>Fri, 06 May 2022 17:25:04 +0000</pubDate><author><name>Samzong Lu</name></author><guid>https://samzong.me/posts/%E6%BB%A1%E8%B6%B3%E9%A2%84%E6%9C%9F%E7%9A%84%E6%96%87%E6%A1%A3%E7%AB%99-mkdocs/</guid><description><![CDATA[<h2 id="组合三件套" class="headerLink">
-    <a href="#%e7%bb%84%e5%90%88%e4%b8%89%e4%bb%b6%e5%a5%97" class="header-mark"></a>组合三件套</h2><ul>
+    <a href="#%e7%bb%93%e8%af%ad" class="header-mark"></a>5. 结语</h2><p>没事儿还是要逛逛 Github</p>
+]]></description></item><item><title>满足预期的文档站 Mkdocs</title><link>https://samzong.me/%E6%BB%A1%E8%B6%B3%E9%A2%84%E6%9C%9F%E7%9A%84%E6%96%87%E6%A1%A3%E7%AB%99-mkdocs/</link><pubDate>Fri, 06 May 2022 17:25:04 +0000</pubDate><author><name>Samzong</name></author><guid>https://samzong.me/%E6%BB%A1%E8%B6%B3%E9%A2%84%E6%9C%9F%E7%9A%84%E6%96%87%E6%A1%A3%E7%AB%99-mkdocs/</guid><description><![CDATA[<h2 id="组合三件套" class="headerLink">
+    <a href="#%e7%bb%84%e5%90%88%e4%b8%89%e4%bb%b6%e5%a5%97" class="header-mark"></a>1. 组合三件套</h2><ul>
 <li>Mkdocs	# 热门的静态博客框架</li>
 <li>Mkdocs-material	# Mkdocs 颜值担当的主题</li>
 <li>MkDocs Awesome Pages Plugin   # Mkdocs 动态的 Navgation 插件</li>
 </ul>
 <h3 id="依赖的插件" class="headerLink">
-    <a href="#%e4%be%9d%e8%b5%96%e7%9a%84%e6%8f%92%e4%bb%b6" class="header-mark"></a>依赖的插件</h3><div class="highlight"><div class="chroma">
+    <a href="#%e4%be%9d%e8%b5%96%e7%9a%84%e6%8f%92%e4%bb%b6" class="header-mark"></a>1.1 依赖的插件</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -418,9 +418,9 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="github-repo" class="headerLink">
-    <a href="#github-repo" class="header-mark"></a>Github repo</h3><p>Private Teamplate <a href="https://github.com/SAMZONG/mkdocs-template" target="_blank" rel="noopener noreferrer">https://github.com/SAMZONG/mkdocs-template</a></p>
+    <a href="#github-repo" class="header-mark"></a>1.2 Github repo</h3><p>Private Teamplate <a href="https://github.com/SAMZONG/mkdocs-template" target="_blank" rel="noopener noreferrer">https://github.com/SAMZONG/mkdocs-template</a></p>
 <h3 id="awesome-plugin-常用参数" class="headerLink">
-    <a href="#awesome-plugin-%e5%b8%b8%e7%94%a8%e5%8f%82%e6%95%b0" class="header-mark"></a>Awesome Plugin 常用参数</h3><blockquote>
+    <a href="#awesome-plugin-%e5%b8%b8%e7%94%a8%e5%8f%82%e6%95%b0" class="header-mark"></a>1.3 Awesome Plugin 常用参数</h3><blockquote>
 <p>在文档内的路径展示</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
@@ -484,7 +484,7 @@
 <p><code>nav</code> 的配置方式，还有更多高级用法，可以参考插件做的的 Github 介绍 <a href="https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin#customize-navigation" target="_blank" rel="noopener noreferrer">传送门</a></p>
 </blockquote>
 <h2 id="mkdocsyaml-的配置变更" class="headerLink">
-    <a href="#mkdocsyaml-%e7%9a%84%e9%85%8d%e7%bd%ae%e5%8f%98%e6%9b%b4" class="header-mark"></a>mkdocs.yaml 的配置变更</h2><ol>
+    <a href="#mkdocsyaml-%e7%9a%84%e9%85%8d%e7%bd%ae%e5%8f%98%e6%9b%b4" class="header-mark"></a>2. mkdocs.yaml 的配置变更</h2><ol>
 <li>不要设定 <code>nav</code> OR <code>page</code></li>
 <li>在 <code>plugin</code> 增加下方配置</li>
 </ol>
@@ -504,20 +504,20 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="nt">strict</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>Alfred Workflow 推荐</title><link>https://samzong.me/posts/alfred-workflow-%E6%8E%A8%E8%8D%90/</link><pubDate>Tue, 03 May 2022 20:14:49 +0000</pubDate><author><name>Samzong Lu</name></author><guid>https://samzong.me/posts/alfred-workflow-%E6%8E%A8%E8%8D%90/</guid><description><![CDATA[<h2 id="alfred-介绍" class="headerLink">
-    <a href="#alfred-%e4%bb%8b%e7%bb%8d" class="header-mark"></a>Alfred 介绍</h2><p>Alfred 是 Mac 上一款著名的效率应用，强大的功能和众多的扩展能让你在实际操作中大幅提升工作效率，网络上也有大量关于的 Alfred 的评测和技巧的文章。</p>
+</div>]]></description></item><item><title>Alfred Workflow 推荐</title><link>https://samzong.me/alfred-workflow-%E6%8E%A8%E8%8D%90/</link><pubDate>Tue, 03 May 2022 20:14:49 +0000</pubDate><author><name>Samzong</name></author><guid>https://samzong.me/alfred-workflow-%E6%8E%A8%E8%8D%90/</guid><description><![CDATA[<h2 id="alfred-介绍" class="headerLink">
+    <a href="#alfred-%e4%bb%8b%e7%bb%8d" class="header-mark"></a>1. Alfred 介绍</h2><p>Alfred 是 Mac 上一款著名的效率应用，强大的功能和众多的扩展能让你在实际操作中大幅提升工作效率，网络上也有大量关于的 Alfred 的评测和技巧的文章。</p>
 <p><a class="lightgallery" href="https://cdn.sspai.com/attachment/origin/2016/02/19/311872.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" title="https://cdn.sspai.com/attachment/origin/2016/02/19/311872.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" data-thumbnail="https://cdn.sspai.com/attachment/origin/2016/02/19/311872.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
         
     </a></p>
 <h2 id="workflow-介绍" class="headerLink">
-    <a href="#workflow-%e4%bb%8b%e7%bb%8d" class="header-mark"></a>Workflow 介绍</h2><p>Workflow 工作流；将一件事情的多个步骤，通过一个的规则相连，并依次执行，最终完成，这个方式就是工作流； Alfred Workflow 就是一个将我们日常工作流 实现的一个工具，可以让我们在 Alfred 中更加方便的完成我们的工作；现实生活中的工作流可能更为复杂，但本质还是如此。正是基于这种现实背景，alfred 从 2.0 版本起加入了 workflow，简单的示例说明。</p>
+    <a href="#workflow-%e4%bb%8b%e7%bb%8d" class="header-mark"></a>2. Workflow 介绍</h2><p>Workflow 工作流；将一件事情的多个步骤，通过一个的规则相连，并依次执行，最终完成，这个方式就是工作流； Alfred Workflow 就是一个将我们日常工作流 实现的一个工具，可以让我们在 Alfred 中更加方便的完成我们的工作；现实生活中的工作流可能更为复杂，但本质还是如此。正是基于这种现实背景，alfred 从 2.0 版本起加入了 workflow，简单的示例说明。</p>
 <p><a class="lightgallery" href="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/mUZ6OI.png?x-oss-process=image/resize,w_960,m_lfit" title="mUZ6OI" data-thumbnail="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/mUZ6OI.png?x-oss-process=image/resize,w_960,m_lfit">
         
     </a></p>
 <h2 id="我的推荐" class="headerLink">
-    <a href="#%e6%88%91%e7%9a%84%e6%8e%a8%e8%8d%90" class="header-mark"></a>我的推荐</h2><p>整理常用的一些 Workflow 分享, 提高工作和生活的效率小技巧。</p>
+    <a href="#%e6%88%91%e7%9a%84%e6%8e%a8%e8%8d%90" class="header-mark"></a>3. 我的推荐</h2><p>整理常用的一些 Workflow 分享, 提高工作和生活的效率小技巧。</p>
 <h3 id="5-星推荐" class="headerLink">
-    <a href="#5-%e6%98%9f%e6%8e%a8%e8%8d%90" class="header-mark"></a>5 星推荐</h3><ul>
+    <a href="#5-%e6%98%9f%e6%8e%a8%e8%8d%90" class="header-mark"></a>3.1 5 星推荐</h3><ul>
 <li><a href="https://www.packal.org/workflow/timezones-2" target="_blank" rel="noopener noreferrer">https://www.packal.org/workflow/timezones-2</a></li>
 <li><a href="https://www.packal.org/workflow/homebrew-and-cask-alfred" target="_blank" rel="noopener noreferrer">https://www.packal.org/workflow/homebrew-and-cask-alfred</a></li>
 <li><a href="https://www.packal.org/workflow/mac-app-store-search" target="_blank" rel="noopener noreferrer">https://www.packal.org/workflow/mac-app-store-search</a></li>
@@ -531,26 +531,26 @@
 </ul>
 <hr>
 <h3 id="4-星推荐" class="headerLink">
-    <a href="#4-%e6%98%9f%e6%8e%a8%e8%8d%90" class="header-mark"></a>4 星推荐</h3><ul>
+    <a href="#4-%e6%98%9f%e6%8e%a8%e8%8d%90" class="header-mark"></a>3.2 4 星推荐</h3><ul>
 <li><a href="https://www.packal.org/workflow/alfred-markdown-table" target="_blank" rel="noopener noreferrer">https://www.packal.org/workflow/alfred-markdown-table</a></li>
 <li><a href="https://www.packal.org/workflow/pretty-json" target="_blank" rel="noopener noreferrer">https://www.packal.org/workflow/pretty-json</a></li>
 <li><a href="https://www.packal.org/workflow/who" target="_blank" rel="noopener noreferrer">https://www.packal.org/workflow/who</a></li>
 </ul>
 <h2 id="如何获取-workflow-" class="headerLink">
-    <a href="#%e5%a6%82%e4%bd%95%e8%8e%b7%e5%8f%96-workflow-" class="header-mark"></a>如何获取 Workflow ?</h2><p>可以到这个网站 <a href="https://www.packal.org/" target="_blank" rel="noopener noreferrer">https://www.packal.org/</a>  有非常丰富的 Workflow 或者 主题可以选择，丰富你的 Alfred 使用</p>
+    <a href="#%e5%a6%82%e4%bd%95%e8%8e%b7%e5%8f%96-workflow-" class="header-mark"></a>4. 如何获取 Workflow ?</h2><p>可以到这个网站 <a href="https://www.packal.org/" target="_blank" rel="noopener noreferrer">https://www.packal.org/</a>  有非常丰富的 Workflow 或者 主题可以选择，丰富你的 Alfred 使用</p>
 <p>如果你有能力制作一些优秀的 Workflow ，也可以在这里分享</p>
 <h2 id="更多关于-alfred-的使用教程" class="headerLink">
-    <a href="#%e6%9b%b4%e5%a4%9a%e5%85%b3%e4%ba%8e-alfred-%e7%9a%84%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8b" class="header-mark"></a>更多关于 Alfred 的使用教程</h2><p>网络上已经有大量的 视频和文本的使用教程了，所以我这里直接引用我学习时使用的教程</p>
+    <a href="#%e6%9b%b4%e5%a4%9a%e5%85%b3%e4%ba%8e-alfred-%e7%9a%84%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8b" class="header-mark"></a>5. 更多关于 Alfred 的使用教程</h2><p>网络上已经有大量的 视频和文本的使用教程了，所以我这里直接引用我学习时使用的教程</p>
 <h2 id="视频教程" class="headerLink">
-    <a href="#%e8%a7%86%e9%a2%91%e6%95%99%e7%a8%8b" class="header-mark"></a>视频教程</h2><iframe width="640" height="360" src="//player.bilibili.com/player.html?aid=894481262&bvid=BV1GP4y1g7HJ&cid=700510300&page=1" scrolling="no" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+    <a href="#%e8%a7%86%e9%a2%91%e6%95%99%e7%a8%8b" class="header-mark"></a>6. 视频教程</h2><iframe width="640" height="360" src="//player.bilibili.com/player.html?aid=894481262&bvid=BV1GP4y1g7HJ&cid=700510300&page=1" scrolling="no" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 <h2 id="文本教程" class="headerLink">
-    <a href="#%e6%96%87%e6%9c%ac%e6%95%99%e7%a8%8b" class="header-mark"></a>文本教程</h2><p><a href="https://ihtcboy.com/2020/02/09/2020-02-09_%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84macOS%E7%B3%BB%E5%88%97%EF%BC%9A%E9%AB%98%E6%95%88Alfred%E8%BF%9B%E9%98%B6/" target="_blank" rel="noopener noreferrer">程序员的macOS系列：高效Alfred进阶</a></p>
+    <a href="#%e6%96%87%e6%9c%ac%e6%95%99%e7%a8%8b" class="header-mark"></a>7. 文本教程</h2><p><a href="https://ihtcboy.com/2020/02/09/2020-02-09_%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84macOS%E7%B3%BB%E5%88%97%EF%BC%9A%E9%AB%98%E6%95%88Alfred%E8%BF%9B%E9%98%B6/" target="_blank" rel="noopener noreferrer">程序员的macOS系列：高效Alfred进阶</a></p>
 <p>同时，也推荐下这位优秀博主，如果关注 iOS 开发，可以关注他更新的内容</p>
-]]></description></item><item><title>youtube-dl 下载 YouTube 视频</title><link>https://samzong.me/posts/youtube-dl-%E4%B8%8B%E8%BD%BD-youtube-%E8%A7%86%E9%A2%91/</link><pubDate>Tue, 03 May 2022 13:57:28 +0000</pubDate><author><name>Samzong Lu</name></author><guid>https://samzong.me/posts/youtube-dl-%E4%B8%8B%E8%BD%BD-youtube-%E8%A7%86%E9%A2%91/</guid><description><![CDATA[<blockquote>
+]]></description></item><item><title>youtube-dl 下载 YouTube 视频</title><link>https://samzong.me/youtube-dl-%E4%B8%8B%E8%BD%BD-youtube-%E8%A7%86%E9%A2%91/</link><pubDate>Tue, 03 May 2022 13:57:28 +0000</pubDate><author><name>Samzong</name></author><guid>https://samzong.me/youtube-dl-%E4%B8%8B%E8%BD%BD-youtube-%E8%A7%86%E9%A2%91/</guid><description><![CDATA[<blockquote>
 <p>截止 2022.5 <code>youtube-dl</code> 已经较长时间未更新了，建议采用 <a href="https://github.com/yt-dlp/yt-dlp" target="_blank" rel="noopener noreferrer"><code>yt-dlp</code></a>, 将命令进行替换即可</p>
 </blockquote>
 <h2 id="安装新版本的-yt-dlp" class="headerLink">
-    <a href="#%e5%ae%89%e8%a3%85%e6%96%b0%e7%89%88%e6%9c%ac%e7%9a%84-yt-dlp" class="header-mark"></a>安装新版本的 <code>yt-dlp</code></h2><div class="highlight"><div class="chroma">
+    <a href="#%e5%ae%89%e8%a3%85%e6%96%b0%e7%89%88%e6%9c%ac%e7%9a%84-yt-dlp" class="header-mark"></a>1. 安装新版本的 <code>yt-dlp</code></h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
@@ -573,13 +573,13 @@
 </div>
 <hr>
 <h2 id="youtube-dl-下载-youtube-视频" class="headerLink">
-    <a href="#youtube-dl-%e4%b8%8b%e8%bd%bd-youtube-%e8%a7%86%e9%a2%91" class="header-mark"></a>youtube-dl 下载 YouTube 视频</h2><p>视频下载命令行工具里，网友推荐通常都是『国外视频用 youtube-dl』，有这两个工具国内外主流视频网站的视频基本就横扫了，适合想收藏或者喜欢下载后用本地播放器的 Geek 群体。</p>
+    <a href="#youtube-dl-%e4%b8%8b%e8%bd%bd-youtube-%e8%a7%86%e9%a2%91" class="header-mark"></a>2. youtube-dl 下载 YouTube 视频</h2><p>视频下载命令行工具里，网友推荐通常都是『国外视频用 youtube-dl』，有这两个工具国内外主流视频网站的视频基本就横扫了，适合想收藏或者喜欢下载后用本地播放器的 Geek 群体。</p>
 <ul>
 <li><a href="http://rg3.github.io/youtube-dl/download.html" target="_blank" rel="noopener noreferrer">youtube-dl</a></li>
 </ul>
 <p>命令行工具本身其实不复杂，理解了它们的语法就能开始使用了，结合 Alfred 还可以把常用的命令设置成触发的动作，提升交互体验和效率。然而很多人一看网站的介绍估计和我最初的感受差不多，还要部署一堆使用环境啊。</p>
 <h2 id="xcode-的命令行工具" class="headerLink">
-    <a href="#xcode-%e7%9a%84%e5%91%bd%e4%bb%a4%e8%a1%8c%e5%b7%a5%e5%85%b7" class="header-mark"></a>Xcode 的命令行工具</h2><p>Homebrew 环境安装前先检查一下 Xcode 的命令行工具是否已经安装，如果 macOS 系统更新过可能也需要重新安装一次，「终端」（应用程序 - 实用工具 - 终端）中输入 <code>xcode-select --install</code>。</p>
+    <a href="#xcode-%e7%9a%84%e5%91%bd%e4%bb%a4%e8%a1%8c%e5%b7%a5%e5%85%b7" class="header-mark"></a>3. Xcode 的命令行工具</h2><p>Homebrew 环境安装前先检查一下 Xcode 的命令行工具是否已经安装，如果 macOS 系统更新过可能也需要重新安装一次，「终端」（应用程序 - 实用工具 - 终端）中输入 <code>xcode-select --install</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -594,9 +594,9 @@
 </div>
 </div><p><em>先前配置时已经安装过 Xcode 命令行工具，所以会出现上面的提示信息。</em></p>
 <h2 id="homebrew-依赖" class="headerLink">
-    <a href="#homebrew-%e4%be%9d%e8%b5%96" class="header-mark"></a>Homebrew 依赖</h2><p><a href="https://brew.sh/index_zh-cn.html" target="_blank" rel="noopener noreferrer">Homebrew</a> 是一个macOS 上的软件包管理工具，通过命令行的方式安装和卸载软件，大部分的流行软件都提供了 Homebrew 的安装方式，也是开源世界里安装和更新软件的主流方式；</p>
+    <a href="#homebrew-%e4%be%9d%e8%b5%96" class="header-mark"></a>4. Homebrew 依赖</h2><p><a href="https://brew.sh/index_zh-cn.html" target="_blank" rel="noopener noreferrer">Homebrew</a> 是一个macOS 上的软件包管理工具，通过命令行的方式安装和卸载软件，大部分的流行软件都提供了 Homebrew 的安装方式，也是开源世界里安装和更新软件的主流方式；</p>
 <h3 id="homebrewhttpsbrewshindex_zh-cnhtml" class="headerLink">
-    <a href="#homebrewhttpsbrewshindex_zh-cnhtml" class="header-mark"></a><a href="https://brew.sh/index_zh-cn.html" target="_blank" rel="noopener noreferrer">Homebrew</a></h3><p>只需要在联网的情况下运行一行命令：</p>
+    <a href="#homebrewhttpsbrewshindex_zh-cnhtml" class="header-mark"></a>4.1 <a href="https://brew.sh/index_zh-cn.html" target="_blank" rel="noopener noreferrer">Homebrew</a></h3><p>只需要在联网的情况下运行一行命令：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -609,7 +609,7 @@
 <p>更多关于 Homebrew 的使用相关，可以查看我的另一篇文章  <a href="https://samzong.me/2022/05/03/Mac%E4%B8%8Bhomebrew%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_blank" rel="noopener noreferrer">Mac 下 Homebrew 的使用</a></p>
 </blockquote>
 <h2 id="安装-youtube-dl" class="headerLink">
-    <a href="#%e5%ae%89%e8%a3%85-youtube-dl" class="header-mark"></a>安装 youtube-dl</h2><p>上面刚学习到的命令可以先用起来，先看看 youtube-dl 的软件信息，在终端里输入 <code>brew info youtube-dl</code>，了解一下 youtube-dl 的依存环境和需要搭档的其他应用。</p>
+    <a href="#%e5%ae%89%e8%a3%85-youtube-dl" class="header-mark"></a>5. 安装 youtube-dl</h2><p>上面刚学习到的命令可以先用起来，先看看 youtube-dl 的软件信息，在终端里输入 <code>brew info youtube-dl</code>，了解一下 youtube-dl 的依存环境和需要搭档的其他应用。</p>
 
 <p>从终端运行的反馈能看到，youtube-dl 的使用环境是 Python3，合并视频片断还会用到 <code>ffmpeg</code>  这个组件，也就是说安装完 youtube-dl，还要再运行一次 <code>brew install ffmpeg</code></p>
 <div class="highlight"><div class="chroma">
@@ -623,7 +623,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="youtube-dl-的基本用法" class="headerLink">
-    <a href="#youtube-dl-%e7%9a%84%e5%9f%ba%e6%9c%ac%e7%94%a8%e6%b3%95" class="header-mark"></a>youtube-dl 的基本用法</h2><p>前 3 步结束已经可以用命令行下载视频了，这里介绍几个常用的命令，更多的命令用法在官网都有介绍 ，查看 Github 更全的操作指引 <a href="https://github.com/ytdl-org/youtube-dl/blob/master/README.md#description" target="_blank" rel="noopener noreferrer">Document</a></p>
+    <a href="#youtube-dl-%e7%9a%84%e5%9f%ba%e6%9c%ac%e7%94%a8%e6%b3%95" class="header-mark"></a>6. youtube-dl 的基本用法</h2><p>前 3 步结束已经可以用命令行下载视频了，这里介绍几个常用的命令，更多的命令用法在官网都有介绍 ，查看 Github 更全的操作指引 <a href="https://github.com/ytdl-org/youtube-dl/blob/master/README.md#description" target="_blank" rel="noopener noreferrer">Document</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -657,7 +657,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="导出视频指定文件名称" class="headerLink">
-    <a href="#%e5%af%bc%e5%87%ba%e8%a7%86%e9%a2%91%e6%8c%87%e5%ae%9a%e6%96%87%e4%bb%b6%e5%90%8d%e7%a7%b0" class="header-mark"></a>导出视频指定文件名称</h3><div class="highlight"><div class="chroma">
+    <a href="#%e5%af%bc%e5%87%ba%e8%a7%86%e9%a2%91%e6%8c%87%e5%ae%9a%e6%96%87%e4%bb%b6%e5%90%8d%e7%a7%b0" class="header-mark"></a>6.1 导出视频指定文件名称</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
@@ -678,7 +678,7 @@
 </div>
 </div><p>通过 <code>视频名.扩展名</code> 这样可以规范化导出文档的名称；还有其他非常丰富的变量支持，可以去这里找到你想要的 <a href="https://github.com/ytdl-org/youtube-dl/blob/master/README.md#output-template" target="_blank" rel="noopener noreferrer">Output Template</a></p>
 <h3 id="查询视频支持的版本" class="headerLink">
-    <a href="#%e6%9f%a5%e8%af%a2%e8%a7%86%e9%a2%91%e6%94%af%e6%8c%81%e7%9a%84%e7%89%88%e6%9c%ac" class="header-mark"></a>查询视频支持的版本</h3><p>导出的画质不如意，希望自定义导出画质，可以采用这个方式，使用 <code>-F</code> 查看视频资源支持的类型，通过 <code>-f</code> 指定对应的版本进行下载</p>
+    <a href="#%e6%9f%a5%e8%af%a2%e8%a7%86%e9%a2%91%e6%94%af%e6%8c%81%e7%9a%84%e7%89%88%e6%9c%ac" class="header-mark"></a>6.2 查询视频支持的版本</h3><p>导出的画质不如意，希望自定义导出画质，可以采用这个方式，使用 <code>-F</code> 查看视频资源支持的类型，通过 <code>-f</code> 指定对应的版本进行下载</p>
 
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -735,7 +735,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="仅导出音频文件" class="headerLink">
-    <a href="#%e4%bb%85%e5%af%bc%e5%87%ba%e9%9f%b3%e9%a2%91%e6%96%87%e4%bb%b6" class="header-mark"></a>仅导出音频文件</h3><p>:::information_source: 经常拿过来做个人的歌曲库导出，<code>youtube-dl -x</code> 提供了 -x 参数来进行指定 仅导出音频，<code>--extract-audio</code> 这里需要使用到 <code>ffmpeg</code> 。</p>
+    <a href="#%e4%bb%85%e5%af%bc%e5%87%ba%e9%9f%b3%e9%a2%91%e6%96%87%e4%bb%b6" class="header-mark"></a>6.3 仅导出音频文件</h3><p>:::information_source: 经常拿过来做个人的歌曲库导出，<code>youtube-dl -x</code> 提供了 -x 参数来进行指定 仅导出音频，<code>--extract-audio</code> 这里需要使用到 <code>ffmpeg</code> 。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -761,11 +761,11 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">youtube-dl -x https://www.youtube.com/watch?v<span class="o">=</span>Ga4UCK627nU -o <span class="s2">&#34;~/Downloads/%(title)s.%(ext)s&#34;</span> --audio-format mp3
 </span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description></item><item><title>GitHub Pages 的妙用</title><link>https://samzong.me/posts/github-pages-%E7%9A%84%E5%A6%99%E7%94%A8/</link><pubDate>Fri, 22 Apr 2022 17:23:00 +0000</pubDate><author><name>samzong.lu</name></author><guid>https://samzong.me/posts/github-pages-%E7%9A%84%E5%A6%99%E7%94%A8/</guid><description><![CDATA[<h2 id="本来是想好好工作的" class="headerLink">
-    <a href="#%e6%9c%ac%e6%9d%a5%e6%98%af%e6%83%b3%e5%a5%bd%e5%a5%bd%e5%b7%a5%e4%bd%9c%e7%9a%84" class="header-mark"></a>本来是想好好工作的</h2><p>最近换了新工作（后面找个时间好好说说），大量接触 k8s &amp; docker，开始写了比较多的 yaml 和 Dockerfile；散落在电脑上的话，还是很不方便，有个仓库管理起来的话，就会很方便了，于是有了这个项目 <a href="https://github.com/SAMZONG/k8s-yaml" target="_blank" rel="noopener noreferrer">samzong/k8s-yaml</a></p>
+</div>]]></description></item><item><title>GitHub Pages 的妙用</title><link>https://samzong.me/github-pages-%E7%9A%84%E5%A6%99%E7%94%A8/</link><pubDate>Fri, 22 Apr 2022 17:23:00 +0000</pubDate><author><name>samzong.lu</name></author><guid>https://samzong.me/github-pages-%E7%9A%84%E5%A6%99%E7%94%A8/</guid><description><![CDATA[<h2 id="本来是想好好工作的" class="headerLink">
+    <a href="#%e6%9c%ac%e6%9d%a5%e6%98%af%e6%83%b3%e5%a5%bd%e5%a5%bd%e5%b7%a5%e4%bd%9c%e7%9a%84" class="header-mark"></a>1. 本来是想好好工作的</h2><p>最近换了新工作（后面找个时间好好说说），大量接触 k8s &amp; docker，开始写了比较多的 yaml 和 Dockerfile；散落在电脑上的话，还是很不方便，有个仓库管理起来的话，就会很方便了，于是有了这个项目 <a href="https://github.com/SAMZONG/k8s-yaml" target="_blank" rel="noopener noreferrer">samzong/k8s-yaml</a></p>
 <p>k8s-yaml 一开始的定义就是 public ，希望给更多其他的人提供帮助，索性就再增加了一个网页吧</p>
 <h2 id="一分钟快速搭建网站" class="headerLink">
-    <a href="#%e4%b8%80%e5%88%86%e9%92%9f%e5%bf%ab%e9%80%9f%e6%90%ad%e5%bb%ba%e7%bd%91%e7%ab%99" class="header-mark"></a>一分钟快速搭建网站</h2><div class="highlight"><div class="chroma">
+    <a href="#%e4%b8%80%e5%88%86%e9%92%9f%e5%bf%ab%e9%80%9f%e6%90%ad%e5%bb%ba%e7%bd%91%e7%ab%99" class="header-mark"></a>2. 一分钟快速搭建网站</h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -783,7 +783,7 @@
 <p>http://[github_username].github.io/[github_repo_name]</p>
 </blockquote>
 <h2 id="简单的配置" class="headerLink">
-    <a href="#%e7%ae%80%e5%8d%95%e7%9a%84%e9%85%8d%e7%bd%ae" class="header-mark"></a>简单的配置</h2><p><a class="lightgallery" href="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/X4tbDt.png?x-oss-process=image/resize,w_960,m_lfit" title="X4tbDt" data-thumbnail="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/X4tbDt.png?x-oss-process=image/resize,w_960,m_lfit">
+    <a href="#%e7%ae%80%e5%8d%95%e7%9a%84%e9%85%8d%e7%bd%ae" class="header-mark"></a>3. 简单的配置</h2><p><a class="lightgallery" href="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/X4tbDt.png?x-oss-process=image/resize,w_960,m_lfit" title="X4tbDt" data-thumbnail="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/X4tbDt.png?x-oss-process=image/resize,w_960,m_lfit">
         
     </a></p>
 <p>上图简单指引了如何打开 GitHub Pages 的配置路径，下面对主要的几个模块进行说明:</p>
@@ -798,7 +798,7 @@
 </blockquote>
 <p>经过简单的配置，这个仓库的网站，已经完成了你想要的； 在 <code>index.md</code> 内修改为你想要的内容。</p>
 <h2 id="高级功能结合-github-issue-的评论功能" class="headerLink">
-    <a href="#%e9%ab%98%e7%ba%a7%e5%8a%9f%e8%83%bd%e7%bb%93%e5%90%88-github-issue-%e7%9a%84%e8%af%84%e8%ae%ba%e5%8a%9f%e8%83%bd" class="header-mark"></a>高级功能：结合 GitHub issue 的评论功能</h2><p>这里采用的 评论组件是 <a href="https://utteranc.es/" target="_blank" rel="noopener noreferrer">utterances</a>, 提供轻量级的博客评论功能，并且评论是直接创建 GitHub issue，方便管理</p>
+    <a href="#%e9%ab%98%e7%ba%a7%e5%8a%9f%e8%83%bd%e7%bb%93%e5%90%88-github-issue-%e7%9a%84%e8%af%84%e8%ae%ba%e5%8a%9f%e8%83%bd" class="header-mark"></a>4. 高级功能：结合 GitHub issue 的评论功能</h2><p>这里采用的 评论组件是 <a href="https://utteranc.es/" target="_blank" rel="noopener noreferrer">utterances</a>, 提供轻量级的博客评论功能，并且评论是直接创建 GitHub issue，方便管理</p>
 <p>这里不赘述安装细节的，比较简单，直接去看下面几个网站即可</p>
 <ul>
 <li><a href="https://utteranc.es/" target="_blank" rel="noopener noreferrer">https://utteranc.es/</a></li>
@@ -848,20 +848,20 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="end" class="headerLink">
-    <a href="#end" class="header-mark"></a>End</h2><p>以上就是全部的部署内容了，可以去看下我的网站和项目</p>
+    <a href="#end" class="header-mark"></a>5. End</h2><p>以上就是全部的部署内容了，可以去看下我的网站和项目</p>
 <ul>
 <li><a href="https://k8s-yaml.samzong.me" target="_blank" rel="noopener noreferrer">https://k8s-yaml.samzong.me</a></li>
 </ul>
 <p>如果你觉得喜欢，求 fork，求 star</p>
-]]></description></item><item><title>需要了解的 K8s 发行版本</title><link>https://samzong.me/posts/%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E7%AB%9E%E5%93%81/</link><pubDate>Tue, 19 Apr 2022 18:11:00 +0000</pubDate><author><name>samzong.lu</name></author><guid>https://samzong.me/posts/%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E7%AB%9E%E5%93%81/</guid><description><![CDATA[<h2 id="k8s-的发行版本" class="headerLink">
-    <a href="#k8s-%e7%9a%84%e5%8f%91%e8%a1%8c%e7%89%88%e6%9c%ac" class="header-mark"></a>K8s 的发行版本</h2><p><a class="lightgallery" href="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/6ngC8v.png" title="6ngC8v" data-thumbnail="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/6ngC8v.png">
+]]></description></item><item><title>需要了解的 K8s 发行版本</title><link>https://samzong.me/%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E7%AB%9E%E5%93%81/</link><pubDate>Tue, 19 Apr 2022 18:11:00 +0000</pubDate><author><name>samzong.lu</name></author><guid>https://samzong.me/%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E7%AB%9E%E5%93%81/</guid><description><![CDATA[<h2 id="k8s-的发行版本" class="headerLink">
+    <a href="#k8s-%e7%9a%84%e5%8f%91%e8%a1%8c%e7%89%88%e6%9c%ac" class="header-mark"></a>1. K8s 的发行版本</h2><p><a class="lightgallery" href="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/6ngC8v.png" title="6ngC8v" data-thumbnail="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/6ngC8v.png">
         
     </a></p>
 <p>开始学习喜欢的东西，上面的每一个都要了解</p>
-]]></description></item><item><title>CKA 考试准备</title><link>https://samzong.me/posts/cka-%E8%80%83%E8%AF%95%E5%87%86%E5%A4%87/</link><pubDate>Mon, 18 Apr 2022 06:00:00 +0000</pubDate><author><name>samzong.lu</name></author><guid>https://samzong.me/posts/cka-%E8%80%83%E8%AF%95%E5%87%86%E5%A4%87/</guid><description><![CDATA[<h2 id="汇总" class="headerLink">
-    <a href="#%e6%b1%87%e6%80%bb" class="header-mark"></a>汇总</h2><p>本来预计 4 月 10 号左右，可以开始准备 CKA 的考试了，因为疫情在家办公，再加上报名去做志愿者，所以这个时间耽搁到了现在才开始</p>
+]]></description></item><item><title>CKA 考试准备</title><link>https://samzong.me/cka-%E8%80%83%E8%AF%95%E5%87%86%E5%A4%87/</link><pubDate>Mon, 18 Apr 2022 06:00:00 +0000</pubDate><author><name>samzong.lu</name></author><guid>https://samzong.me/cka-%E8%80%83%E8%AF%95%E5%87%86%E5%A4%87/</guid><description><![CDATA[<h2 id="汇总" class="headerLink">
+    <a href="#%e6%b1%87%e6%80%bb" class="header-mark"></a>1. 汇总</h2><p>本来预计 4 月 10 号左右，可以开始准备 CKA 的考试了，因为疫情在家办公，再加上报名去做志愿者，所以这个时间耽搁到了现在才开始</p>
 <h3 id="时间成本" class="headerLink">
-    <a href="#%e6%97%b6%e9%97%b4%e6%88%90%e6%9c%ac" class="header-mark"></a>时间成本</h3><p>在这里记录下整个学习过程，也给大家预估下，不走培训机构，自学大概需要多久的时间</p>
+    <a href="#%e6%97%b6%e9%97%b4%e6%88%90%e6%9c%ac" class="header-mark"></a>1.1 时间成本</h3><p>在这里记录下整个学习过程，也给大家预估下，不走培训机构，自学大概需要多久的时间</p>
 <table>
 <thead>
 <tr>
@@ -884,12 +884,12 @@
 </tbody>
 </table>
 <h3 id="体会" class="headerLink">
-    <a href="#%e4%bd%93%e4%bc%9a" class="header-mark"></a>体会</h3><ul>
+    <a href="#%e4%bd%93%e4%bc%9a" class="header-mark"></a>1.2 体会</h3><ul>
 <li>有段时间没回过头来弄代码了，平时写比较多是项目上的小脚本，系统化把一个项目改造为 Docker image，再来了一遍，整个优化过程的感觉还是很舒服的</li>
 </ul>
 <h2 id="学习资料" class="headerLink">
-    <a href="#%e5%ad%a6%e4%b9%a0%e8%b5%84%e6%96%99" class="header-mark"></a>学习资料</h2><h3 id="培训机构的大纲" class="headerLink">
-    <a href="#%e5%9f%b9%e8%ae%ad%e6%9c%ba%e6%9e%84%e7%9a%84%e5%a4%a7%e7%ba%b2" class="header-mark"></a>培训机构的大纲</h3><p>大致培训时间是 3 天，给自己预估的学习时间大概是 一周左右的时间</p>
+    <a href="#%e5%ad%a6%e4%b9%a0%e8%b5%84%e6%96%99" class="header-mark"></a>2. 学习资料</h2><h3 id="培训机构的大纲" class="headerLink">
+    <a href="#%e5%9f%b9%e8%ae%ad%e6%9c%ba%e6%9e%84%e7%9a%84%e5%a4%a7%e7%ba%b2" class="header-mark"></a>2.1 培训机构的大纲</h3><p>大致培训时间是 3 天，给自己预估的学习时间大概是 一周左右的时间</p>
 <ul>
 <li>CKA最新考纲解读与Kubernetes入门（Day 1/上午）
 <ul>
@@ -961,15 +961,15 @@
 </ul>
 </li>
 </ul>
-]]></description></item><item><title>Dockerfile Run at M1 processor build failed</title><link>https://samzong.me/posts/docker-run-at-apple-silicon-m1/</link><pubDate>Sun, 17 Apr 2022 20:32:00 +0000</pubDate><author><name>samzong.lu</name></author><guid>https://samzong.me/posts/docker-run-at-apple-silicon-m1/</guid><description><![CDATA[<h2 id="apple-m1-processor" class="headerLink">
-    <a href="#apple-m1-processor" class="header-mark"></a>Apple M1 processor</h2><p>在使用了 Apple M1 的笔记本后，在 docker 使用遇到了一些问题，这里做些笔记记录下来</p>
+]]></description></item><item><title>Dockerfile Run at M1 processor build failed</title><link>https://samzong.me/docker-run-at-apple-silicon-m1/</link><pubDate>Sun, 17 Apr 2022 20:32:00 +0000</pubDate><author><name>samzong.lu</name></author><guid>https://samzong.me/docker-run-at-apple-silicon-m1/</guid><description><![CDATA[<h2 id="apple-m1-processor" class="headerLink">
+    <a href="#apple-m1-processor" class="header-mark"></a>1. Apple M1 processor</h2><p>在使用了 Apple M1 的笔记本后，在 docker 使用遇到了一些问题，这里做些笔记记录下来</p>
 <h2 id="pull-image-error" class="headerLink">
-    <a href="#pull-image-error" class="header-mark"></a>pull image error</h2><blockquote>
+    <a href="#pull-image-error" class="header-mark"></a>2. pull image error</h2><blockquote>
 <p>Error &ldquo;no matching manifest for linux/arm64/v8 in the manifest list entries&rdquo;</p>
 </blockquote>
 <p>在我尝试想要 pull 下来时，得到上面的一个错误；同样的问题，我在编写 Dockerfile 和 docker-compose.yml 都遇到这样的问题</p>
 <h3 id="docker-composeyml" class="headerLink">
-    <a href="#docker-composeyml" class="header-mark"></a>docker-compose.yml</h3><div class="highlight"><div class="chroma">
+    <a href="#docker-composeyml" class="header-mark"></a>2.1 docker-compose.yml</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -1008,7 +1008,7 @@
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="解决思路" class="headerLink">
-    <a href="#%e8%a7%a3%e5%86%b3%e6%80%9d%e8%b7%af" class="header-mark"></a>解决思路</h3><p>需要指定下 <code>plaform</code> ，当我运行在 Apple M1上，变更部分如下：</p>
+    <a href="#%e8%a7%a3%e5%86%b3%e6%80%9d%e8%b7%af" class="header-mark"></a>2.2 解决思路</h3><p>需要指定下 <code>plaform</code> ，当我运行在 Apple M1上，变更部分如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1

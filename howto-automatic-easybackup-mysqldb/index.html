@@ -1,0 +1,307 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title class=pjax-title>HowTo Automatic EasyBackup MysqlDB - SAMZONG</title><meta name=Description content><meta property="og:title" content="HowTo Automatic EasyBackup MysqlDB"><meta property="og:description" content="mysql是一个免费、开源中一款非常优秀关系型数据库，在现在的互联网中使用的非常广泛，无论是大型IT项目还是个人开发者的小项目，mysql都"><meta property="og:type" content="article"><meta property="og:url" content="https://samzong.me/howto-automatic-easybackup-mysqldb/"><meta property="article:section" content="posts"><meta property="article:modified_time" content="2022-09-25T00:50:15+08:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="HowTo Automatic EasyBackup MysqlDB"><meta name=twitter:description content="mysql是一个免费、开源中一款非常优秀关系型数据库，在现在的互联网中使用的非常广泛，无论是大型IT项目还是个人开发者的小项目，mysql都"><meta name=application-name content="SAMZONG"><meta name=apple-mobile-web-app-title content="SAMZONG"><meta name=theme-color content="#f8f8f8"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=canonical href=https://samzong.me/howto-automatic-easybackup-mysqldb/><link rel=prev href=https://samzong.me/install_redmine3.4_rbuy2.4.1_passenger_nginx_mysql_ubuntu16.04/><link rel=next href=https://samzong.me/install_mariadb10_centos7/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload='this.onload=null,this.rel="stylesheet"' href=/lib/fontawesome-free/all.min.css><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload='this.onload=null,this.rel="stylesheet"' href=/lib/animate/animate.min.css><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"HowTo Automatic EasyBackup MysqlDB","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/samzong.me\/howto-automatic-easybackup-mysqldb\/"},"genre":"posts","keywords":"MySQL","wordcount":2450,"url":"https:\/\/samzong.me\/howto-automatic-easybackup-mysqldb\/","dateModified":"2022-09-25T00:50:15+08:00","publisher":{"@type":"Organization","name":"Samzong"},"author":{"@type":"Person","name":"Samzong"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>function setTheme(e){document.body.setAttribute("theme",e),document.documentElement.style.setProperty("color-scheme",e==="light"?"light":"dark")}function saveTheme(e){window.localStorage&&localStorage.setItem("theme",e)}function getMeta(e){const t=document.getElementsByTagName("meta");for(let n=0;n<t.length;n++)if(t[n].getAttribute("name")===e)return t[n];return""}if(window.localStorage&&localStorage.getItem("theme")){let e=localStorage.getItem("theme");e==="light"||e==="dark"||e==="black"?setTheme(e):setTheme(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}else""==="light"||""==="dark"||""==="black"?(setTheme(""),saveTheme("")):(saveTheme("auto"),setTheme(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));let metaColors={light:"#f8f8f8",dark:"#252627",black:"#000000"};getMeta("theme-color").content=metaColors[document.body.getAttribute("theme")]</script><div id=back-to-top></div><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=SAMZONG>SAMZONG</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>🤖 全部文章 </a><a class=menu-item href=/tags/>🏷 标签 </a><a class=menu-item href=/categories/>📖 分类 </a><a class=menu-item href=https://github.com/samzong/ title=GitHub rel="noopener noreferrer" target=_blank><i class='fab fa-github fa-fw'></i> GitHub </a><span class="menu-item delimiter"></span><a href=# onclick=return!1 class="menu-item language" title=选择语言>简体中文<i class="fas fa-chevron-right fa-fw"></i>
+<select class=language-select title="Select Language" id=language-select-desktop onchange="location=this.value"><option value=/howto-automatic-easybackup-mysqldb/ selected>简体中文</option></select>
+</a><span class="menu-item search" id=search-desktop><input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
+<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-desktop title=搜索><i class="fas fa-search fa-fw"></i></a>
+<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-desktop title=清空><i class="fas fa-times-circle fa-fw"></i></a>
+<span class="search-button search-loading" id=search-loading-desktop><i class="fas fa-spinner fa-fw fa-spin"></i></span>
+</span><a href=# onclick=return!1 class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=SAMZONG>SAMZONG</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><div class=search-wrapper><div class="search mobile" id=search-mobile><input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
+<a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-mobile title=搜索><i class="fas fa-search fa-fw"></i></a>
+<a href=# onclick=return!1 class="search-button search-clear" id=search-clear-mobile title=清空><i class="fas fa-times-circle fa-fw"></i></a>
+<span class="search-button search-loading" id=search-loading-mobile><i class="fas fa-spinner fa-fw fa-spin"></i></span></div><a href=# onclick=return!1 class=search-cancel id=search-cancel-mobile>取消</a></div><a class=menu-item href=/posts/ title>🤖全部文章</a><a class=menu-item href=/tags/ title>🏷标签</a><a class=menu-item href=/categories/ title>📖分类</a><a class=menu-item href=https://github.com/samzong/ title=GitHub rel="noopener noreferrer" target=_blank><i class='fab fa-github fa-fw'></i>GitHub</a><a href=# onclick=return!1 class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+</a><a href=# onclick=return!1 class=menu-item title=选择语言>简体中文<i class="fas fa-chevron-right fa-fw"></i>
+<select class=language-select title="Select Language" onchange="location=this.value"><option value=/howto-automatic-easybackup-mysqldb/ selected>简体中文</option></select></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","wide")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","false")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">HowTo Automatic EasyBackup MysqlDB</h1><div class=post-meta><div class=post-meta-line><span class=post-author><i class="author fas fa-user-circle fa-fw"></i><a href=/ title=Author rel=author class=author>Samzong</a>
+</span>&nbsp;<span class=post-category>收录于 </span>&nbsp;<span class=post-category>类别 <a href=/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/><i class="far fa-folder fa-fw"></i>数据库</a>&nbsp;<a href=/categories/mysql/><i class="far fa-folder fa-fw"></i>MySQL</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=0001-01-01>0001-01-01</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2022-09-25>2022-09-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2450 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div></div><div class="details toc" id=toc-static kept=true><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><ul><li><ul><li><a href=#测试环境>测试环境</a></li><li><a href=#测试备份命令>测试备份命令</a></li><li><a href=#安装命令行邮件工具mailx>安装命令行邮件工具mailx</a></li><li><a href=#安装计划任务工具crontab>安装计划任务工具Crontab</a></li><li><a href=#编写备份脚本>编写备份脚本</a></li><li><a href=#添加计划任务>添加计划任务</a></li></ul></li></ul></li></ul></nav></div></div><div class=content id=content><p>mysql是一个免费、开源中一款非常优秀关系型数据库，在现在的互联网中使用的非常广泛，无论是大型IT项目还是个人开发者的小项目，mysql都能很好的协助人们处理数据库相关的工作，同时数据库对于我们来说是非常重要，所以经常备份数据库是一个基本的操作，这会为你或者你的团队，减少非常多不必要的麻烦。</p><p><code>mysqldump</code>是一个简单而且非常流行的mysql全量备份方式，配合<code>crontab</code>添加自动备份任务，很好的完成了我们针对数据库备份的需求，下面我会通过一个例子来说明如何完成这项操作。</p><blockquote><p>mysqldump是mysql自带的备份工具，所以只要你安装mysql应用包，就无需单独安装mysqldump</p></blockquote><h4 id=测试环境 class=headerLink><a href=#%e6%b5%8b%e8%af%95%e7%8e%af%e5%a2%83 class=header-mark></a>0.0.1 测试环境</h4><p>我搭建了一个Ghost博客环境，数据库采用是的Mysql，接下来我想在每天00:00执行数据库备份操作，并在备份完成之后，告诉我是否备份成功。</p><p><a class=lightgallery href=http://ww1.sinaimg.cn/large/006tKfTcgy1ffogclgk9dj30f00cq3zf.jpg title=http://ww1.sinaimg.cn/large/006tKfTcgy1ffogclgk9dj30f00cq3zf.jpg data-thumbnail=http://ww1.sinaimg.cn/large/006tKfTcgy1ffogclgk9dj30f00cq3zf.jpg><img class=lazyload data-src=http://ww1.sinaimg.cn/large/006tKfTcgy1ffogclgk9dj30f00cq3zf.jpg data-srcset="http://ww1.sinaimg.cn/large/006tKfTcgy1ffogclgk9dj30f00cq3zf.jpg, http://ww1.sinaimg.cn/large/006tKfTcgy1ffogclgk9dj30f00cq3zf.jpg 1.5x, http://ww1.sinaimg.cn/large/006tKfTcgy1ffogclgk9dj30f00cq3zf.jpg 2x" data-sizes=auto alt=http://ww1.sinaimg.cn/large/006tKfTcgy1ffogclgk9dj30f00cq3zf.jpg></a></p><p>所以我们的步骤应该：</p><ol><li>测试备份命令是否可以正常执行</li><li>安装测试命令行邮件工具mailx</li><li>安装计划任务工具Crontab</li><li>编写备份脚本</li><li>添加计划任务</li></ol><h4 id=测试备份命令 class=headerLink><a href=#%e6%b5%8b%e8%af%95%e5%a4%87%e4%bb%bd%e5%91%bd%e4%bb%a4 class=header-mark></a>0.0.2 测试备份命令</h4><p>首先你要获得你要备份的数据库对应的select权限，仅需要select权限即可，mysql在管理方面，应该坚持只赋予必须权限的原则。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-mysql data-lang=mysql><span class=line><span class=cl><span class=n>mysql</span><span class=o>&gt;</span><span class=w> </span><span class=k>grant</span><span class=w> </span><span class=k>select</span><span class=w> </span><span class=k>on</span><span class=w> </span><span class=n>ghost</span><span class=p>.</span><span class=o>*</span><span class=w> </span><span class=k>to</span><span class=w> </span><span class=s1>&#39;ghost_backuser&#39;</span><span class=o>@</span><span class=s1>&#39;localhost&#39;</span><span class=w> </span><span class=k>identified</span><span class=w> </span><span class=k>by</span><span class=w> </span><span class=s1>&#39;backupPass&#39;</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=n>Query</span><span class=w> </span><span class=n>OK</span><span class=p>,</span><span class=w> </span><span class=mi>0</span><span class=w> </span><span class=n>rows</span><span class=w> </span><span class=nf>affected</span><span class=w> </span><span class=p>(</span><span class=mi>0</span><span class=p>.</span><span class=mi>00</span><span class=w> </span><span class=n>sec</span><span class=p>)</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>因为我只在本地执行备份操作，所以我只赋予了<code>localhost</code>的权限，你的权限应该要是执行备份工作的服务器主机信息。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-mysql data-lang=mysql><span class=line><span class=cl><span class=c1># 创建仅授权本地访问的用户
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>mysql</span><span class=o>&gt;</span><span class=w> </span><span class=k>create</span><span class=w> </span><span class=k>user</span><span class=w> </span><span class=n>dbackuser</span><span class=o>@</span><span class=s1>&#39;localhost&#39;</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1># 创建授权所有来源地址的用户
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>mysql</span><span class=o>&gt;</span><span class=w> </span><span class=k>create</span><span class=w> </span><span class=k>user</span><span class=w> </span><span class=n>dbackuser</span><span class=o>@</span><span class=s1>&#39;%&#39;</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1># 创建仅授权从特定IP的用户
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>mysql</span><span class=o>&gt;</span><span class=w> </span><span class=k>create</span><span class=w> </span><span class=k>user</span><span class=w> </span><span class=n>dbackuser</span><span class=o>@</span><span class=s1>&#39;192.168.0.230&#39;</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1># 创建仅授权从特定IP段访问的用户
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>mysql</span><span class=o>&gt;</span><span class=w> </span><span class=k>create</span><span class=w> </span><span class=k>user</span><span class=w> </span><span class=n>dbackuser</span><span class=o>@</span><span class=s1>&#39;192.168.0.0/23&#39;</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1># 创建仅授权从特定域名来访问的用户
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>mysql</span><span class=o>&gt;</span><span class=w> </span><span class=k>create</span><span class=w> </span><span class=k>user</span><span class=w> </span><span class=n>dbackuser</span><span class=o>@</span><span class=s1>&#39;samzong.me&#39;</span><span class=p>;</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>好了，接下来我们测试对应用户是否有权限。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-mysql data-lang=mysql><span class=line><span class=cl><span class=err>➜</span><span class=w>  </span><span class=o>~</span><span class=w> </span><span class=n>mysql</span><span class=w> </span><span class=o>-</span><span class=n>u</span><span class=w> </span><span class=n>ghost_backuser</span><span class=w> </span><span class=o>-</span><span class=n>pbackupPass</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=n>Warning</span><span class=p>:</span><span class=w> </span><span class=k>Using</span><span class=w> </span><span class=n>a</span><span class=w> </span><span class=n>password</span><span class=w> </span><span class=k>on</span><span class=w> </span><span class=n>the</span><span class=w> </span><span class=n>command</span><span class=w> </span><span class=n>line</span><span class=w> </span><span class=n>interface</span><span class=w> </span><span class=n>can</span><span class=w> </span><span class=n>be</span><span class=w> </span><span class=n>insecure</span><span class=p>.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=n>Welcome</span><span class=w> </span><span class=k>to</span><span class=w> </span><span class=n>the</span><span class=w> </span><span class=n>MySQL</span><span class=w> </span><span class=n>monitor</span><span class=p>.</span><span class=w>  </span><span class=n>Commands</span><span class=w> </span><span class=n>end</span><span class=w> </span><span class=k>with</span><span class=w> </span><span class=p>;</span><span class=w> </span><span class=k>or</span><span class=w> </span><span class=err>\</span><span class=n>g</span><span class=p>.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=n>Your</span><span class=w> </span><span class=n>MySQL</span><span class=w> </span><span class=n>connection</span><span class=w> </span><span class=n>id</span><span class=w> </span><span class=k>is</span><span class=w> </span><span class=mi>7</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=n>Server</span><span class=w> </span><span class=n>version</span><span class=p>:</span><span class=w> </span><span class=mi>5</span><span class=p>.</span><span class=mi>6</span><span class=p>.</span><span class=mi>35</span><span class=w> </span><span class=n>MySQL</span><span class=w> </span><span class=n>Community</span><span class=w> </span><span class=nf>Server</span><span class=w> </span><span class=p>(</span><span class=n>GPL</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nf>Copyright</span><span class=w> </span><span class=p>(</span><span class=n>c</span><span class=p>)</span><span class=w> </span><span class=mi>2000</span><span class=p>,</span><span class=w> </span><span class=mi>2016</span><span class=p>,</span><span class=w> </span><span class=n>Oracle</span><span class=w> </span><span class=k>and</span><span class=o>/</span><span class=k>or</span><span class=w> </span><span class=n>its</span><span class=w> </span><span class=n>affiliates</span><span class=p>.</span><span class=w> </span><span class=k>All</span><span class=w> </span><span class=n>rights</span><span class=w> </span><span class=n>reserved</span><span class=p>.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=n>Oracle</span><span class=w> </span><span class=k>is</span><span class=w> </span><span class=n>a</span><span class=w> </span><span class=n>registered</span><span class=w> </span><span class=n>trademark</span><span class=w> </span><span class=n>of</span><span class=w> </span><span class=n>Oracle</span><span class=w> </span><span class=n>Corporation</span><span class=w> </span><span class=k>and</span><span class=o>/</span><span class=k>or</span><span class=w> </span><span class=n>its</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=n>affiliates</span><span class=p>.</span><span class=w> </span><span class=n>Other</span><span class=w> </span><span class=n>names</span><span class=w> </span><span class=n>may</span><span class=w> </span><span class=n>be</span><span class=w> </span><span class=n>trademarks</span><span class=w> </span><span class=n>of</span><span class=w> </span><span class=n>their</span><span class=w> </span><span class=n>respective</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=n>owners</span><span class=p>.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=n>Type</span><span class=w> </span><span class=s1>&#39;help;&#39;</span><span class=w> </span><span class=k>or</span><span class=w> </span><span class=s1>&#39;\h&#39;</span><span class=w> </span><span class=k>for</span><span class=w> </span><span class=n>help</span><span class=p>.</span><span class=w> </span><span class=n>Type</span><span class=w> </span><span class=s1>&#39;\c&#39;</span><span class=w> </span><span class=k>to</span><span class=w> </span><span class=n>clear</span><span class=w> </span><span class=n>the</span><span class=w> </span><span class=n>current</span><span class=w> </span><span class=n>input</span><span class=w> </span><span class=n>statement</span><span class=p>.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=n>mysql</span><span class=o>&gt;</span><span class=w> </span><span class=k>show</span><span class=w> </span><span class=k>databases</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=o>+--------------------+</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=o>|</span><span class=w> </span><span class=k>Database</span><span class=w>           </span><span class=o>|</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=o>+--------------------+</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=o>|</span><span class=w> </span><span class=n>information_schema</span><span class=w> </span><span class=o>|</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=o>|</span><span class=w> </span><span class=n>ghost</span><span class=w>              </span><span class=o>|</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=o>+--------------------+</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=mi>2</span><span class=w> </span><span class=n>rows</span><span class=w> </span><span class=k>in</span><span class=w> </span><span class=kt>set</span><span class=w> </span><span class=p>(</span><span class=mi>0</span><span class=p>.</span><span class=mi>00</span><span class=w> </span><span class=n>sec</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=n>mysql</span><span class=o>&gt;</span><span class=w> </span><span class=k>use</span><span class=w> </span><span class=n>ghost</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=n>Reading</span><span class=w> </span><span class=k>table</span><span class=w> </span><span class=n>information</span><span class=w> </span><span class=k>for</span><span class=w> </span><span class=n>completion</span><span class=w> </span><span class=n>of</span><span class=w> </span><span class=k>table</span><span class=w> </span><span class=k>and</span><span class=w> </span><span class=k>column</span><span class=w> </span><span class=n>names</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=n>You</span><span class=w> </span><span class=n>can</span><span class=w> </span><span class=n>turn</span><span class=w> </span><span class=n>off</span><span class=w> </span><span class=n>this</span><span class=w> </span><span class=n>feature</span><span class=w> </span><span class=k>to</span><span class=w> </span><span class=n>get</span><span class=w> </span><span class=n>a</span><span class=w> </span><span class=n>quicker</span><span class=w> </span><span class=n>startup</span><span class=w> </span><span class=k>with</span><span class=w> </span><span class=o>-</span><span class=n>A</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>Database</span><span class=w> </span><span class=n>changed</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=n>mysql</span><span class=o>&gt;</span><span class=w> </span><span class=k>select</span><span class=w> </span><span class=n>name</span><span class=w> </span><span class=k>from</span><span class=w> </span><span class=n>users</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=o>+------+</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=o>|</span><span class=w> </span><span class=n>name</span><span class=w> </span><span class=o>|</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=o>+------+</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=o>|</span><span class=w> </span><span class=n>ALEX</span><span class=w> </span><span class=o>|</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=o>+------+</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=mi>1</span><span class=w> </span><span class=n>row</span><span class=w> </span><span class=k>in</span><span class=w> </span><span class=kt>set</span><span class=w> </span><span class=p>(</span><span class=mi>0</span><span class=p>.</span><span class=mi>00</span><span class=w> </span><span class=n>sec</span><span class=p>)</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>测试<code>mysqldump</code>备份命令，注意mysqldump备份会锁表，但对于正在工作的数据库，锁表会影响到正常业务，所以我们可以使用<code>&ndash;single-transaction</code>参数，不锁表备份。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>➜  ~ mysqldump -u ghost_backuser -pbackupPass ghost &gt; ghost.bak.sql
+</span></span><span class=line><span class=cl>Warning: Using a password on the <span class=nb>command</span> line interface can be insecure.
+</span></span><span class=line><span class=cl>mysqldump: Got error: 1044: Access denied <span class=k>for</span> user <span class=s1>&#39;ghost_backuser&#39;</span>@<span class=s1>&#39;localhost&#39;</span> to database <span class=s1>&#39;ghost&#39;</span> when using LOCK TABLES
+</span></span><span class=line><span class=cl>➜  ~ mysqldump -u ghost_backuser -pbackupPass --single-transaction ghost &gt; ghost.bak.sql
+</span></span><span class=line><span class=cl>Warning: Using a password on the <span class=nb>command</span> line interface can be insecure.
+</span></span><span class=line><span class=cl>➜  ~ ls -lh
+</span></span><span class=line><span class=cl>total 780K
+</span></span><span class=line><span class=cl>-rw-r--r-- <span class=m>1</span> root   root  780K May <span class=m>17</span> 16:24 ghost.bak.sql
+</span></span><span class=line><span class=cl>➜  ~
+</span></span></code></pre></td></tr></table></div></div><h4 id=安装命令行邮件工具mailx class=headerLink><a href=#%e5%ae%89%e8%a3%85%e5%91%bd%e4%bb%a4%e8%a1%8c%e9%82%ae%e4%bb%b6%e5%b7%a5%e5%85%b7mailx class=header-mark></a>0.0.3 安装命令行邮件工具mailx</h4><p>安装mailx 在CentOS/RehHat:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>➜  ~ yum install -y mailx
+</span></span></code></pre></td></tr></table></div></div><p>测试发送邮件：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>➜  ~ <span class=nb>echo</span> <span class=s2>&#34;test&#34;</span> <span class=p>|</span> mail -s <span class=s2>&#34;this a test email&#34;</span> samzong.lu@gmail.com
+</span></span></code></pre></td></tr></table></div></div><p><a class=lightgallery href=http://ww2.sinaimg.cn/large/006tKfTcgy1ffogc7wksdj30ms03t3ym.jpg title=http://ww2.sinaimg.cn/large/006tKfTcgy1ffogc7wksdj30ms03t3ym.jpg data-thumbnail=http://ww2.sinaimg.cn/large/006tKfTcgy1ffogc7wksdj30ms03t3ym.jpg><img class=lazyload data-src=http://ww2.sinaimg.cn/large/006tKfTcgy1ffogc7wksdj30ms03t3ym.jpg data-srcset="http://ww2.sinaimg.cn/large/006tKfTcgy1ffogc7wksdj30ms03t3ym.jpg, http://ww2.sinaimg.cn/large/006tKfTcgy1ffogc7wksdj30ms03t3ym.jpg 1.5x, http://ww2.sinaimg.cn/large/006tKfTcgy1ffogc7wksdj30ms03t3ym.jpg 2x" data-sizes=auto alt=http://ww2.sinaimg.cn/large/006tKfTcgy1ffogc7wksdj30ms03t3ym.jpg></a></p><h4 id=安装计划任务工具crontab class=headerLink><a href=#%e5%ae%89%e8%a3%85%e8%ae%a1%e5%88%92%e4%bb%bb%e5%8a%a1%e5%b7%a5%e5%85%b7crontab class=header-mark></a>0.0.4 安装计划任务工具Crontab</h4><p>crontab命令常见于Unix和类Unix的操作系统之中，用于设置周期性被执行的指令。该命令从标准输入设备读取指令，并将其存放于“crontab”文件中。通常，crontab储存的指令被守护进程激活， crond常常在后台运行，每一分钟检查是否有预定的作业需要执行。这类作业一般称为cron jobs。</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>➜  ~ yum install vixie-cron
+</span></span><span class=line><span class=cl>➜  ~ yum install crontabs
+</span></span></code></pre></td></tr></table></div></div><blockquote><p>vixie-cron软件包是cron的主程序；</p><p>crontabs软件包是用来安装、卸装、或列举用来驱动 cron 守护进程的表格的程序。</p></blockquote><p>启动crond并设置为开机自启动：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>➜  ~ service crond start
+</span></span><span class=line><span class=cl>Starting crond:                                            <span class=o>[</span>  OK  <span class=o>]</span>
+</span></span><span class=line><span class=cl>➜  ~ chkconfig crond on
+</span></span></code></pre></td></tr></table></div></div><p>crontab 基础命令：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>语　　法：crontab <span class=o>[</span>-u &lt;用户名称&gt;<span class=o>][</span>配置文件<span class=o>]</span> 或 crontab <span class=o>[</span>-u &lt;用户名称&gt;<span class=o>][</span>-elr<span class=o>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>补充说明：cron是一个常驻服务，它提供计时器的功能，让用户在特定的时间得以执行预设的指令或程序。只要用户会编辑计时器的配置文件，就可以使用计时器的功能。
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>配置文件格式：Minute Hour Day Month DayOFWeek Command
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>参　　数：
+</span></span><span class=line><span class=cl>-e 　编辑该用户的计时器设置。
+</span></span><span class=line><span class=cl>-l 　列出该用户的计时器设置。
+</span></span><span class=line><span class=cl>-r 　删除该用户的计时器设置。
+</span></span><span class=line><span class=cl>-u&lt;用户名称&gt; 　指定要设定计时器的用户名称。
+</span></span></code></pre></td></tr></table></div></div><p>crontab 配置的基本格式：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>*     * 　 *　  *　  *　　<span class=nb>command</span>
+</span></span><span class=line><span class=cl>分　  时　 日　 月　 周　  命令
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl> 第1列表示分钟1～59 每分钟用*或者 */1表示
+</span></span><span class=line><span class=cl> 第2列表示小时1～23（0表示0点）
+</span></span><span class=line><span class=cl> 第3列表示日期1～31
+</span></span><span class=line><span class=cl> 第4列表示月份1～12
+</span></span><span class=line><span class=cl> 第5列标识号星期0～6（0表示星期天）
+</span></span><span class=line><span class=cl> 第6列要运行的命令
+</span></span></code></pre></td></tr></table></div></div><p>crontab 的一些例子：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1>#每晚的21:30 重启apache</span>
+</span></span><span class=line><span class=cl><span class=m>30</span> <span class=m>21</span> * * * /usr/local/etc/rc.d/lighttpd restart
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#每月1、10、22日的4 : 45重启apache</span>
+</span></span><span class=line><span class=cl><span class=m>45</span> <span class=m>4</span> 1,10,22 * * /usr/local/etc/rc.d/lighttpd restart
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#每周六、周日的1 : 10重启apache</span>
+</span></span><span class=line><span class=cl><span class=m>10</span> <span class=m>1</span> * * 6,0 /usr/local/etc/rc.d/lighttpd restart
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#每天18 : 00至23 : 00之间每隔30分钟重启apache</span>
+</span></span><span class=line><span class=cl>0,30 18-23 * * * /usr/local/etc/rc.d/lighttpd restart
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#每星期六的11 : 00 pm重启apache</span>
+</span></span><span class=line><span class=cl><span class=m>0</span> <span class=m>23</span> * * <span class=m>6</span> /usr/local/etc/rc.d/lighttpd restart
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#晚上11点到早上7点之间，每隔一小时重启apache</span>
+</span></span><span class=line><span class=cl>* 23-7/1 * * * /usr/local/etc/rc.d/lighttpd restart
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#每一小时重启apache</span>
+</span></span><span class=line><span class=cl>* */1 * * * /usr/local/etc/rc.d/lighttpd restart
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#每月的4号与每周一到周三的11点重启apache</span>
+</span></span><span class=line><span class=cl><span class=m>0</span> <span class=m>11</span> <span class=m>4</span> * mon-wed /usr/local/etc/rc.d/lighttpd restart
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#一月一号的4点重启apache</span>
+</span></span><span class=line><span class=cl><span class=m>0</span> <span class=m>4</span> <span class=m>1</span> jan * /usr/local/etc/rc.d/lighttpd restart
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#每半小时同步一下时间</span>
+</span></span><span class=line><span class=cl>*/30 * * * * /usr/sbin/ntpdate 210.72.145.44
+</span></span></code></pre></td></tr></table></div></div><h4 id=编写备份脚本 class=headerLink><a href=#%e7%bc%96%e5%86%99%e5%a4%87%e4%bb%bd%e8%84%9a%e6%9c%ac class=header-mark></a>0.0.5 编写备份脚本</h4><p>好了，以上我们测试需要用到的各个模块，下面我们要编写备份脚本：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=cp>#!/bin/bash
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=c1>#  mysqldump scripts.</span>
+</span></span><span class=line><span class=cl><span class=c1># filepath: /usr/local/bin/ghost_sqldump.sh</span>
+</span></span><span class=line><span class=cl><span class=c1># Author: samzong</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>#  set TIME variable</span>
+</span></span><span class=line><span class=cl><span class=nv>TIME</span><span class=o>=</span><span class=sb>`</span>date <span class=s2>&#34;+%Y%m%d%H%M%S&#34;</span><span class=sb>`</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># backup db ghost to /mysqlbak/</span>
+</span></span><span class=line><span class=cl>mysqldump --single-transaction -h localhost -u ghost_backuser -pbackupPass ghost  &gt; /mysqlbak/ghost_<span class=nv>$TIME</span>.sql
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># tar sql files.</span>
+</span></span><span class=line><span class=cl>tar czvf /mysqlbak/ghost_<span class=nv>$TIME</span>.sql.tgz /mysqlbak/ghost_<span class=nv>$TIME</span>.sql --remove-files
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># remove over 7 days sql files.</span>
+</span></span><span class=line><span class=cl>find /mysqlbak/ -mtime +7 -exec rm -f <span class=o>{}</span> <span class=se>\;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># send mial to admin&#39;mial</span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=o>[</span> <span class=nv>$?</span> -eq <span class=m>0</span> <span class=o>]</span>
+</span></span><span class=line><span class=cl><span class=k>then</span>
+</span></span><span class=line><span class=cl>	<span class=nb>echo</span> <span class=s2>&#34;ghost SQL dump is successfully. At time: `date` &#34;</span> <span class=p>|</span> mail -s ghost-dump-successfully  samzong.lu@gmail.com
+</span></span><span class=line><span class=cl><span class=k>else</span>
+</span></span><span class=line><span class=cl>	<span class=nb>echo</span> <span class=s2>&#34; Error Error ghost SQL dump is Error. At time: `date` &#34;</span> <span class=p>|</span> mail -s ghost-dump-error samzong.lu@gmail.com
+</span></span><span class=line><span class=cl><span class=k>fi</span>
+</span></span></code></pre></td></tr></table></div></div><p>注意脚本中的以下内容要根据你的实际情况修改:</p><ul><li>-h " " 这是数据库所在的主机</li><li>-u " " 这是数据库可备份的用户名</li><li>-p" " 备份用户的密码</li></ul><h4 id=添加计划任务 class=headerLink><a href=#%e6%b7%bb%e5%8a%a0%e8%ae%a1%e5%88%92%e4%bb%bb%e5%8a%a1 class=header-mark></a>0.0.6 添加计划任务</h4><p>经过以上测试，已经很好的完成备份脚本，接下来将脚本添加到crontab内，并设置自动执行的时间：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>➜  ~ crontab -e
+</span></span><span class=line><span class=cl><span class=m>00</span> <span class=m>00</span> * * * sh /usr/local/bin/ghost_sqldump.sh
+</span></span></code></pre></td></tr></table></div></div><p>重启crontab服务，并确认crontab已经设置为开机自启动</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>➜  ~ service crond restart
+</span></span><span class=line><span class=cl>Stopping crond:                                            <span class=o>[</span>  OK  <span class=o>]</span>
+</span></span><span class=line><span class=cl>Starting crond:                                            <span class=o>[</span>  OK  <span class=o>]</span>
+</span></span><span class=line><span class=cl>➜  ~ chkconfig --list <span class=p>|</span> grep crond
+</span></span><span class=line><span class=cl>crond          	0:off	1:off	2:on	3:on	4:on	5:on	6:off
+</span></span></code></pre></td></tr></table></div></div></div><h2>相关内容</h2><div class=related-container><div class=related-item-container><h2 class=related-title><a href=/sql-%E5%AF%B9%E6%97%B6%E9%97%B4%E6%95%B4%E7%82%B9%E7%9A%84%E5%A4%84%E7%90%86/>SQL 对时间整点的处理</a></h2></div><div class=related-item-container><h2 class=related-title><a href=/mysql-%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%85%E5%8A%A9-mycli/>MySQL 命令行辅助 mycli</a></h2></div><div class=related-item-container><h2 class=related-title><a href=/mysql-8-%E7%B4%A2%E5%BC%95%E5%88%9B%E5%BB%BA%E5%88%A0%E9%99%A4%E5%92%8C%E6%9F%A5%E7%9C%8B/>MySQL 索引创建、删除和查看</a></h2></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2022-09-25&nbsp;<a class=git-hash href=https://github.com/samzong/hugo-blog//commit/9243fe224eeb848d7de2b457afbea88d8d7497fa target=_blank title="commit by samzong.lu(samzong.lu@gmail.com) 9243fe224eeb848d7de2b457afbea88d8d7497fa: init new blog" rel="noopener noreferrer">
+<i class="fas fa-hashtag fa-fw"></i>9243fe2</a></span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-mardown href=/howto-automatic-easybackup-mysqldb/index.md target=_blank rel="noopener noreferrer">阅读原始文档</a></span></div><div class=post-info-share><span><a href=# onclick=return!1 title="分享到 Twitter" data-sharer=twitter data-url=https://samzong.me/howto-automatic-easybackup-mysqldb/ data-title="HowTo Automatic EasyBackup MysqlDB" data-via=samzong_lu data-hashtags=MySQL><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Facebook" data-sharer=facebook data-url=https://samzong.me/howto-automatic-easybackup-mysqldb/ data-hashtag=MySQL><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="分享到 微博" data-sharer=weibo data-url=https://samzong.me/howto-automatic-easybackup-mysqldb/ data-title="HowTo Automatic EasyBackup MysqlDB" data-ralateuid=3181653281><i class="fab fa-weibo fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/mysql/>MySQL</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/install_redmine3.4_rbuy2.4.1_passenger_nginx_mysql_ubuntu16.04/ class=prev rel=prev title="Howto Install Redmine on Ubuntu 16.04"><i class="fas fa-angle-left fa-fw"></i>Howto Install Redmine on Ubuntu 16.04</a>
+<a href=/install_mariadb10_centos7/ class=next rel=next title="How to install MariaDB 10.1 on CentOS 7.x">How to install MariaDB 10.1 on CentOS 7.x<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main></div><div id=fixed-buttons><a href=#back-to-top id=back-to-top-button class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><div id=cookieconsent-container></div><div class=assets><link rel=stylesheet href=/lib/cookieconsent/cookieconsent.min.css><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/fuse/fuse.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/tablesort/tablesort.min.js></script><script type=text/javascript src=/lib/cookieconsent/cookieconsent.min.js defer></script><script type=text/javascript src=/lib/topbar/topbar.min.js></script><script type=text/javascript src=/lib/pjax/pjax.min.js></script><script type=text/javascript src=/js/theme.min.js defer></script></div><div class=pjax-assets><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{},cookieconsent:{content:{dismiss:" dismiss",link:"https://samzong.me",message:"这是一个提示语"},enable:!0,palette:{button:{background:"#f0f0f0"},popup:{background:"#1aa3ff"}},theme:"edgeless"},lightGallery:{actualSize:!1,exThumbImage:"data-thumbnail",hideBarsDelay:2e3,selector:".lightgallery",speed:400,thumbContHeight:80,thumbWidth:80,thumbnail:!0},math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},search:{distance:100,findAllMatches:!1,fuseIndexURL:"/index.json",highlightTag:"em",ignoreFieldNorm:!1,ignoreLocation:!1,isCaseSensitive:!1,location:0,maxResultLength:10,minMatchCharLength:2,noResultsFound:"没有找到结果",snippetLength:50,threshold:.3,type:"fuse",useExtendedSearch:!1},sharerjs:!0,table:{sort:!0},twemoji:!0}</script><script type=text/javascript src=/lib/twemoji/twemoji.min.js defer></script><script type=text/javascript src=/js/twemoji.min.js defer></script><script type=text/javascript src=/lib/lightgallery/lightgallery.min.js></script><script type=text/javascript src=/lib/lightgallery/lg-thumbnail.min.js></script><script type=text/javascript src=/lib/lightgallery/lg-zoom.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/lib/katex/katex.min.js defer></script><script type=text/javascript src=/lib/katex/auto-render.min.js defer></script><script type=text/javascript src=/lib/katex/copy-tex.min.js defer></script><script type=text/javascript src=/lib/katex/mhchem.min.js defer></script><script type=text/javascript src=/js/katex.min.js defer></script><script type=text/javascript src=/js/cookieconsent.min.js defer></script><link rel=stylesheet href=/lib/lightgallery/lightgallery.min.css><link rel=stylesheet href=/lib/katex/katex.min.css><link rel=preload as=style onload='this.onload=null,this.rel="stylesheet"' href=/lib/katex/copy-tex.min.css><noscript><link rel=stylesheet href=/lib/katex/copy-tex.min.css></noscript></div></body></html>
