@@ -1,12 +1,12 @@
-theme = 'DoIt'
 title = 'SAMZONG'
-defaultContentLanguage = "zh-cn"
+theme = 'DoIt'
 baseURL = 'https://samzong.me'
+defaultContentLanguage = "zh-cn"
+
 
 [author]
   name = "Samzong Lu"
   homepage = "https://github.com/SAMZONG/"
-
 
 [original]
   name = "SAMZONG"
@@ -24,7 +24,7 @@ baseURL = 'https://samzong.me'
       identifier = "posts"
       pre = ""
       post = ""
-      name = "Posts"
+      name = "All Posts"
       url = "/posts/"
       title = ""
       weight = 1
@@ -57,7 +57,7 @@ baseURL = 'https://samzong.me'
       identifier = "posts"
       pre = ""
       post = ""
-      name = "文章"
+      name = "全部文章"
       url = "/posts/"
       title = ""
       weight = 1
@@ -85,7 +85,7 @@ baseURL = 'https://samzong.me'
 
   gitRepo = "https://github.com/samzong/"
   dateFormat = "2006-01-02"
-  noFavicon = false
+  noFavicon = true
 
   # 页面头部导航栏配置
   [params.header]
@@ -103,7 +103,7 @@ baseURL = 'https://samzong.me'
       # 标题名称
       name = "SAMZONG"
       # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
-      pre = "🐸"
+      pre = " 🚀🚀🚀 "
       # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
       post = ""
       # DoIt 新增 | 0.2.5 是否为标题显示打字机动画
@@ -155,11 +155,11 @@ baseURL = 'https://samzong.me'
   # DoIt 新增 | 0.2.0 List (目录或标签) 页面配置
   [params.list]
     # list 页面每页显示文章数量
-    paginate = 10
+    paginate = 20
     # 日期格式 (月和日)
     dateFormat = "01-02"
     # RSS 文章数目
-    rss = 10
+    rss = 20
 
   # 主页配置
   [params.home]
@@ -177,7 +177,7 @@ baseURL = 'https://samzong.me'
       # DoIt 更改 | 0.2.7 主页显示的网站标题 (支持 HTML 格式)
       title = "SAMZONG"
       # 主页显示的网站副标题
-      subtitle = ""
+      subtitle = "读史以明志"
       # 是否为副标题显示打字机动画
       typeit = false
       # 是否显示社交账号
@@ -188,7 +188,7 @@ baseURL = 'https://samzong.me'
     [params.home.posts]
       enable = true
       # 主页每页显示文章数量
-      paginate = 10
+      paginate = 20
       # DoIt 删除 | 0.2.0 被 params.page 中的 hiddenFromHomePage 替代
       # 当你没有在文章前置参数中设置 "hiddenFromHomePage" 时的默认行为
       defaultHiddenFromHomePage = true
@@ -256,7 +256,7 @@ baseURL = 'https://samzong.me'
     Gitea = ""
     XMPP = ""
     Matrix = ""
-    Bilibili = ""
+    Bilibili = "761544"
     ORCID = ""
     Liberapay = ""
     Ko-Fi = ""
@@ -270,13 +270,13 @@ baseURL = 'https://samzong.me'
   # DoIt 更改 | 0.2.0 文章页面配置
   [params.page]
     # DoIt 新增 | 0.2.0 是否在主页隐藏一篇文章
-    hiddenFromHomePage = false
+    hiddenFromHomePage = true
     # DoIt 新增 | 0.2.0 是否在搜索结果中隐藏一篇文章
     hiddenFromSearch = false
     # DoIt 新增 | 0.2.0 是否使用 twemoji
-    twemoji = false
+    twemoji = true
     # 是否使用 lightgallery
-    lightgallery = false
+    lightgallery = true
     # DoIt 新增 | 0.2.0 是否使用 ruby 扩展语法
     ruby = true
     # DoIt 新增 | 0.2.0 是否使用 fraction 扩展语法
@@ -297,9 +297,9 @@ baseURL = 'https://samzong.me'
     linkToReport = false
     # "https://github.com/user/repo/issues/new?title=[bug]%20{title}&body=|Field|Value|%0A|-|-|%0A|Title|{title}|%0A|Url|{url}|%0A|Filename|https://github.com/user/repo/blob/main/{path}|"
     # DoIt 新增 | 0.2.4 是否在 RSS 中显示全文内容
-    rssFullText = false
+    rssFullText = true
     # DoIt 新增 | 0.2.11 页面样式 ("normal", "wide")
-    pageStyle = "normal"
+    pageStyle = "wide"
     # DoIt 新增 | 0.2.13 是否在文章开头显示系列导航
     seriesNavigation = true
     # DoIt 新增 | 0.2.13 过时文章提示
@@ -394,7 +394,7 @@ baseURL = 'https://samzong.me'
 
     [params.page.related]
       enable = true
-      count = 5
+      count = 3
 
 
 # 网站地图配置
