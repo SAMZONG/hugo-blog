@@ -1,0 +1,135 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title class=pjax-title>CentOS 使用createrepo搭建本地源 - SAMZONG</title><meta name=Description content><meta property="og:title" content="CentOS 使用createrepo搭建本地源"><meta property="og:description" content="Tips: 本地搭建本地yum源采用的rpm全部来自CentOS-6.7-bin-DVD1&DVD2 1. 测试环境 MacBook Pro 15-inch i7 16GB VMware Fushion 8 Pro CentOS-6.7-i686-minimal.iso 因为配置本地"><meta property="og:type" content="article"><meta property="og:url" content="https://samzong.me/posts/centos-6-1-%E4%BD%BF%E7%94%A8createrepo%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0%E6%BA%90/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2016-03-29T03:37:31+00:00"><meta property="article:modified_time" content="2016-03-29T03:37:31+00:00"><meta property="og:site_name" content="SAMZONG"><meta name=twitter:card content="summary"><meta name=twitter:title content="CentOS 使用createrepo搭建本地源"><meta name=twitter:description content="Tips: 本地搭建本地yum源采用的rpm全部来自CentOS-6.7-bin-DVD1&DVD2 1. 测试环境 MacBook Pro 15-inch i7 16GB VMware Fushion 8 Pro CentOS-6.7-i686-minimal.iso 因为配置本地"><meta name=application-name content="SAMZONG"><meta name=apple-mobile-web-app-title content="SAMZONG"><meta name=theme-color content="#f8f8f8"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=canonical href=https://samzong.me/posts/centos-6-1-%E4%BD%BF%E7%94%A8createrepo%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0%E6%BA%90/><link rel=prev href=https://samzong.me/posts/howto-install-mongodb-on-centos-6-x/><link rel=next href=https://samzong.me/posts/linux-%E4%B8%AD%E7%9A%84%E4%B8%89%E4%B8%AA%E7%89%B9%E6%AE%8A%E6%9D%83%E9%99%90/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload='this.onload=null,this.rel="stylesheet"' href=/lib/fontawesome-free/all.min.css><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload='this.onload=null,this.rel="stylesheet"' href=/lib/animate/animate.min.css><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"CentOS 使用createrepo搭建本地源","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/samzong.me\/posts\/centos-6-1-%E4%BD%BF%E7%94%A8createrepo%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0%E6%BA%90\/"},"genre":"posts","keywords":"Yum","wordcount":938,"url":"https:\/\/samzong.me\/posts\/centos-6-1-%E4%BD%BF%E7%94%A8createrepo%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0%E6%BA%90\/","datePublished":"2016-03-29T03:37:31+00:00","dateModified":"2016-03-29T03:37:31+00:00","publisher":{"@type":"Organization","name":"Samzong Lu"},"author":{"@type":"Person","name":"Samzong Lu"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>function setTheme(e){document.body.setAttribute("theme",e),document.documentElement.style.setProperty("color-scheme",e==="light"?"light":"dark")}function saveTheme(e){window.localStorage&&localStorage.setItem("theme",e)}function getMeta(e){const t=document.getElementsByTagName("meta");for(let n=0;n<t.length;n++)if(t[n].getAttribute("name")===e)return t[n];return""}if(window.localStorage&&localStorage.getItem("theme")){let e=localStorage.getItem("theme");e==="light"||e==="dark"||e==="black"?setTheme(e):setTheme(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}else""==="light"||""==="dark"||""==="black"?(setTheme(""),saveTheme("")):(saveTheme("auto"),setTheme(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));let metaColors={light:"#f8f8f8",dark:"#252627",black:"#000000"};getMeta("theme-color").content=metaColors[document.body.getAttribute("theme")]</script><div id=back-to-top></div><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=SAMZONG><span class=header-title-pre>🐸</span>SAMZONG</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>文章 </a><a class=menu-item href=/tags/>标签 </a><a class=menu-item href=/categories/>分类 </a><span class="menu-item delimiter"></span><a href=# onclick=return!1 class="menu-item language" title=选择语言>简体中文<i class="fas fa-chevron-right fa-fw"></i>
+<select class=language-select title="Select Language" id=language-select-desktop onchange="location=this.value"><option value=/posts/centos-6-1-%E4%BD%BF%E7%94%A8createrepo%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0%E6%BA%90/ selected>简体中文</option></select>
+</a><a href=# onclick=return!1 class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=SAMZONG><span class=header-title-pre>🐸</span>SAMZONG</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/ title>文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a href=# onclick=return!1 class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+</a><a href=# onclick=return!1 class=menu-item title=选择语言>简体中文<i class="fas fa-chevron-right fa-fw"></i>
+<select class=language-select title="Select Language" onchange="location=this.value"><option value=/posts/centos-6-1-%E4%BD%BF%E7%94%A8createrepo%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0%E6%BA%90/ selected>简体中文</option></select></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","false")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">CentOS 使用createrepo搭建本地源</h1><div class=post-meta><div class=post-meta-line><span class=post-author><i class="author fas fa-user-circle fa-fw"></i><a href=/ title=Author rel=author class=author>Samzong Lu</a>
+</span>&nbsp;<span class=post-category>收录于 </span>&nbsp;<span class=post-category>类别 <a href=/categories/linux/><i class="far fa-folder fa-fw"></i>Linux</a>&nbsp;<a href=/categories/centos/><i class="far fa-folder fa-fw"></i>CentOS</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2016-03-29>2016-03-29</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2016-03-29>2016-03-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 938 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div></div><div class="details toc" id=toc-static kept=true><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><ul><li><a href=#1-测试环境>1. 测试环境</a></li><li><a href=#2-实验步骤>2. 实验步骤</a></li></ul></li></ul></nav></div></div><div class=content id=content><div class="details admonition warning open"><div class="details-summary admonition-title"><i class="icon fas fa-exclamation-triangle fa-fwwarning"></i>警告<i class="details-icon fas fa-angle-right fa-fw"></i></div><div class=details-content><div class=admonition-content>本文最后更新于 <span class=timeago datetime=2016-03-29T03:37:31 title="March 29, 2016">2016-03-29</span>，文中内容可能已过时。</div></div></div><blockquote><p>Tips: 本地搭建本地yum源采用的rpm全部来自CentOS-6.7-bin-DVD1&DVD2</p></blockquote><h3 id=1-测试环境 class=headerLink><a href=#1-%e6%b5%8b%e8%af%95%e7%8e%af%e5%a2%83 class=header-mark></a>1. 测试环境</h3><ul><li>MacBook Pro 15-inch i7 16GB</li><li>VMware Fushion 8 Pro</li><li>CentOS-6.7-i686-minimal.iso</li></ul><p>因为配置本地yum源需要修改/目录下的文件及/etc下面的配置文件，建议更换到root用户。</p><h3 id=2-实验步骤 class=headerLink><a href=#2-%e5%ae%9e%e9%aa%8c%e6%ad%a5%e9%aa%a4 class=header-mark></a>2. 实验步骤</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl># 2.1 因为配置本地yum源需要修改/目录下的文件及/etc下面的配置文件，建议更换到root用户。
+</span></span><span class=line><span class=cl>[adam@ultraera ~]$ su -
+</span></span><span class=line><span class=cl>Password:
+</span></span><span class=line><span class=cl>[root@ultraera ~]#
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 2.2 首先在本地创建一个存放rpm包的目录，我这里选择直接在/下创建，你可以自定义：
+</span></span><span class=line><span class=cl>[root@ultraera ~]# mkdir /yumload
+</span></span><span class=line><span class=cl>[root@ultraera ~]# cd /yumload/
+</span></span><span class=line><span class=cl>[root@ultraera yumload]# pwd
+</span></span><span class=line><span class=cl>/yumload
+</span></span><span class=line><span class=cl># 2.3 接下来把两张DVD中的Packages中的rpm包全部拷贝到/yumload:
+</span></span><span class=line><span class=cl>[root@ultraera yumload]# cp /media/CentOS_6.5_Final/Packages/* ./
+</span></span><span class=line><span class=cl>[root@ultraera yumload]# ll ./*.rpm | wc -l
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>#两张DVD一共有的rpm包的数量:
+</span></span><span class=line><span class=cl>4802
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 2.4 然后使用createrepo指令创建本地repo，CentOS6默认不安装createrepo，需要手动安装，没关系，在我们的DVD光盘中已经集成了createrepo的包，如果报需要依赖安装其他包的使用，依次安装即可。
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[root@ultraera yumload]# rpm -ivh createrepo-0.9.9-18.el6.noarch.rpm
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 2.5 创建yum仓库，耐心等待，可以加-v参数列出执行信息
+</span></span><span class=line><span class=cl>[root@ultraera yumload]# createrepo /yumload/
+</span></span><span class=line><span class=cl>Spawning worker 0 with 4802 pkgs
+</span></span><span class=line><span class=cl>Workers Finished
+</span></span><span class=line><span class=cl>Gathering worker results
+</span></span><span class=line><span class=cl>Saving Primary metadata
+</span></span><span class=line><span class=cl>Saving file lists metadata
+</span></span><span class=line><span class=cl>Saving other metadata
+</span></span><span class=line><span class=cl>Generating sqlite DBs
+</span></span><span class=line><span class=cl>Sqlite DBs complete
+</span></span><span class=line><span class=cl>[root@ultraera yumload]#
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 2.6 在/etc/yum.repo.d/下创建一个repo文件，文件名可以自定义，但一定要以repo结尾，并添加一下内容：
+</span></span><span class=line><span class=cl>[ultraera.org]	#仓库名称可以自定义
+</span></span><span class=line><span class=cl>name=This is a local repo	#描述信息
+</span></span><span class=line><span class=cl>baseurl=file:///yumload/	#这里填写仓库的url，注意 有三个正斜线
+</span></span><span class=line><span class=cl>enabled=1	#是否开启仓库，1为开启，0为关闭
+</span></span><span class=line><span class=cl>gpgcheck=0	#是否检查gpgkey，1为开启，0为关闭
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 2.7 另外如果想要添加软件包group的信息，可以把DVD1中的repodata文件中的*-comps.xml文件，使用ceraterepo -g 加载本地仓库即可，代码如下：
+</span></span><span class=line><span class=cl>[root@ultraera repodata]# createrepo -g [字符可能不一样，后缀正确就行]c6-i386-comps.xml /yumload/
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 2.8 到这里本地yum源就已经搭建完成了，接下来重新初始化yum缓存：
+</span></span><span class=line><span class=cl>[root@ultraera repodata]# yum clean all
+</span></span><span class=line><span class=cl>Loaded plugins: fastestmirror, refresh-packagekit, security
+</span></span><span class=line><span class=cl>Cleaning repos: ultraera.org
+</span></span><span class=line><span class=cl>Cleaning up Everything
+</span></span><span class=line><span class=cl>Cleaning up list of fastest mirrors
+</span></span><span class=line><span class=cl>[root@ultraera repodata]# yum makecache
+</span></span><span class=line><span class=cl>Loaded plugins: fastestmirror, refresh-packagekit, security
+</span></span><span class=line><span class=cl>Determining fastest mirrors
+</span></span><span class=line><span class=cl>ultraera.org	| 2.9 kB	00:00 ...
+</span></span><span class=line><span class=cl>ultraera.org/filelists_db	| 4.9 MB	00:00 ...
+</span></span><span class=line><span class=cl>ultraera.org/primary_db	| 3.5 MB	00:00 ...
+</span></span><span class=line><span class=cl>ultraera.org/other_db	| 2.1 MB	00:00 ...
+</span></span><span class=line><span class=cl>Metadata Cache Created
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl># 2.9 测试group信息是否添加正确可以用如下代码，只要有正确输出信息就表示成功了
+</span></span><span class=line><span class=cl>[root@ultraera ~]# yum grouplist
+</span></span></code></pre></td></tr></table></div></div></div><h2>相关内容</h2><div class=related-container><div class=related-item-container><h2 class=related-title><a href=/posts/yum%E4%B8%AD-releasever%E5%92%8C-basearch%E7%9A%84%E5%8F%96%E5%80%BC/>Yum中$releasever和$basearch的取值</a></h2></div><div class=related-item-container><h2 class=related-title><a href=/posts/howto-use-remi-install-redis/>HowTo Use Remi Install Redis</a></h2></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2016-03-29</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-mardown href=/posts/centos-6-1-%E4%BD%BF%E7%94%A8createrepo%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0%E6%BA%90/index.md target=_blank rel="noopener noreferrer">阅读原始文档</a></span></div><div class=post-info-share><span><a href=# onclick=return!1 title="分享到 Twitter" data-sharer=twitter data-url=https://samzong.me/posts/centos-6-1-%E4%BD%BF%E7%94%A8createrepo%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0%E6%BA%90/ data-title="CentOS 使用createrepo搭建本地源" data-via=samzong_lu data-hashtags=Yum><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Facebook" data-sharer=facebook data-url=https://samzong.me/posts/centos-6-1-%E4%BD%BF%E7%94%A8createrepo%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0%E6%BA%90/ data-hashtag=Yum><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="分享到 微博" data-sharer=weibo data-url=https://samzong.me/posts/centos-6-1-%E4%BD%BF%E7%94%A8createrepo%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0%E6%BA%90/ data-title="CentOS 使用createrepo搭建本地源" data-ralateuid=3181653281><i class="fab fa-weibo fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/yum/>Yum</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/howto-install-mongodb-on-centos-6-x/ class=prev rel=prev title="HowTo Install MongoDB  on CentOS 6.x"><i class="fas fa-angle-left fa-fw"></i>HowTo Install MongoDB on CentOS 6.x</a>
+<a href=/posts/linux-%E4%B8%AD%E7%9A%84%E4%B8%89%E4%B8%AA%E7%89%B9%E6%AE%8A%E6%9D%83%E9%99%90/ class=next rel=next title="Linux 中的三个特殊权限">Linux 中的三个特殊权限<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main></div><div id=fixed-buttons><a href=#back-to-top id=back-to-top-button class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><div class=assets><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/tablesort/tablesort.min.js></script><script type=text/javascript src=/lib/topbar/topbar.min.js></script><script type=text/javascript src=/lib/pjax/pjax.min.js></script><script type=text/javascript src=/js/theme.min.js defer></script></div><div class=pjax-assets><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{},math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},sharerjs:!0,table:{sort:!0}}</script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/lib/katex/katex.min.js defer></script><script type=text/javascript src=/lib/katex/auto-render.min.js defer></script><script type=text/javascript src=/lib/katex/copy-tex.min.js defer></script><script type=text/javascript src=/lib/katex/mhchem.min.js defer></script><script type=text/javascript src=/js/katex.min.js defer></script><link rel=stylesheet href=/lib/katex/katex.min.css><link rel=preload as=style onload='this.onload=null,this.rel="stylesheet"' href=/lib/katex/copy-tex.min.css><noscript><link rel=stylesheet href=/lib/katex/copy-tex.min.css></noscript></div></body></html>

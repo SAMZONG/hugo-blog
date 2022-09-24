@@ -1,0 +1,183 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title class=pjax-title>CentOS 7 Configure DNS Server - SAMZONG</title><meta name=Description content><meta property="og:title" content="CentOS 7 Configure DNS Server"><meta property="og:description" content="今天介绍下如何在CentOS 7下部署DNS Server，测试环境中服务端搭建在了CentOS 7，客户端分别在Windows和Linux实现测"><meta property="og:type" content="article"><meta property="og:url" content="https://samzong.me/posts/centos7_configure_bind_dns_server/"><meta property="article:section" content="posts"><meta property="og:site_name" content="SAMZONG"><meta name=twitter:card content="summary"><meta name=twitter:title content="CentOS 7 Configure DNS Server"><meta name=twitter:description content="今天介绍下如何在CentOS 7下部署DNS Server，测试环境中服务端搭建在了CentOS 7，客户端分别在Windows和Linux实现测"><meta name=application-name content="SAMZONG"><meta name=apple-mobile-web-app-title content="SAMZONG"><meta name=theme-color content="#f8f8f8"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=canonical href=https://samzong.me/posts/centos7_configure_bind_dns_server/><link rel=prev href=https://samzong.me/posts/git%E7%BB%88%E7%AB%AFclone%E5%8A%A0%E9%80%9F/><link rel=next href=https://samzong.me/posts/%E9%97%AD%E5%85%B3%E5%A4%87%E6%88%98-11%E6%9C%88/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload='this.onload=null,this.rel="stylesheet"' href=/lib/fontawesome-free/all.min.css><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload='this.onload=null,this.rel="stylesheet"' href=/lib/animate/animate.min.css><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"CentOS 7 Configure DNS Server","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/samzong.me\/posts\/centos7_configure_bind_dns_server\/"},"genre":"posts","keywords":"CentOS","wordcount":895,"url":"https:\/\/samzong.me\/posts\/centos7_configure_bind_dns_server\/","publisher":{"@type":"Organization","name":"Samzong Lu"},"author":{"@type":"Person","name":"Samzong Lu"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>function setTheme(e){document.body.setAttribute("theme",e),document.documentElement.style.setProperty("color-scheme",e==="light"?"light":"dark")}function saveTheme(e){window.localStorage&&localStorage.setItem("theme",e)}function getMeta(e){const t=document.getElementsByTagName("meta");for(let n=0;n<t.length;n++)if(t[n].getAttribute("name")===e)return t[n];return""}if(window.localStorage&&localStorage.getItem("theme")){let e=localStorage.getItem("theme");e==="light"||e==="dark"||e==="black"?setTheme(e):setTheme(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}else""==="light"||""==="dark"||""==="black"?(setTheme(""),saveTheme("")):(saveTheme("auto"),setTheme(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));let metaColors={light:"#f8f8f8",dark:"#252627",black:"#000000"};getMeta("theme-color").content=metaColors[document.body.getAttribute("theme")]</script><div id=back-to-top></div><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=SAMZONG><span class=header-title-pre>🐸</span>SAMZONG</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>文章 </a><a class=menu-item href=/tags/>标签 </a><a class=menu-item href=/categories/>分类 </a><span class="menu-item delimiter"></span><a href=# onclick=return!1 class="menu-item language" title=选择语言>简体中文<i class="fas fa-chevron-right fa-fw"></i>
+<select class=language-select title="Select Language" id=language-select-desktop onchange="location=this.value"><option value=/posts/centos7_configure_bind_dns_server/ selected>简体中文</option></select>
+</a><a href=# onclick=return!1 class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=SAMZONG><span class=header-title-pre>🐸</span>SAMZONG</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/ title>文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a href=# onclick=return!1 class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+</a><a href=# onclick=return!1 class=menu-item title=选择语言>简体中文<i class="fas fa-chevron-right fa-fw"></i>
+<select class=language-select title="Select Language" onchange="location=this.value"><option value=/posts/centos7_configure_bind_dns_server/ selected>简体中文</option></select></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","false")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">CentOS 7 Configure DNS Server</h1><div class=post-meta><div class=post-meta-line><span class=post-author><i class="author fas fa-user-circle fa-fw"></i><a href=/ title=Author rel=author class=author>Samzong Lu</a>
+</span>&nbsp;<span class=post-category>收录于 </span>&nbsp;<span class=post-category>类别 <a href=/categories/linux/><i class="far fa-folder fa-fw"></i>Linux</a>&nbsp;<a href=/categories/centos/><i class="far fa-folder fa-fw"></i>CentOS</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=0001-01-01>0001-01-01</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=0001-01-01>0001-01-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 895 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div></div><div class="details toc" id=toc-static kept=true><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><ul><li><ul><li><a href=#dns服务介绍>DNS服务介绍</a></li><li><a href=#安装>安装</a></li><li><a href=#配置>配置</a></li><li><a href=#编辑samzonglocalzone配置文件>编辑samzong.local.zone配置文件</a></li><li><a href=#客户端验证>客户端验证</a></li><li><a href=#使用rndc管理dns解析记录>使用rndc管理DNS解析记录</a></li></ul></li></ul></li></ul></nav></div></div><div class=content id=content><div class="details admonition warning open"><div class="details-summary admonition-title"><i class="icon fas fa-exclamation-triangle fa-fwwarning"></i>警告<i class="details-icon fas fa-angle-right fa-fw"></i></div><div class=details-content><div class=admonition-content>本文最后更新于 <span class=timeago datetime=0001-01-01T00:00:00 title="January 1, 0001">0001-01-01</span>，文中内容可能已过时。</div></div></div><p>今天介绍下如何在CentOS 7下部署DNS Server，测试环境中服务端搭建在了CentOS 7，客户端分别在Windows和Linux实现测试。</p><p>因为目的是让自建DNS服务器解析公司内部的自定义域名，所以当客户端需要访问外网域名时，DNS服务器会将解析请求转发给ISP的DNS服务器，并会将解析结果缓存，并且只对内网主机的解析请求进行转发，而不会对公网的主机解析请求进行转发。</p><h4 id=dns服务介绍 class=headerLink><a href=#dns%e6%9c%8d%e5%8a%a1%e4%bb%8b%e7%bb%8d class=header-mark></a>DNS服务介绍</h4><p>DNS服务由BIND提供，启动后服务名为<code>named</code>，管理工具为<code>rndc</code>，debug工具为<code>dig</code>，主要配置文件在<code>/etc/named.conf</code>。</p><h4 id=安装 class=headerLink><a href=#%e5%ae%89%e8%a3%85 class=header-mark></a>安装</h4><p>推荐选择<code>bind-chroot</code>来安装，提高服务的安全性：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>➜  ~ yum install -y bind-chroot
+</span></span></code></pre></td></tr></table></div></div><p>安装完成之后，启动<code>named-chroot</code>服务，并设置为开机自启动：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>➜  ~ systemctl <span class=nb>enable</span> named-chroot.service
+</span></span><span class=line><span class=cl>Created symlink from /etc/systemd/system/multi-user.target.wants/named-chroot.service to /usr/lib/systemd/system/named-chroot.service.
+</span></span><span class=line><span class=cl>➜  ~ systemctl start named-chroot.service
+</span></span><span class=line><span class=cl>➜  ~ netstat -ntlp <span class=p>|</span> grep <span class=m>53</span>
+</span></span><span class=line><span class=cl>tcp        <span class=m>0</span>      <span class=m>0</span> 127.0.0.1:53            0.0.0.0:*               LISTEN      4515/named
+</span></span><span class=line><span class=cl>tcp        <span class=m>0</span>      <span class=m>0</span> 127.0.0.1:953           0.0.0.0:*               LISTEN      4515/named
+</span></span></code></pre></td></tr></table></div></div><h4 id=配置 class=headerLink><a href=#%e9%85%8d%e7%bd%ae class=header-mark></a>配置</h4><p>首先备份DNS服务端的主配置文件，然后修改其中的内容：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>➜  ~ cp /etc/named.conf /etc/named.conf.bak
+</span></span><span class=line><span class=cl>➜  ~ vim /etc/named.conf
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>options <span class=o>{</span>
+</span></span><span class=line><span class=cl>        listen-on port <span class=m>53</span> <span class=o>{</span> any<span class=p>;</span> <span class=o>}</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        listen-on-v6 port <span class=m>53</span> <span class=o>{</span> ::1<span class=p>;</span> <span class=o>}</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        directory       <span class=s2>&#34;/var/named&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        dump-file       <span class=s2>&#34;/var/named/data/cache_dump.db&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        statistics-file <span class=s2>&#34;/var/named/data/named_stats.txt&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        memstatistics-file <span class=s2>&#34;/var/named/data/named_mem_stats.txt&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        allow-query     <span class=o>{</span> 192.168.16.0/24<span class=p>;</span> 192.168.0.0/23<span class=p>;</span> <span class=o>}</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        recursion yes<span class=p>;</span>
+</span></span><span class=line><span class=cl>        allow-recursion <span class=o>{</span> 192.168.16.0/24<span class=p>;</span> 192.168.0.0/23<span class=p>;</span> <span class=o>}</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        forward first<span class=p>;</span>
+</span></span><span class=line><span class=cl>        forwarders <span class=o>{</span> 202.96.209.133<span class=p>;</span> 114.114.114.114<span class=p>;</span> <span class=o>}</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        dnssec-enable no<span class=p>;</span>
+</span></span><span class=line><span class=cl>        dnssec-validation no<span class=p>;</span>
+</span></span><span class=line><span class=cl>        dnssec-lookaside no<span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        bindkeys-file <span class=s2>&#34;/etc/named.iscdlv.key&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        managed-keys-directory <span class=s2>&#34;/var/named/dynamic&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        pid-file <span class=s2>&#34;/run/named/named.pid&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        session-keyfile <span class=s2>&#34;/run/named/session.key&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=o>}</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>logging <span class=o>{</span>
+</span></span><span class=line><span class=cl>        channel default_debug <span class=o>{</span>
+</span></span><span class=line><span class=cl>                file <span class=s2>&#34;data/named.run&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>                severity dynamic<span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=o>}</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=o>}</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>zone <span class=s2>&#34;.&#34;</span> IN <span class=o>{</span>
+</span></span><span class=line><span class=cl>        <span class=nb>type</span> hint<span class=p>;</span>
+</span></span><span class=line><span class=cl>        file <span class=s2>&#34;named.ca&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=o>}</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>// 新增一个samzong.local域名.
+</span></span><span class=line><span class=cl>zone <span class=s2>&#34;samzong.local&#34;</span> IN <span class=o>{</span>
+</span></span><span class=line><span class=cl>    <span class=nb>type</span> master<span class=p>;</span>
+</span></span><span class=line><span class=cl>    file <span class=s2>&#34;samzong.local.zone&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=o>}</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>include <span class=s2>&#34;/etc/named.rfc1912.zones&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>include <span class=s2>&#34;/etc/named.root.key&#34;</span><span class=p>;</span>
+</span></span></code></pre></td></tr></table></div></div><h4 id=编辑samzonglocalzone配置文件 class=headerLink><a href=#%e7%bc%96%e8%be%91samzonglocalzone%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6 class=header-mark></a>编辑samzong.local.zone配置文件</h4><p>首先创建samzong.local.zone文件：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>➜  ~ cd /var/named
+</span></span><span class=line><span class=cl>➜  named touch samzong.local.zone;
+</span></span></code></pre></td></tr></table></div></div><p>然后编辑文件内容新增：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=nv>$TTL</span> <span class=m>86400</span>
+</span></span><span class=line><span class=cl>@ IN SOA @ root.samzong.local. <span class=o>(</span>
+</span></span><span class=line><span class=cl>    <span class=m>2016042112</span> <span class=p>;</span>Serial
+</span></span><span class=line><span class=cl>    <span class=m>3600</span> <span class=p>;</span>Refresh
+</span></span><span class=line><span class=cl>    <span class=m>1800</span> <span class=p>;</span>Retry
+</span></span><span class=line><span class=cl>    <span class=m>604800</span> <span class=p>;</span>Expire
+</span></span><span class=line><span class=cl>    <span class=m>43200</span> <span class=p>;</span>Minimum TTL
+</span></span><span class=line><span class=cl><span class=o>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        NS  @
+</span></span><span class=line><span class=cl>        A       10.0.2.6
+</span></span><span class=line><span class=cl>www     A       192.168.16.100
+</span></span><span class=line><span class=cl>a   IN  CNAME   www.baidu.com.
+</span></span><span class=line><span class=cl>b       A       192.168.16.101
+</span></span></code></pre></td></tr></table></div></div><p>编辑完成之后，重新启动named-chroot让服务生效：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>➜  named systemctl restart named-chroot.service
+</span></span></code></pre></td></tr></table></div></div><h4 id=客户端验证 class=headerLink><a href=#%e5%ae%a2%e6%88%b7%e7%ab%af%e9%aa%8c%e8%af%81 class=header-mark></a>客户端验证</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>➜  named nslookup www.samzong.local
+</span></span><span class=line><span class=cl>Server:		192.168.16.6
+</span></span><span class=line><span class=cl>Address:	192.168.16.6#53
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Name:	www.samzong.local
+</span></span><span class=line><span class=cl>Address: 192.168.16.100
+</span></span></code></pre></td></tr></table></div></div><h4 id=使用rndc管理dns解析记录 class=headerLink><a href=#%e4%bd%bf%e7%94%a8rndc%e7%ae%a1%e7%90%86dns%e8%a7%a3%e6%9e%90%e8%ae%b0%e5%bd%95 class=header-mark></a>使用rndc管理DNS解析记录</h4><p>rndc 常用指令：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>status          显示bind服务器的工作状态
+</span></span><span class=line><span class=cl>reload          重新加载配置文件和区域文件
+</span></span><span class=line><span class=cl>reload zone     重新加载指定的zone
+</span></span><span class=line><span class=cl>reconfig        重新读取配制间并加载新增的zone
+</span></span><span class=line><span class=cl>querylog        关闭或开启查询日志
+</span></span><span class=line><span class=cl>dumpdb          将高速缓存转存到文件,named.conf 有指定文件位置
+</span></span><span class=line><span class=cl>freeze          暂停更新所有zone状态
+</span></span></code></pre></td></tr></table></div></div></div><h2>相关内容</h2><div class=related-container><div class=related-item-container><h2 class=related-title><a href=/posts/howto-set-tomcat-7-automatic-startup-with-centos-7/>HowTo set Tomcat 7 automatic startup with CentOS 7</a></h2></div><div class=related-item-container><h2 class=related-title><a href=/posts/howto-automatic-updates-centos-rhel-using-yum/>HowTo Automatic Updates CENTOS/RHEL Using YUM</a></h2></div><div class=related-item-container><h2 class=related-title><a href=/posts/howto-mount-oss-bucket-on-ecs/>HowTo Mount OSS Bucket On ECS</a></h2></div><div class=related-item-container><h2 class=related-title><a href=/posts/howto-install-python3-on-centos-6-x/>HowTo Install Python3 on CentOS 6.x</a></h2></div><div class=related-item-container><h2 class=related-title><a href=/posts/script-install-lnmp/>Script Install LNMP</a></h2></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 0001-01-01</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-mardown href=/posts/centos7_configure_bind_dns_server/index.md target=_blank rel="noopener noreferrer">阅读原始文档</a></span></div><div class=post-info-share><span><a href=# onclick=return!1 title="分享到 Twitter" data-sharer=twitter data-url=https://samzong.me/posts/centos7_configure_bind_dns_server/ data-title="CentOS 7 Configure DNS Server" data-via=samzong_lu data-hashtags=CentOS><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Facebook" data-sharer=facebook data-url=https://samzong.me/posts/centos7_configure_bind_dns_server/ data-hashtag=CentOS><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="分享到 微博" data-sharer=weibo data-url=https://samzong.me/posts/centos7_configure_bind_dns_server/ data-title="CentOS 7 Configure DNS Server" data-ralateuid=3181653281><i class="fab fa-weibo fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/centos/>CentOS</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/git%E7%BB%88%E7%AB%AFclone%E5%8A%A0%E9%80%9F/ class=prev rel=prev title="clone git@github.com 加速"><i class="fas fa-angle-left fa-fw"></i>clone git@github.com 加速</a>
+<a href=/posts/%E9%97%AD%E5%85%B3%E5%A4%87%E6%88%98-11%E6%9C%88/ class=next rel=next title><i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main></div><div id=fixed-buttons><a href=#back-to-top id=back-to-top-button class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><div class=assets><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/tablesort/tablesort.min.js></script><script type=text/javascript src=/lib/topbar/topbar.min.js></script><script type=text/javascript src=/lib/pjax/pjax.min.js></script><script type=text/javascript src=/js/theme.min.js defer></script></div><div class=pjax-assets><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{},math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},sharerjs:!0,table:{sort:!0}}</script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/lib/katex/katex.min.js defer></script><script type=text/javascript src=/lib/katex/auto-render.min.js defer></script><script type=text/javascript src=/lib/katex/copy-tex.min.js defer></script><script type=text/javascript src=/lib/katex/mhchem.min.js defer></script><script type=text/javascript src=/js/katex.min.js defer></script><link rel=stylesheet href=/lib/katex/katex.min.css><link rel=preload as=style onload='this.onload=null,this.rel="stylesheet"' href=/lib/katex/copy-tex.min.css><noscript><link rel=stylesheet href=/lib/katex/copy-tex.min.css></noscript></div></body></html>

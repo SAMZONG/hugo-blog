@@ -1,0 +1,421 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title class=pjax-title>Linux 笔试试题 - SAMZONG</title><meta name=Description content><meta property="og:title" content="Linux 笔试试题"><meta property="og:description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70"><meta property="og:type" content="article"><meta property="og:url" content="https://samzong.me/posts/linux-%E7%AC%94%E8%AF%95%E8%AF%95%E9%A2%98/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2016-03-23T12:05:16+00:00"><meta property="article:modified_time" content="2016-03-23T12:05:16+00:00"><meta property="og:site_name" content="SAMZONG"><meta name=twitter:card content="summary"><meta name=twitter:title content="Linux 笔试试题"><meta name=twitter:description content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70"><meta name=application-name content="SAMZONG"><meta name=apple-mobile-web-app-title content="SAMZONG"><meta name=theme-color content="#f8f8f8"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=canonical href=https://samzong.me/posts/linux-%E7%AC%94%E8%AF%95%E8%AF%95%E9%A2%98/><link rel=prev href=https://samzong.me/posts/mysql-2-%E5%BC%80%E5%90%AF%E6%85%A2%E6%97%A5%E5%BF%97%E4%BC%98%E5%8C%96/><link rel=next href=https://samzong.me/posts/mysql-6-%E5%88%A9%E7%94%A8linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E5%AE%9A%E6%97%B6%E5%90%8C%E6%AD%A5mysql/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload='this.onload=null,this.rel="stylesheet"' href=/lib/fontawesome-free/all.min.css><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload='this.onload=null,this.rel="stylesheet"' href=/lib/animate/animate.min.css><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Linux 笔试试题","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/samzong.me\/posts\/linux-%E7%AC%94%E8%AF%95%E8%AF%95%E9%A2%98\/"},"genre":"posts","keywords":"Linux","wordcount":3399,"url":"https:\/\/samzong.me\/posts\/linux-%E7%AC%94%E8%AF%95%E8%AF%95%E9%A2%98\/","datePublished":"2016-03-23T12:05:16+00:00","dateModified":"2016-03-23T12:05:16+00:00","publisher":{"@type":"Organization","name":"Samzong Lu"},"author":{"@type":"Person","name":"Samzong Lu"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>function setTheme(e){document.body.setAttribute("theme",e),document.documentElement.style.setProperty("color-scheme",e==="light"?"light":"dark")}function saveTheme(e){window.localStorage&&localStorage.setItem("theme",e)}function getMeta(e){const t=document.getElementsByTagName("meta");for(let n=0;n<t.length;n++)if(t[n].getAttribute("name")===e)return t[n];return""}if(window.localStorage&&localStorage.getItem("theme")){let e=localStorage.getItem("theme");e==="light"||e==="dark"||e==="black"?setTheme(e):setTheme(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}else""==="light"||""==="dark"||""==="black"?(setTheme(""),saveTheme("")):(saveTheme("auto"),setTheme(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));let metaColors={light:"#f8f8f8",dark:"#252627",black:"#000000"};getMeta("theme-color").content=metaColors[document.body.getAttribute("theme")]</script><div id=back-to-top></div><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=SAMZONG><span class=header-title-pre>🐸</span>SAMZONG</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>文章 </a><a class=menu-item href=/tags/>标签 </a><a class=menu-item href=/categories/>分类 </a><span class="menu-item delimiter"></span><a href=# onclick=return!1 class="menu-item language" title=选择语言>简体中文<i class="fas fa-chevron-right fa-fw"></i>
+<select class=language-select title="Select Language" id=language-select-desktop onchange="location=this.value"><option value=/posts/linux-%E7%AC%94%E8%AF%95%E8%AF%95%E9%A2%98/ selected>简体中文</option></select>
+</a><a href=# onclick=return!1 class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=SAMZONG><span class=header-title-pre>🐸</span>SAMZONG</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/ title>文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a href=# onclick=return!1 class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+</a><a href=# onclick=return!1 class=menu-item title=选择语言>简体中文<i class="fas fa-chevron-right fa-fw"></i>
+<select class=language-select title="Select Language" onchange="location=this.value"><option value=/posts/linux-%E7%AC%94%E8%AF%95%E8%AF%95%E9%A2%98/ selected>简体中文</option></select></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","false")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Linux 笔试试题</h1><div class=post-meta><div class=post-meta-line><span class=post-author><i class="author fas fa-user-circle fa-fw"></i><a href=/ title=Author rel=author class=author>Samzong Lu</a>
+</span>&nbsp;<span class=post-category>收录于 </span>&nbsp;<span class=post-category>类别 <a href=/categories/linux/><i class="far fa-folder fa-fw"></i>Linux</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2016-03-23>2016-03-23</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2016-03-23>2016-03-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3399 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;</div></div><div class="details toc" id=toc-static kept=true><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents></nav></div></div><div class=content id=content><div class="details admonition warning open"><div class="details-summary admonition-title"><i class="icon fas fa-exclamation-triangle fa-fwwarning"></i>警告<i class="details-icon fas fa-angle-right fa-fw"></i></div><div class=details-content><div class=admonition-content>本文最后更新于 <span class=timeago datetime=2016-03-23T12:05:16 title="March 23, 2016">2016-03-23</span>，文中内容可能已过时。</div></div></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
+</span><span class=lnt>125
+</span><span class=lnt>126
+</span><span class=lnt>127
+</span><span class=lnt>128
+</span><span class=lnt>129
+</span><span class=lnt>130
+</span><span class=lnt>131
+</span><span class=lnt>132
+</span><span class=lnt>133
+</span><span class=lnt>134
+</span><span class=lnt>135
+</span><span class=lnt>136
+</span><span class=lnt>137
+</span><span class=lnt>138
+</span><span class=lnt>139
+</span><span class=lnt>140
+</span><span class=lnt>141
+</span><span class=lnt>142
+</span><span class=lnt>143
+</span><span class=lnt>144
+</span><span class=lnt>145
+</span><span class=lnt>146
+</span><span class=lnt>147
+</span><span class=lnt>148
+</span><span class=lnt>149
+</span><span class=lnt>150
+</span><span class=lnt>151
+</span><span class=lnt>152
+</span><span class=lnt>153
+</span><span class=lnt>154
+</span><span class=lnt>155
+</span><span class=lnt>156
+</span><span class=lnt>157
+</span><span class=lnt>158
+</span><span class=lnt>159
+</span><span class=lnt>160
+</span><span class=lnt>161
+</span><span class=lnt>162
+</span><span class=lnt>163
+</span><span class=lnt>164
+</span><span class=lnt>165
+</span><span class=lnt>166
+</span><span class=lnt>167
+</span><span class=lnt>168
+</span><span class=lnt>169
+</span><span class=lnt>170
+</span><span class=lnt>171
+</span><span class=lnt>172
+</span><span class=lnt>173
+</span><span class=lnt>174
+</span><span class=lnt>175
+</span><span class=lnt>176
+</span><span class=lnt>177
+</span><span class=lnt>178
+</span><span class=lnt>179
+</span><span class=lnt>180
+</span><span class=lnt>181
+</span><span class=lnt>182
+</span><span class=lnt>183
+</span><span class=lnt>184
+</span><span class=lnt>185
+</span><span class=lnt>186
+</span><span class=lnt>187
+</span><span class=lnt>188
+</span><span class=lnt>189
+</span><span class=lnt>190
+</span><span class=lnt>191
+</span><span class=lnt>192
+</span><span class=lnt>193
+</span><span class=lnt>194
+</span><span class=lnt>195
+</span><span class=lnt>196
+</span><span class=lnt>197
+</span><span class=lnt>198
+</span><span class=lnt>199
+</span><span class=lnt>200
+</span><span class=lnt>201
+</span><span class=lnt>202
+</span><span class=lnt>203
+</span><span class=lnt>204
+</span><span class=lnt>205
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>一. 选择题 （1题1分）
+</span></span><span class=line><span class=cl>1. 当登录Linux时，一个具有唯一进程ID号的shell将被调用，这个ID是什么(   )
+</span></span><span class=line><span class=cl>A. NID　　B. PID　　C. UID　　D. CID
+</span></span><span class=line><span class=cl>答案:B
+</span></span><span class=line><span class=cl>2. 用vi打开一个文件，如何用字母&#34;new&#34;来代替字母&#34;old&#34; (   )
+</span></span><span class=line><span class=cl>A. :s/old/new/g　　　B. :s/old/new　　C. :1,$s/old/new/g　　　D. :r/old/new
+</span></span><span class=line><span class=cl>答案:A
+</span></span><span class=line><span class=cl>3. 请选择对标准的变量PS2正确的描述(   )
+</span></span><span class=line><span class=cl>A. 是一个主shell提示符变量　　　　B. 是一个一般的shell提示符变量
+</span></span><span class=line><span class=cl>C. 是第二主shell提示符变量　　   D. 是一个连续提示符变量
+</span></span><span class=line><span class=cl>答案:B
+</span></span><span class=line><span class=cl>4. 哪一个命令能用来查找文件TESTFILE中只包含四个字符的行?(   )
+</span></span><span class=line><span class=cl>A. grep &#39;^????$&#39; TESTFILE　　　　B. grep &#39;????&#39; TESTFILE
+</span></span><span class=line><span class=cl>C. grep &#39;^....$&#39; TESTFILE　　　　　D. grep &#39;....&#39; TESTFILE
+</span></span><span class=line><span class=cl>答案:C
+</span></span><span class=line><span class=cl>5. 一个bash shell脚本的第一行是什么(   )
+</span></span><span class=line><span class=cl>A. #!/bin/bash　　B. #/bin/bash　　C. #/bin/csh　　　D. /bin/bash
+</span></span><span class=line><span class=cl>答案:A
+</span></span><span class=line><span class=cl>6. 用标准的输出重定向(&gt;)像&#34;&gt; file01&#34;能使文件file01的数据（   ）
+</span></span><span class=line><span class=cl>A. 被移动　　B. 被复制　　C. 被打印　　　D. 被覆盖
+</span></span><span class=line><span class=cl>答案:D
+</span></span><span class=line><span class=cl>7. 下面哪个命令是用来定义shell的全局变量(    )
+</span></span><span class=line><span class=cl>A. exportfs　　B. alias　　C. exports　　D. export
+</span></span><span class=line><span class=cl>答案:D
+</span></span><span class=line><span class=cl>8. 如果想加载一个/dev/sdb1的windows95分区到/mnt/win95目录，需要运行哪个命令(   )
+</span></span><span class=line><span class=cl>A. mount -t hpfs /dev/sdb1 /mnt/win95
+</span></span><span class=line><span class=cl>B. mount -t hpfs /mnt/win95 /dev/sdb1
+</span></span><span class=line><span class=cl>C. mount -t vfat /dev/sdb1 /mnt/win95
+</span></span><span class=line><span class=cl>D. mount -t vfat /mnt/win95 /dev/sdb1
+</span></span><span class=line><span class=cl>答案:C
+</span></span><span class=line><span class=cl>9. 哪个文件存放用户密码信息(   )
+</span></span><span class=line><span class=cl>A. /boot/passwd　　　B. /etc/shadow　　　C. /var/passwd　　D. /dev/passwd
+</span></span><span class=line><span class=cl>答案:B
+</span></span><span class=line><span class=cl>10. 假定kernel支持vfat分区，下面哪一个操作是将/dev/sda1，一个window98分区加载到/win目录(   )
+</span></span><span class=line><span class=cl>A. mount -s win /dev&#39;sda1 /win
+</span></span><span class=line><span class=cl>B. mount -fs=msdos /dev/sda1 /win
+</span></span><span class=line><span class=cl>C. mount -t vfat /dev/sda1 /win
+</span></span><span class=line><span class=cl>D. mount -t windows /win /dev/sda1
+</span></span><span class=line><span class=cl>答案:C
+</span></span><span class=line><span class=cl>11. 默认情况下管理员创建了一个用户，就会在(   )目录下创建一个用户主目录。
+</span></span><span class=line><span class=cl>A. /usr　　B. /home　　　C. /root　　D. /etc
+</span></span><span class=line><span class=cl>答案:B
+</span></span><span class=line><span class=cl>12. 如果要列出一个目录下的所有文件需要使用命令行(    )。
+</span></span><span class=line><span class=cl>A. ls –l　　B. ls　　　C. ls –a　　　D. ls -d
+</span></span><span class=line><span class=cl>答案:C
+</span></span><span class=line><span class=cl>13. 利用哪个工具可以设置用户在文件系统中的空间大小(   )。
+</span></span><span class=line><span class=cl>A. turboservice　　B. turbofscfg　　C. turbonetcfg　　　D. turboxcfg
+</span></span><span class=line><span class=cl>答案:B
+</span></span><span class=line><span class=cl>14. 哪个命令可以将普通用户转换成超级用户(   )
+</span></span><span class=line><span class=cl>A. super　　B. passwd　　C. tar　　　D. su
+</span></span><span class=line><span class=cl>答案:D
+</span></span><span class=line><span class=cl>15. 哪个命令用来显示/home及其子目录下文件名(   )
+</span></span><span class=line><span class=cl>A. ls -R /home　　B. ls -d /home　　C. ls -a /home　　　　D. ls -l /home
+</span></span><span class=line><span class=cl>答案:A
+</span></span><span class=line><span class=cl>16. 在vi模式下，哪个命令用来删除光标处的字符(    )
+</span></span><span class=line><span class=cl>A. xd　　　B. x　　　C. dd　　　D. d
+</span></span><span class=line><span class=cl>答案:B　　dd删除一行,x删除当前字符
+</span></span><span class=line><span class=cl>17. 在一行内运行多个命令需要用什么字符隔开(   )
+</span></span><span class=line><span class=cl>A. @　　B. $　　　C. ;　　D. *
+</span></span><span class=line><span class=cl>答案:C
+</span></span><span class=line><span class=cl>18. 确定myfile的文件类型的命令是(   )
+</span></span><span class=line><span class=cl>A. whatis myfile
+</span></span><span class=line><span class=cl>B. file myfile
+</span></span><span class=line><span class=cl>C. type myfile
+</span></span><span class=line><span class=cl>D. type -q myfile
+</span></span><span class=line><span class=cl>答案:B
+</span></span><span class=line><span class=cl>19. 哪些命令组合起来能统计多少用户登录系统(    )
+</span></span><span class=line><span class=cl>A. who | wc –w　　　B. who | wc –l　　　C. who | wc –c　　　D. who | wc
+</span></span><span class=line><span class=cl>答案:BD
+</span></span><span class=line><span class=cl>20. 用 &#34;rm -i&#34;,系统会提示什么来让你确认(   )
+</span></span><span class=line><span class=cl>A. 命令行的每个选项　　B. 是否真的删除　　C. 是否有写的权限　　　D. 文件的位置
+</span></span><span class=line><span class=cl>答案:B
+</span></span><span class=line><span class=cl>21. Linux启动的第一个进程init启动的第一个脚本程序是(   )。
+</span></span><span class=line><span class=cl>A. /etc/rc.d/init.d　　　B. /etc/rc.d/rc.sysinit　　C. /etc/rc.d/rc5.d　　D. /etc/rc.d/rc3.d
+</span></span><span class=line><span class=cl>答案:B
+</span></span><span class=line><span class=cl>22. 按下(   )键能终止当前运行的命令
+</span></span><span class=line><span class=cl>A. Ctrl-C　　　B. Ctrl-F　　　C. Ctrl-B　　　D. Ctrl-D
+</span></span><span class=line><span class=cl>答案:a
+</span></span><span class=line><span class=cl>23. 用来分离目录名和文件名的字符是(   )
+</span></span><span class=line><span class=cl>A. dash (-)　　B. slash (/)　　C. period (.)　　　D. asterisk（*）
+</span></span><span class=line><span class=cl>答案:B
+</span></span><span class=line><span class=cl>24. 系统的配置文件在(  )目录下
+</span></span><span class=line><span class=cl>A. /home　　　B. /dev　　C. /etc　　　D. /usr
+</span></span><span class=line><span class=cl>答案:C
+</span></span><span class=line><span class=cl>25. 显示用户的主目录的命令是什么?(   )
+</span></span><span class=line><span class=cl>A. echo $HOME　　B. echo $USERDIR　　　C. echo $ENV　　D. echo $ECHO
+</span></span><span class=line><span class=cl>答案:A
+</span></span><span class=line><span class=cl>26. 在vi编辑器里，哪个命令能将光标移到第200行(    )
+</span></span><span class=line><span class=cl>A. g200　　B. G200　　C. :200　　　D. 200g
+</span></span><span class=line><span class=cl>答案:C
+</span></span><span class=line><span class=cl>:200可以，200G也可以
+</span></span><span class=line><span class=cl>27. 用&#34;useradd jerry&#34;命令添加一个用户，这个用户的主目录是什么?(   )
+</span></span><span class=line><span class=cl>A. /etc/jerry　　　B. /var/jerry　　C. /home/jerry　　　D. /bin/jerry
+</span></span><span class=line><span class=cl>答案:C
+</span></span><span class=line><span class=cl>28. 哪一个命令能用来删除当前目录及其子目录下名为&#39;core&#39;的文件(   )
+</span></span><span class=line><span class=cl>A. find . -name core -exec rm {} \ ;
+</span></span><span class=line><span class=cl>B. find . -name core -exec rm ;
+</span></span><span class=line><span class=cl>C. find . -name core -exec rm {} ;
+</span></span><span class=line><span class=cl>D. find . -name core -exec rm {} -;
+</span></span><span class=line><span class=cl>答案:A
+</span></span><span class=line><span class=cl>29. 以下哪条命令在创建一个xp用户的时候将用户加入到root组中(  )
+</span></span><span class=line><span class=cl>A. useradd -g xp root　　B. useradd -r root xp　　C. useradd -g root xp　　　D. useradd root xp
+</span></span><span class=line><span class=cl>答案:C
+</span></span><span class=line><span class=cl>30. 不改变运行级别而重新读入inittab文件的命令是(    )。
+</span></span><span class=line><span class=cl>A. init s　　B. init q　　C. init S　　　D. init Q
+</span></span><span class=line><span class=cl>答案:B
+</span></span><span class=line><span class=cl>31. 以下哪个命令可以终止一个用户的所有进程(   )
+</span></span><span class=line><span class=cl>A. skillall　　　B. skill　　C. kill　　　D. killall
+</span></span><span class=line><span class=cl>答案:D
+</span></span><span class=line><span class=cl>32. 通过修改哪个文件可以在创建用户的时候改变用　户主目录的路径(   )
+</span></span><span class=line><span class=cl>A. /etc/default/passwd　　　B. /etc/default/useradd　　C. /etc/profile　　D. /etc/fstab
+</span></span><span class=line><span class=cl>答案:B
+</span></span><span class=line><span class=cl>33. 以只读方式打开一个文件并进入vi编辑器的命令是(   )
+</span></span><span class=line><span class=cl>A. view -r filename　　　B. view filename　　　C. vi filename　　　D. vi -r filename
+</span></span><span class=line><span class=cl>答案:B
+</span></span><span class=line><span class=cl>34. 以下哪个命令是将缓存中的内容粘贴到光标之前(   )
+</span></span><span class=line><span class=cl>A. a　　　B. i　　　C. P　　　D. p
+</span></span><span class=line><span class=cl>答案:C
+</span></span><span class=line><span class=cl>35. 以下哪条vi命令能将文档5-20行间出现的abc替换成为cba (   )
+</span></span><span class=line><span class=cl>A. :1,$s/abc/cba/g　　　B. :5,20/abc/cba/g　　C. :5-20s/abc/cba/g　　　D. :5,20s/abc/cba/g
+</span></span><span class=line><span class=cl>答案:D
+</span></span><span class=line><span class=cl>. 在vi中通过哪条命令可以将ps命令执行的结果插入到文档中(   )
+</span></span><span class=line><span class=cl>A. :r!ps　　　B. :!ps　　　C. :!rps　　　　D. :w!ps
+</span></span><span class=line><span class=cl>答案:A
+</span></span><span class=line><span class=cl>36. 以下哪个vi命令可以在当前位置插入/etc/passwd文本文件(   )
+</span></span><span class=line><span class=cl>A. :r /etc/passwd　　　B. :i /etc/passwd　　C. :w /etc/passwd　　　D. :s /etc/passwd
+</span></span><span class=line><span class=cl>答案:A
+</span></span><span class=line><span class=cl>37. vi中复制整行的命令是(   )
+</span></span><span class=line><span class=cl>A. y1　　　B. yy　　　C. ss　　　D. dd
+</span></span><span class=line><span class=cl>答案:B
+</span></span><span class=line><span class=cl>38. 以下哪个vi命令可以给文档的每行加上一个编号(    )
+</span></span><span class=line><span class=cl>A. :e number　　　B. :set number　　C. :r!date 　　　　D. :200g
+</span></span><span class=line><span class=cl>答案:B
+</span></span><span class=line><span class=cl>38. 以下哪些文件只有根用户才能读写(   )
+</span></span><span class=line><span class=cl>A. /etc/bashrc　　　B. /etc/profile　　　C. /etc/shadow　　　　D. /etc/passwd
+</span></span><span class=line><span class=cl>答案:BC
+</span></span><span class=line><span class=cl>39. 使用groupdel删除一个组的时候，命令执行失败，原因可能是(   )
+</span></span><span class=line><span class=cl>A. 该组是系统组　　　B. 该组是空的　　　C. 该组中成员非空　　　D. 该组不存在
+</span></span><span class=line><span class=cl>答案:CD
+</span></span><span class=line><span class=cl>40. Linux中文件名构成的规则比较灵活表现在(   )
+</span></span><span class=line><span class=cl>A. 文件名长度多达256个字符　　　　　B. 可以使用除了/符号外的所有ASCII字符
+</span></span><span class=line><span class=cl>C. 不区分大小写　　　　　　　　　　　　D. 无扩展名限制
+</span></span><span class=line><span class=cl>答案:ABD
+</span></span><span class=line><span class=cl>41. 对用户的口令进行加解锁的命令是passwd,参数选项是(   )
+</span></span><span class=line><span class=cl>A. –l　　B. –L　　C. –u　　　D. -U
+</span></span><span class=line><span class=cl>答案:AC
+</span></span><span class=line><span class=cl>42. 如果你对文件和目录的权限不确定，则不能用(   )命令来检测权限
+</span></span><span class=line><span class=cl>A. ps　　　B. ck　　　　C. ls –l　　　D. chown
+</span></span><span class=line><span class=cl>答案:ABD
+</span></span><span class=line><span class=cl>43. 选择对/proc文件系统不正确的描述(    )
+</span></span><span class=line><span class=cl>A. 通常情况下，不提供中断、IO端口、CPU等信息　　　B. /proc文件系统可以提供系统核心的许多参数
+</span></span><span class=line><span class=cl>C. /proc是一个虚拟的文件系统　　　　　　　　　　　　D. 可以得到系统中运行的进程的一些信息
+</span></span><span class=line><span class=cl>答案:A
+</span></span><span class=line><span class=cl>44. 以下哪些符号可以用来连接多条命令(   )
+</span></span><span class=line><span class=cl>A. ||　　　　B. &amp;&amp;　　　C. ;　　　D. |
+</span></span><span class=line><span class=cl>答案:ABCD
+</span></span><span class=line><span class=cl>45. 在shell中，下面哪些字符串当作普通字符串时候需要使用&#34;\&#34;来转义(   )
+</span></span><span class=line><span class=cl>A. 分号(;)　　　B. 双引号(&#34;)　　C. 单引号(&#39;)　　　D. 反斜杆(\)
+</span></span><span class=line><span class=cl>答案:BCD
+</span></span><span class=line><span class=cl>46. Linux中提供了几个重要的工具用来改变服务和进程的运行状态和运行级别以及初始化进程，它们是(   )。
+</span></span><span class=line><span class=cl>A. chkconfig　　B. service　　C. turboservice　　　D. ksysv
+</span></span><span class=line><span class=cl>答案:ABCD
+</span></span><span class=line><span class=cl>47. 在/etc/rc.d/init.d目录下的所有脚本至少支持两个运行参数,它们是(    )。
+</span></span><span class=line><span class=cl>A. start　　　B. restart　　　　C. stop　　　D. reload
+</span></span><span class=line><span class=cl>答案:AC
+</span></span><span class=line><span class=cl>48. Linux一般被称为是稳定的服务器系统，它的安全性表现在(   )
+</span></span><span class=line><span class=cl>A. 网络防火墙　　B. 用户管理策略　C. 系统、目录、文件的权限控制　D. 封闭源码便于及时修正漏洞等
+</span></span><span class=line><span class=cl>答案:ABC
+</span></span><span class=line><span class=cl>49. 在vi中下列哪些命令不能用来在光标前插入文本(   )
+</span></span><span class=line><span class=cl>A. p [text]　　B. i [text]　　C. o [text]　　　D. a [text]
+</span></span><span class=line><span class=cl>答案:ACD
+</span></span><span class=line><span class=cl>50. 在本地的文件系统中下列哪些linux路径结构是无效的(   )
+</span></span><span class=line><span class=cl>A. \usr/zhang/memo　　　B. /usr/zhang/memo　　　C. //usr\zhang/memo　　　D. \usr\zhang\memo
+</span></span><span class=line><span class=cl>答案:ACD
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>二、简答题 （1题3分）
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>1.常见的Linux发行版本都有什么？你最擅长哪一个？它的官网网站是什么？说明你擅长哪一块？
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>2.Linux开机启动流程详细步骤是什么？系统安装完，忘记密码如何破解？
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>4.某一天突然发现Linux系统文件只读，该怎么办呢？完整操作步骤。
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>5.安装一台系统使用DVD光盘安装，如何安装50台Linux系统如何安装呢？思考一下。
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>6.用虚拟机安装了一台Linux系统，突然想克隆一台服务器，克隆后发现无法上网，如何解决？
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>7.Linux网卡配置文件路径是什么？要使服务器上外网，必须满足的条件有哪些？需要配置什么？
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>8.一般可以使用什么软件远程linux服务器？通过什么上传文件和下载文件？
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>9./mnt目录主要用于什么？/root目录跟root用户有什么关系？/根目录与/boot目录有什么联系？
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>10.某一天误操作，执行了rm  -rf  * ，会有哪些情况发生？请举例。
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>三、 公有云题目 （1题5分）
+</span></span><span class=line><span class=cl>1. 请解释上云的好处是什么？传统业务类型与公有云也为类型有什么区别？请举例说明。
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>2. 列出你用过的阿里云\AWS\Azure服务？并讲述他们的作用？
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>3. 请列出你觉得阿里云\AWS\Azure目前的特色和不成熟的地方是那些？你觉得应该如何改正。
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>4. 请用阿里云\AWS\Azure设计一个视频网站的架构图并进行解释说明。
+</span></span></code></pre></td></tr></table></div></div></div><h2>相关内容</h2><div class=related-container><div class=related-item-container><h2 class=related-title><a href=/posts/linux-%E4%B8%AD%E7%9A%84%E4%B8%89%E4%B8%AA%E7%89%B9%E6%AE%8A%E6%9D%83%E9%99%90/>Linux 中的三个特殊权限</a></h2></div><div class=related-item-container><h2 class=related-title><a href=/posts/centos-6-2-%E5%88%9D%E5%A7%8B%E5%AE%89%E8%A3%85%E5%9F%BA%E6%9C%AC%E4%BC%98%E5%8C%96%E6%93%8D%E4%BD%9C/>CentOS 初始安装基本优化操作</a></h2></div><div class=related-item-container><h2 class=related-title><a href=/posts/%E7%90%86%E8%A7%A3-linux-%E7%9A%84%E7%A1%AC%E9%93%BE%E6%8E%A5%E4%B8%8E%E8%BD%AF%E9%93%BE%E6%8E%A5/>理解 Linux 的硬链接与软链接</a></h2></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2016-03-23</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-mardown href=/posts/linux-%E7%AC%94%E8%AF%95%E8%AF%95%E9%A2%98/index.md target=_blank rel="noopener noreferrer">阅读原始文档</a></span></div><div class=post-info-share><span><a href=# onclick=return!1 title="分享到 Twitter" data-sharer=twitter data-url=https://samzong.me/posts/linux-%E7%AC%94%E8%AF%95%E8%AF%95%E9%A2%98/ data-title="Linux 笔试试题" data-via=samzong_lu data-hashtags=Linux><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Facebook" data-sharer=facebook data-url=https://samzong.me/posts/linux-%E7%AC%94%E8%AF%95%E8%AF%95%E9%A2%98/ data-hashtag=Linux><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="分享到 微博" data-sharer=weibo data-url=https://samzong.me/posts/linux-%E7%AC%94%E8%AF%95%E8%AF%95%E9%A2%98/ data-title="Linux 笔试试题" data-ralateuid=3181653281><i class="fab fa-weibo fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/linux/>Linux</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/mysql-2-%E5%BC%80%E5%90%AF%E6%85%A2%E6%97%A5%E5%BF%97%E4%BC%98%E5%8C%96/ class=prev rel=prev title="MySQL 开启慢日志优化"><i class="fas fa-angle-left fa-fw"></i>MySQL 开启慢日志优化</a>
+<a href=/posts/mysql-6-%E5%88%A9%E7%94%A8linux%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E5%AE%9A%E6%97%B6%E5%90%8C%E6%AD%A5mysql/ class=next rel=next title="利用 Linux 计划任务定时同步 MySQL">利用 Linux 计划任务定时同步 MySQL<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main></div><div id=fixed-buttons><a href=#back-to-top id=back-to-top-button class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><div class=assets><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/tablesort/tablesort.min.js></script><script type=text/javascript src=/lib/topbar/topbar.min.js></script><script type=text/javascript src=/lib/pjax/pjax.min.js></script><script type=text/javascript src=/js/theme.min.js defer></script></div><div class=pjax-assets><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{},math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},sharerjs:!0,table:{sort:!0}}</script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/lib/katex/katex.min.js defer></script><script type=text/javascript src=/lib/katex/auto-render.min.js defer></script><script type=text/javascript src=/lib/katex/copy-tex.min.js defer></script><script type=text/javascript src=/lib/katex/mhchem.min.js defer></script><script type=text/javascript src=/js/katex.min.js defer></script><link rel=stylesheet href=/lib/katex/katex.min.css><link rel=preload as=style onload='this.onload=null,this.rel="stylesheet"' href=/lib/katex/copy-tex.min.css><noscript><link rel=stylesheet href=/lib/katex/copy-tex.min.css></noscript></div></body></html>

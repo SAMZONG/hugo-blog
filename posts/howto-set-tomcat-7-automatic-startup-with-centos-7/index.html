@@ -1,0 +1,101 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noodp"><title class=pjax-title>HowTo set Tomcat 7 automatic startup with CentOS 7 - SAMZONG</title><meta name=Description content><meta property="og:title" content="HowTo set Tomcat 7 automatic startup with CentOS 7"><meta property="og:description" content="因CentOS7与6在系统上，变化较大，所以在之前的文章中讲到的使用Tomcat7开机自启动的方式在CentOS7是是无法使用的，所以这篇文"><meta property="og:type" content="article"><meta property="og:url" content="https://samzong.me/posts/howto-set-tomcat-7-automatic-startup-with-centos-7/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2017-04-05T15:21:03+00:00"><meta property="article:modified_time" content="2017-04-05T15:21:03+00:00"><meta property="og:site_name" content="SAMZONG"><meta name=twitter:card content="summary"><meta name=twitter:title content="HowTo set Tomcat 7 automatic startup with CentOS 7"><meta name=twitter:description content="因CentOS7与6在系统上，变化较大，所以在之前的文章中讲到的使用Tomcat7开机自启动的方式在CentOS7是是无法使用的，所以这篇文"><meta name=application-name content="SAMZONG"><meta name=apple-mobile-web-app-title content="SAMZONG"><meta name=theme-color content="#f8f8f8"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=canonical href=https://samzong.me/posts/howto-set-tomcat-7-automatic-startup-with-centos-7/><link rel=prev href=https://samzong.me/posts/howto-install-zoomdata/><link rel=next href=https://samzong.me/posts/%E5%85%B3%E4%BA%8E%E8%80%83%E8%AF%95/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload='this.onload=null,this.rel="stylesheet"' href=/lib/fontawesome-free/all.min.css><noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload='this.onload=null,this.rel="stylesheet"' href=/lib/animate/animate.min.css><noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"HowTo set Tomcat 7 automatic startup with CentOS 7","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/samzong.me\/posts\/howto-set-tomcat-7-automatic-startup-with-centos-7\/"},"genre":"posts","keywords":"Tomcat, CentOS","wordcount":290,"url":"https:\/\/samzong.me\/posts\/howto-set-tomcat-7-automatic-startup-with-centos-7\/","datePublished":"2017-04-05T15:21:03+00:00","dateModified":"2017-04-05T15:21:03+00:00","publisher":{"@type":"Organization","name":"Samzong Lu"},"author":{"@type":"Person","name":"Samzong Lu"},"description":""}</script></head><body header-desktop=fixed header-mobile=auto><script type=text/javascript>function setTheme(e){document.body.setAttribute("theme",e),document.documentElement.style.setProperty("color-scheme",e==="light"?"light":"dark")}function saveTheme(e){window.localStorage&&localStorage.setItem("theme",e)}function getMeta(e){const t=document.getElementsByTagName("meta");for(let n=0;n<t.length;n++)if(t[n].getAttribute("name")===e)return t[n];return""}if(window.localStorage&&localStorage.getItem("theme")){let e=localStorage.getItem("theme");e==="light"||e==="dark"||e==="black"?setTheme(e):setTheme(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}else""==="light"||""==="dark"||""==="black"?(setTheme(""),saveTheme("")):(saveTheme("auto"),setTheme(window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));let metaColors={light:"#f8f8f8",dark:"#252627",black:"#000000"};getMeta("theme-color").content=metaColors[document.body.getAttribute("theme")]</script><div id=back-to-top></div><div id=mask></div><div class=wrapper><header class=desktop id=header-desktop><div class=header-wrapper><div class=header-title><a href=/ title=SAMZONG><span class=header-title-pre>🐸</span>SAMZONG</a></div><div class=menu><div class=menu-inner><a class=menu-item href=/posts/>文章 </a><a class=menu-item href=/tags/>标签 </a><a class=menu-item href=/categories/>分类 </a><span class="menu-item delimiter"></span><a href=# onclick=return!1 class="menu-item language" title=选择语言>简体中文<i class="fas fa-chevron-right fa-fw"></i>
+<select class=language-select title="Select Language" id=language-select-desktop onchange="location=this.value"><option value=/posts/howto-set-tomcat-7-automatic-startup-with-centos-7/ selected>简体中文</option></select>
+</a><a href=# onclick=return!1 class="menu-item theme-switch" title=切换主题><i class="fas fa-adjust fa-fw"></i></a></div></div></div></header><header class=mobile id=header-mobile><div class=header-container><div class=header-wrapper><div class=header-title><a href=/ title=SAMZONG><span class=header-title-pre>🐸</span>SAMZONG</a></div><div class=menu-toggle id=menu-toggle-mobile><span></span><span></span><span></span></div></div><div class=menu id=menu-mobile><a class=menu-item href=/posts/ title>文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a href=# onclick=return!1 class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+</a><a href=# onclick=return!1 class=menu-item title=选择语言>简体中文<i class="fas fa-chevron-right fa-fw"></i>
+<select class=language-select title="Select Language" onchange="location=this.value"><option value=/posts/howto-set-tomcat-7-automatic-startup-with-centos-7/ selected>简体中文</option></select></a></div></div></header><div class="search-dropdown desktop"><div id=search-dropdown-desktop></div></div><div class="search-dropdown mobile"><div id=search-dropdown-mobile></div></div><main class=main><div class=container><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle","normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC","false")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">HowTo set Tomcat 7 automatic startup with CentOS 7</h1><div class=post-meta><div class=post-meta-line><span class=post-author><i class="author fas fa-user-circle fa-fw"></i><a href=/ title=Author rel=author class=author>Samzong Lu</a>
+</span>&nbsp;<span class=post-category>收录于 </span>&nbsp;<span class=post-category>类别 <a href=/categories/tomcat/><i class="far fa-folder fa-fw"></i>Tomcat</a></span></div><div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2017-04-05>2017-04-05</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2017-04-05>2017-04-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 290 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div></div><div class="details toc" id=toc-static kept=true><div class="details-summary toc-title"><span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span></div><div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents><ul><li><ul><li><ul><li><a href=#安装java环境>安装JAVA环境</a></li><li><a href=#安装tomcat7>安装Tomcat7</a></li><li><a href=#创建开机自启动脚本>创建开机自启动脚本</a></li><li><a href=#启动tomcat7>启动Tomcat7</a></li></ul></li></ul></li></ul></nav></div></div><div class=content id=content><div class="details admonition warning open"><div class="details-summary admonition-title"><i class="icon fas fa-exclamation-triangle fa-fwwarning"></i>警告<i class="details-icon fas fa-angle-right fa-fw"></i></div><div class=details-content><div class=admonition-content>本文最后更新于 <span class=timeago datetime=2017-04-05T15:21:03 title="April 5, 2017">2017-04-05</span>，文中内容可能已过时。</div></div></div><p>因CentOS7与6在系统上，变化较大，所以在之前的文章中讲到的使用Tomcat7开机自启动的方式在CentOS7是是无法使用的，所以这篇文章的目的是如何在CentOS7上将Tomcat7设置为开机自启动。</p><h4 id=安装java环境 class=headerLink><a href=#%e5%ae%89%e8%a3%85java%e7%8e%af%e5%a2%83 class=header-mark></a>安装JAVA环境</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[root@7 ~]# curl -LO -H &#34;Cookie: oraclelicense=accept-securebackup-cookie&#34; \
+</span></span><span class=line><span class=cl>&#34;http://download.oracle.com/otn-pub/java/jdk/7u75-b13/jdk-7u75-linux-x64.rpm&#34;
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[root@7 ~]# rpm -Uvh jdk-7u75-linux-x64.rpm
+</span></span><span class=line><span class=cl>Preparing...                ########################################### [100%]
+</span></span><span class=line><span class=cl>   1:jdk                    ########################################### [100%]
+</span></span><span class=line><span class=cl>Unpacking JAR files...
+</span></span><span class=line><span class=cl>        rt.jar...
+</span></span><span class=line><span class=cl>        jsse.jar...
+</span></span><span class=line><span class=cl>        charsets.jar...
+</span></span><span class=line><span class=cl>        tools.jar...
+</span></span><span class=line><span class=cl>        localedata.jar...
+</span></span><span class=line><span class=cl>        jfxrt.jar...
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[root@7 ~]# vi /etc/profile
+</span></span><span class=line><span class=cl># add follows to the end
+</span></span><span class=line><span class=cl>export JAVA_HOME=/usr/java/default
+</span></span><span class=line><span class=cl>export PATH=$PATH:$JAVA_HOME/bin
+</span></span><span class=line><span class=cl>export CLASSPATH=.:$JAVA_HOME/jre/lib:$JAVA_HOME/lib:$JAVA_HOME/lib/tools.jar
+</span></span><span class=line><span class=cl>[root@7 ~]# source /etc/profile
+</span></span></code></pre></td></tr></table></div></div><h4 id=安装tomcat7 class=headerLink><a href=#%e5%ae%89%e8%a3%85tomcat7 class=header-mark></a>安装Tomcat7</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[root@7 ~]# wget http://ftp.riken.jp/net/apache/tomcat/tomcat-7/v7.0.77/bin/apache-tomcat-7.0.77.tar.gz
+</span></span><span class=line><span class=cl>[root@7 ~]# tar zxvf apache-tomcat-7.0.77.tar.gz
+</span></span><span class=line><span class=cl>[root@7 ~]# mv apache-tomcat-7.0.77 /usr/tomcat7
+</span></span><span class=line><span class=cl>[root@7 ~]# useradd -M -d /usr/tomcat7 tomcat7
+</span></span><span class=line><span class=cl>[root@7 ~]# chown -R tomcat7. /usr/tomcat7
+</span></span></code></pre></td></tr></table></div></div><h4 id=创建开机自启动脚本 class=headerLink><a href=#%e5%88%9b%e5%bb%ba%e5%bc%80%e6%9c%ba%e8%87%aa%e5%90%af%e5%8a%a8%e8%84%9a%e6%9c%ac class=header-mark></a>创建开机自启动脚本</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>[root@7 ~]# cat /usr/lib/systemd/system/tomcat7.service
+</span></span><span class=line><span class=cl># create new
+</span></span><span class=line><span class=cl> [Unit]
+</span></span><span class=line><span class=cl>Description=Apache Tomcat 7
+</span></span><span class=line><span class=cl>After=network.target
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[Service]
+</span></span><span class=line><span class=cl>Type=oneshot
+</span></span><span class=line><span class=cl>ExecStart=/usr/tomcat7/bin/startup.sh
+</span></span><span class=line><span class=cl>ExecStop=/usr/tomcat7/bin/shutdown.sh
+</span></span><span class=line><span class=cl>RemainAfterExit=yes
+</span></span><span class=line><span class=cl>User=tomcat7
+</span></span><span class=line><span class=cl>Group=tomcat7
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>[Install]
+</span></span><span class=line><span class=cl>WantedBy=multi-user.target
+</span></span></code></pre></td></tr></table></div></div><h4 id=启动tomcat7 class=headerLink><a href=#%e5%90%af%e5%8a%a8tomcat7 class=header-mark></a>启动Tomcat7</h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>[root@7 ~]# systemctl start tomcat7.service
+</span></span><span class=line><span class=cl>[root@7 ~]# systemctl enable tomcat7.service
+</span></span></code></pre></td></tr></table></div></div></div><h2>相关内容</h2><div class=related-container><div class=related-item-container><h2 class=related-title><a href=/posts/howto-automatic-updates-centos-rhel-using-yum/>HowTo Automatic Updates CENTOS/RHEL Using YUM</a></h2></div><div class=related-item-container><h2 class=related-title><a href=/posts/howto-monitor-tomcat-head-memory-for-zabbix/>HowTo Monitor Tomcat HeadMemory for Zabbix</a></h2></div><div class=related-item-container><h2 class=related-title><a href=/posts/howto-mount-oss-bucket-on-ecs/>HowTo Mount OSS Bucket On ECS</a></h2></div><div class=related-item-container><h2 class=related-title><a href=/posts/howto-install-python3-on-centos-6-x/>HowTo Install Python3 on CentOS 6.x</a></h2></div><div class=related-item-container><h2 class=related-title><a href=/posts/tomcat-2-%E5%88%A9%E7%94%A8jdk%E8%87%AA%E8%BA%ABkeytool%E5%AE%9E%E7%8E%B0https/>Tomcat 利用JDK自身keytool实现HTTPS</a></h2></div></div><div class=post-footer id=post-footer><div class=post-info><div class=post-info-line><div class=post-info-mod><span>更新于 2017-04-05</span></div><div class=post-info-license></div></div><div class=post-info-line><div class=post-info-md><span><a class=link-to-mardown href=/posts/howto-set-tomcat-7-automatic-startup-with-centos-7/index.md target=_blank rel="noopener noreferrer">阅读原始文档</a></span></div><div class=post-info-share><span><a href=# onclick=return!1 title="分享到 Twitter" data-sharer=twitter data-url=https://samzong.me/posts/howto-set-tomcat-7-automatic-startup-with-centos-7/ data-title="HowTo set Tomcat 7 automatic startup with CentOS 7" data-via=samzong_lu data-hashtags=Tomcat,CentOS><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Facebook" data-sharer=facebook data-url=https://samzong.me/posts/howto-set-tomcat-7-automatic-startup-with-centos-7/ data-hashtag=Tomcat><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="分享到 微博" data-sharer=weibo data-url=https://samzong.me/posts/howto-set-tomcat-7-automatic-startup-with-centos-7/ data-title="HowTo set Tomcat 7 automatic startup with CentOS 7" data-ralateuid=3181653281><i class="fab fa-weibo fa-fw"></i></a></span></div></div></div><div class=post-info-more><section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/tomcat/>Tomcat</a>,&nbsp;<a href=/tags/centos/>CentOS</a></section><section><span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span></section></div><div class=post-nav><a href=/posts/howto-install-zoomdata/ class=prev rel=prev title="HowTo install Zoomdata"><i class="fas fa-angle-left fa-fw"></i>HowTo install Zoomdata</a>
+<a href=/posts/%E5%85%B3%E4%BA%8E%E8%80%83%E8%AF%95/ class=next rel=next title=关于考试>关于考试<i class="fas fa-angle-right fa-fw"></i></a></div></div></article></div></main></div><div id=fixed-buttons><a href=#back-to-top id=back-to-top-button class=fixed-button title=回到顶部><i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论><i class="fas fa-comment fa-fw"></i></a></div><div class=assets><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/tablesort/tablesort.min.js></script><script type=text/javascript src=/lib/topbar/topbar.min.js></script><script type=text/javascript src=/lib/pjax/pjax.min.js></script><script type=text/javascript src=/js/theme.min.js defer></script></div><div class=pjax-assets><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{},math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},sharerjs:!0,table:{sort:!0}}</script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/lib/katex/katex.min.js defer></script><script type=text/javascript src=/lib/katex/auto-render.min.js defer></script><script type=text/javascript src=/lib/katex/copy-tex.min.js defer></script><script type=text/javascript src=/lib/katex/mhchem.min.js defer></script><script type=text/javascript src=/js/katex.min.js defer></script><link rel=stylesheet href=/lib/katex/katex.min.css><link rel=preload as=style onload='this.onload=null,this.rel="stylesheet"' href=/lib/katex/copy-tex.min.css><noscript><link rel=stylesheet href=/lib/katex/copy-tex.min.css></noscript></div></body></html>
