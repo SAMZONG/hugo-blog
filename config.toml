@@ -2,24 +2,39 @@ title = 'SAMZONG'
 theme = 'DoIt'
 baseURL = 'https://samzong.me'
 defaultContentLanguage = "zh-cn"
-
+enableRobotsTXT = true
+enableGitInfo = true
 
 [author]
-  name = "Samzong Lu"
+  name = "Samzong"
   homepage = "https://github.com/SAMZONG/"
+  gravatarEmail = "samzong.lu@gmail.com"
 
 [original]
   name = "SAMZONG"
   homepage = "https://samzong.me/"
   repo = "https://github.com/SAMZONG/blog/"
 
+[Permalinks]
+  # posts = ":year/:month/:filename"
+  posts = ":filename"
+
+[privacy]
+  # privacy of the Google Analytics (replaced by params.analytics.google)
+  # Google Analytics 相关隐私 (被 params.analytics.google 替代)
+  [privacy.googleAnalytics]
+    # ...
+  [privacy.twitter]
+    enableDNT = true
+  [privacy.youtube]
+    privacyEnhanced = true
 
 [languages]
   [languages.en]
     weight = 1
-    title = "SAMZONG"
     languageCode = "en"
     languageName = "English"
+    hasCJKLanguage = false
     [[languages.en.menu.main]]
       identifier = "posts"
       pre = ""
@@ -44,18 +59,33 @@ defaultContentLanguage = "zh-cn"
       url = "/categories/"
       title = ""
       weight = 3
+    [[languages.en.menu.main]]
+        identifier = "authors"
+        pre = ""
+        post = ""
+        name = "Authors"
+        url = "/authors/"
+        title = ""
+        weight = 5
+    [[languages.en.menu.main]]
+        identifier = "github"
+        pre = "<i class='fab fa-github fa-fw'></i>"
+        post = ""
+        name = ""
+        url = "https://github.com/samong/hugo-blog"
+        title = "GitHub"
+        weight = 9
 
   [languages.zh-cn]
     weight = 2
-    title = "SAMZONG"
-    # 网站语言, 仅在这里 CN 大写
+    paginate = 12
     languageCode = "zh-CN"
     languageName = "简体中文"
     # 是否包括中日韩文字
     hasCJKLanguage = true
     [[languages.zh-cn.menu.main]]
       identifier = "posts"
-      pre = ""
+      pre = "🤖"
       post = ""
       name = "全部文章"
       url = "/posts/"
@@ -63,7 +93,7 @@ defaultContentLanguage = "zh-cn"
       weight = 1
     [[languages.zh-cn.menu.main]]
       identifier = "tags"
-      pre = ""
+      pre = "🏷"
       post = ""
       name = "标签"
       url = "/tags/"
@@ -71,21 +101,61 @@ defaultContentLanguage = "zh-cn"
       weight = 2
     [[languages.zh-cn.menu.main]]
       identifier = "categories"
-      pre = ""
+      pre = "📖"
       post = ""
       name = "分类"
       url = "/categories/"
       title = ""
       weight = 3
+    [[languages.zh-cn.menu.main]]
+      identifier = "github"
+      pre = "<i class='fab fa-github fa-fw'></i>"
+      post = ""
+      name = "GitHub"
+      url = "https://github.com/samzong/"
+      title = "GitHub"
+      weight = 4
 
 
 [params]
   # DoIt 主题版本
   version = "0.2.X"
 
-  gitRepo = "https://github.com/samzong/"
+  gitRepo = "https://github.com/samzong/hugo-blog/"
   dateFormat = "2006-01-02"
   noFavicon = true
+
+  [params.search]
+  enable = true
+  # 搜索引擎的类型 ("lunr", "algolia", "fuse")
+  type = "fuse"
+  # 文章内容最长索引长度
+  contentLength = 4000
+  # 搜索框的占位提示语
+  placeholder = ""
+  # DoIt 新增 | 0.2.1 最大结果数目
+  maxResultLength = 10
+  # DoIt 新增 | 0.2.3 结果内容片段长度
+  snippetLength = 50
+  # DoIt 新增 | 0.2.1 搜索结果中高亮部分的 HTML 标签
+  highlightTag = "em"
+  # DoIt 新增 | 0.2.4 是否在搜索索引中使用基于 baseURL 的绝对路径
+  absoluteURL = true
+  [params.search.algolia]
+    index = "samzong.me.blog"
+    appID = "QHUDGE595D"
+    searchKey = "f17f47c5f11046d10c0d3651447e85c1"
+  [params.search.fuse]
+    # DoIt 新增 | 0.2.12 https://fusejs.io/api/options.html
+    isCaseSensitive = false
+    minMatchCharLength = 2
+    findAllMatches = false
+    location = 0
+    threshold = 0.3
+    distance = 100
+    ignoreLocation = false
+    useExtendedSearch = false
+    ignoreFieldNorm = false
 
   # 页面头部导航栏配置
   [params.header]
@@ -103,7 +173,7 @@ defaultContentLanguage = "zh-cn"
       # 标题名称
       name = "SAMZONG"
       # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
-      pre = " 🚀🚀🚀 "
+      pre = ""
       # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
       post = ""
       # DoIt 新增 | 0.2.5 是否为标题显示打字机动画
@@ -191,7 +261,7 @@ defaultContentLanguage = "zh-cn"
       paginate = 20
       # DoIt 删除 | 0.2.0 被 params.page 中的 hiddenFromHomePage 替代
       # 当你没有在文章前置参数中设置 "hiddenFromHomePage" 时的默认行为
-      defaultHiddenFromHomePage = true
+      defaultHiddenFromHomePage = false
 
   # 作者的社交信息设置
   [params.social]
@@ -267,10 +337,19 @@ defaultContentLanguage = "zh-cn"
     Email = "samzong.lu@gmail.com"
     RSS = true # DoIt 新增 | 0.2.0
 
+  [params.cookieconsent]
+    enable = true
+    # text strings used for Cookie consent banner
+    # 用于 Cookie 许可横幅的文本字符串
+    [params.cookieconsent.content]
+      message = "这是一个提示语"
+      dismiss = " dismiss"
+      link = "https://samzong.me"
+
   # DoIt 更改 | 0.2.0 文章页面配置
   [params.page]
     # DoIt 新增 | 0.2.0 是否在主页隐藏一篇文章
-    hiddenFromHomePage = true
+    hiddenFromHomePage = false
     # DoIt 新增 | 0.2.0 是否在搜索结果中隐藏一篇文章
     hiddenFromSearch = false
     # DoIt 新增 | 0.2.0 是否使用 twemoji
@@ -327,6 +406,17 @@ defaultContentLanguage = "zh-cn"
     [params.page.table]
       # 是否开启表格排序
       sort = true
+    [params.page.header]
+      # whether to enable auto header numbering
+      # 是否开启标题自动编号
+      [params.page.header.number]
+        enable = true
+        [params.page.header.number.format]
+          h2 = "{h2}. {title}"
+          h3 = "{h2}.{h3} {title}"
+          h4 = "{h2}.{h3}.{h4} {title}"
+          h5 = "{h2}.{h3}.{h4}.{h5} {title}"
+          h6 = "{h2}.{h3}.{h4}.{h5}.{h6} {title}"
     # DoIt 更改 | 0.2.0 KaTeX 数学公式
     [params.page.math]
       enable = true
