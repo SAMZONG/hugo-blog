@@ -1,1 +1,1039 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>SAMZONG</title><link>https://samzong.me/</link><description>SAMZONG</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 28 May 2022 22:27:18 +0000</lastBuildDate><atom:link href="https://samzong.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Hexo 增加admonition样式支持</title><link>https://samzong.me/posts/hexo-admonition/</link><pubDate>Sat, 28 May 2022 22:27:18 +0000</pubDate><author><name>Samzong Lu</name></author><guid>https://samzong.me/posts/hexo-admonition/</guid><description>背景除了在 Hexo 维护个人博客之外，目前经常用到的 2 个文档工具： 语雀和 Mkdocs 都是支持 admonition样式，所以也在考虑如何给 Hexo 博客文章也增加这样的</description></item><item><title>国内环境搭建 MacOS K8s 开发环境</title><link>https://samzong.me/posts/%E5%9B%BD%E5%86%85%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-macos-k8s-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</link><pubDate>Tue, 17 May 2022 10:09:02 +0000</pubDate><author><name>Samzong Lu</name></author><guid>https://samzong.me/posts/%E5%9B%BD%E5%86%85%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-macos-k8s-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid><description>Minikube在 Mac 上搭建开发环境，这里主要使用了 Kubernetes 官方推荐的 minikube 和 docker-for-desktop 环境 1 2 minikube start --image-mirror-country cn \ --registry-mirror=https://vbj8usl3.mirror.aliyuncs.com</description></item><item><title>MacOS隐藏Dock栏中特定应用</title><link>https://samzong.me/posts/macos%E9%9A%90%E8%97%8Fdock%E6%A0%8F%E4%B8%AD%E7%89%B9%E5%AE%9A%E5%BA%94%E7%94%A8/</link><pubDate>Sat, 07 May 2022 14:57:54 +0000</pubDate><author><name>Samzong Lu</name></author><guid>https://samzong.me/posts/macos%E9%9A%90%E8%97%8Fdock%E6%A0%8F%E4%B8%AD%E7%89%B9%E5%AE%9A%E5%BA%94%E7%94%A8/</guid><description>背景说明MacOS Dock 栏的空间是有限的，而且绝大部分应用都会占用一个 Dock 的槽位；但并不是所有软件都提供了 Hidden in Dock 的能力，所以从来不点击，但一直存在</description></item><item><title>满足预期的文档站 Mkdocs</title><link>https://samzong.me/posts/%E6%BB%A1%E8%B6%B3%E9%A2%84%E6%9C%9F%E7%9A%84%E6%96%87%E6%A1%A3%E7%AB%99-mkdocs/</link><pubDate>Fri, 06 May 2022 17:25:04 +0000</pubDate><author><name>Samzong Lu</name></author><guid>https://samzong.me/posts/%E6%BB%A1%E8%B6%B3%E9%A2%84%E6%9C%9F%E7%9A%84%E6%96%87%E6%A1%A3%E7%AB%99-mkdocs/</guid><description>组合三件套 Mkdocs # 热门的静态博客框架 Mkdocs-material # Mkdocs 颜值担当的主题 MkDocs Awesome Pages Plugin # Mkdocs 动态的 Navgation 插件 依赖的插件 1 2 3 4 5 6 7 8 9 pip install mkdocs pip install mkdocs-material pip install mkdocs-git-revision-date-plugin pip install mkdocs-mermaid2-plugin pip install mkdocs-rss-plugin pip install mkdocs-minify-plugin</description></item><item><title>Alfred Workflow 推荐</title><link>https://samzong.me/posts/alfred-workflow-%E6%8E%A8%E8%8D%90/</link><pubDate>Tue, 03 May 2022 20:14:49 +0000</pubDate><author><name>Samzong Lu</name></author><guid>https://samzong.me/posts/alfred-workflow-%E6%8E%A8%E8%8D%90/</guid><description>Alfred 介绍Alfred 是 Mac 上一款著名的效率应用，强大的功能和众多的扩展能让你在实际操作中大幅提升工作效率，网络上也有大量关于的 Alfred 的评测和技巧的文</description></item><item><title>youtube-dl 下载 YouTube 视频</title><link>https://samzong.me/posts/youtube-dl-%E4%B8%8B%E8%BD%BD-youtube-%E8%A7%86%E9%A2%91/</link><pubDate>Tue, 03 May 2022 13:57:28 +0000</pubDate><author><name>Samzong Lu</name></author><guid>https://samzong.me/posts/youtube-dl-%E4%B8%8B%E8%BD%BD-youtube-%E8%A7%86%E9%A2%91/</guid><description>截止 2022.5 youtube-dl 已经较长时间未更新了，建议采用 yt-dlp, 将命令进行替换即可 安装新版本的 yt-dlp 1 brew install yt-dlp/taps/yt-dlp yt-dlp 是从 youtube-dl 分支出来的版本，提供持续更新和向前兼容，在友好型上做</description></item><item><title>GitHub Pages 的妙用</title><link>https://samzong.me/posts/github-pages-%E7%9A%84%E5%A6%99%E7%94%A8/</link><pubDate>Fri, 22 Apr 2022 17:23:00 +0000</pubDate><author><name>samzong.lu</name></author><guid>https://samzong.me/posts/github-pages-%E7%9A%84%E5%A6%99%E7%94%A8/</guid><description>本来是想好好工作的最近换了新工作（后面找个时间好好说说），大量接触 k8s &amp;amp; docker，开始写了比较多的 yaml 和 Dockerfile；散落在电脑上的</description></item><item><title>需要了解的 K8s 发行版本</title><link>https://samzong.me/posts/%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E7%AB%9E%E5%93%81/</link><pubDate>Tue, 19 Apr 2022 18:11:00 +0000</pubDate><author><name>samzong.lu</name></author><guid>https://samzong.me/posts/%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E7%AB%9E%E5%93%81/</guid><description>K8s 的发行版本 开始学习喜欢的东西，上面的每一个都要了解</description></item><item><title>CKA 考试准备</title><link>https://samzong.me/posts/cka-%E8%80%83%E8%AF%95%E5%87%86%E5%A4%87/</link><pubDate>Mon, 18 Apr 2022 06:00:00 +0000</pubDate><author><name>samzong.lu</name></author><guid>https://samzong.me/posts/cka-%E8%80%83%E8%AF%95%E5%87%86%E5%A4%87/</guid><description>汇总本来预计 4 月 10 号左右，可以开始准备 CKA 的考试了，因为疫情在家办公，再加上报名去做志愿者，所以这个时间耽搁到了现在才开始 时间成本在这里记录下</description></item><item><title>Dockerfile Run at M1 processor build failed</title><link>https://samzong.me/posts/docker-run-at-apple-silicon-m1/</link><pubDate>Sun, 17 Apr 2022 20:32:00 +0000</pubDate><author><name>samzong.lu</name></author><guid>https://samzong.me/posts/docker-run-at-apple-silicon-m1/</guid><description>Apple M1 processor在使用了 Apple M1 的笔记本后，在 docker 使用遇到了一些问题，这里做些笔记记录下来 pull image error Error &amp;ldquo;no matching manifest for linux/arm64/v8 in the manifest list entries&amp;rdquo; 在我尝试想要 pull 下来时，</description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>SAMZONG</title><link>https://samzong.me/</link><description>SAMZONG</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 28 May 2022 22:27:18 +0000</lastBuildDate><atom:link href="https://samzong.me/index.xml" rel="self" type="application/rss+xml"/><item><title>Hexo 增加admonition样式支持</title><link>https://samzong.me/posts/hexo-admonition/</link><pubDate>Sat, 28 May 2022 22:27:18 +0000</pubDate><author><name>Samzong Lu</name></author><guid>https://samzong.me/posts/hexo-admonition/</guid><description><![CDATA[<h2 id="背景" class="headerLink">
+    <a href="#%e8%83%8c%e6%99%af" class="header-mark"></a>背景</h2><p>除了在 Hexo 维护个人博客之外，目前经常用到的 2 个文档工具： 语雀和 Mkdocs 都是支持 admonition样式，所以也在考虑如何给 Hexo 博客文章也增加这样的能力。</p>
+<p>保证写作习惯的一致性，好在有人开发出对应的插件，感谢.</p>
+<ul>
+<li><a href="https://github.com/lxl80/hexo-admonition" target="_blank" rel="noopener noreferrer">https://github.com/lxl80/hexo-admonition</a></li>
+</ul>
+<h2 id="安装方式" class="headerLink">
+    <a href="#%e5%ae%89%e8%a3%85%e6%96%b9%e5%bc%8f" class="header-mark"></a>安装方式</h2><p>简单通过 2 个步骤即可，</p>
+<h3 id="安装插件" class="headerLink">
+    <a href="#%e5%ae%89%e8%a3%85%e6%8f%92%e4%bb%b6" class="header-mark"></a>安装插件</h3><p>采用 npm 安装，如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm install hexo-admonition --save
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="样式配置" class="headerLink">
+    <a href="#%e6%a0%b7%e5%bc%8f%e9%85%8d%e7%bd%ae" class="header-mark"></a>样式配置</h3><p>你的 hexo 可能会使用不同主题，所以需要自己增加样式，将如下样式放入 hexo 主题的自定义样式文件中（如：<code>ext.css</code>），并按自己喜好修改：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">.</span><span class="nc">admonition</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">margin</span><span class="p">:</span> <span class="mf">1.5625</span><span class="kt">em</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">padding</span><span class="p">:</span> <span class="mf">.6</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">overflow</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">font-size</span><span class="p">:</span> <span class="mf">.64</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">page-break-inside</span><span class="p">:</span> <span class="kc">avoid</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">border-left</span><span class="p">:</span> <span class="mf">.3</span><span class="kt">rem</span> <span class="kc">solid</span> <span class="mh">#42b983</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">border-radius</span><span class="p">:</span> <span class="mf">.3</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">box-shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mf">0.1</span><span class="kt">rem</span> <span class="mf">0.4</span><span class="kt">rem</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">.05</span><span class="p">),</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mf">0.05</span><span class="kt">rem</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">.1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">background-color</span><span class="p">:</span> <span class="mh">#fafafa</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nt">p</span><span class="p">.</span><span class="nc">admonition-title</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">position</span><span class="p">:</span> <span class="kc">relative</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">margin</span><span class="p">:</span> <span class="mf">-.6</span><span class="kt">rem</span> <span class="mf">-.6</span><span class="kt">rem</span> <span class="mf">.8</span><span class="kt">em</span> <span class="mf">-.6</span><span class="kt">rem</span> <span class="cp">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">padding</span><span class="p">:</span> <span class="mf">.4</span><span class="kt">rem</span> <span class="mf">.6</span><span class="kt">rem</span> <span class="mf">.4</span><span class="kt">rem</span> <span class="mf">2.5</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">font-weight</span><span class="p">:</span> <span class="mi">700</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">background-color</span><span class="p">:</span><span class="nb">rgba</span><span class="p">(</span><span class="mi">66</span><span class="p">,</span> <span class="mi">185</span><span class="p">,</span> <span class="mi">131</span><span class="p">,</span> <span class="mf">.1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">admonition-title</span><span class="p">::</span><span class="nd">before</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">top</span><span class="p">:</span> <span class="mf">.9</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">left</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">width</span><span class="p">:</span> <span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">height</span><span class="p">:</span> <span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">background-color</span><span class="p">:</span> <span class="mh">#42b983</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">border-radius</span><span class="p">:</span> <span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">content</span><span class="p">:</span> <span class="s1">&#39; &#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">info</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span><span class="o">,</span> <span class="p">.</span><span class="nc">todo</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">background-color</span><span class="p">:</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">184</span><span class="p">,</span><span class="mi">212</span><span class="p">,</span><span class="mf">.1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">warning</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span><span class="o">,</span> <span class="p">.</span><span class="nc">attention</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span><span class="o">,</span> <span class="p">.</span><span class="nc">caution</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">background-color</span><span class="p">:</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">145</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">.1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">failure</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span><span class="o">,</span> <span class="p">.</span><span class="nc">missing</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span><span class="o">,</span> <span class="p">.</span><span class="nc">fail</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span><span class="o">,</span> <span class="p">.</span><span class="nc">error</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">background-color</span><span class="p">:</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">82</span><span class="p">,</span><span class="mi">82</span><span class="p">,</span><span class="mf">.1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">admonition</span><span class="p">.</span><span class="nc">info</span><span class="o">,</span> <span class="p">.</span><span class="nc">admonition</span><span class="p">.</span><span class="nc">todo</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">border-color</span><span class="p">:</span> <span class="mh">#00b8d4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">admonition</span><span class="p">.</span><span class="nc">warning</span><span class="o">,</span> <span class="p">.</span><span class="nc">admonition</span><span class="p">.</span><span class="nc">attention</span><span class="o">,</span> <span class="p">.</span><span class="nc">admonition</span><span class="p">.</span><span class="nc">caution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">border-color</span><span class="p">:</span> <span class="mh">#ff9100</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">admonition</span><span class="p">.</span><span class="nc">failure</span><span class="o">,</span> <span class="p">.</span><span class="nc">admonition</span><span class="p">.</span><span class="nc">missing</span><span class="o">,</span> <span class="p">.</span><span class="nc">admonition</span><span class="p">.</span><span class="nc">fail</span><span class="o">,</span> <span class="p">.</span><span class="nc">admonition</span><span class="p">.</span><span class="nc">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">border-color</span><span class="p">:</span> <span class="mh">#ff5252</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">info</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span><span class="p">::</span><span class="nd">before</span><span class="o">,</span> <span class="p">.</span><span class="nc">todo</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span><span class="p">::</span><span class="nd">before</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">background-color</span><span class="p">:</span> <span class="mh">#00b8d4</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">border-radius</span><span class="p">:</span> <span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">success</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span><span class="p">::</span><span class="nd">before</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">background-color</span><span class="p">:</span> <span class="mh">#00c853</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">border-radius</span><span class="p">:</span> <span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">warning</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span><span class="p">::</span><span class="nd">before</span><span class="o">,</span> <span class="p">.</span><span class="nc">attention</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span><span class="p">::</span><span class="nd">before</span><span class="o">,</span> <span class="p">.</span><span class="nc">caution</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span><span class="p">::</span><span class="nd">before</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">background-color</span><span class="p">:</span> <span class="mh">#ff9100</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">border-radius</span><span class="p">:</span> <span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">failure</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span><span class="p">::</span><span class="nd">before</span><span class="o">,</span><span class="p">.</span><span class="nc">missing</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span><span class="p">::</span><span class="nd">before</span><span class="o">,</span><span class="p">.</span><span class="nc">fail</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span><span class="p">::</span><span class="nd">before</span><span class="o">,</span><span class="p">.</span><span class="nc">error</span><span class="o">&gt;</span><span class="p">.</span><span class="nc">admonition-title</span><span class="p">::</span><span class="nd">before</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">background-color</span><span class="p">:</span> <span class="mh">#ff5252</span><span class="p">;;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">border-radius</span><span class="p">:</span> <span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">admonition</span><span class="o">&gt;</span><span class="p">:</span><span class="nd">last-child</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">margin-bottom</span><span class="p">:</span> <span class="mi">0</span> <span class="cp">!important</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="使用说明" class="headerLink">
+    <a href="#%e4%bd%bf%e7%94%a8%e8%af%b4%e6%98%8e" class="header-mark"></a>使用说明</h2><p>Hexo-admonition 遵循一种简单的语法：每个块都以 <code>!!!</code> 开头，然后是代表提示类型的关键字（<code>type</code>）及标题（<code>title</code>）。例如:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">!!! note Hexo-admonition 插件使用示例
+</span></span><span class="line"><span class="cl">    这是基于 hexo-admonition 插件渲染的一条提示信息。类型为 note，并设置了自定义标题。
+</span></span><span class="line"><span class="cl">    提示内容开头留 4 个空格，可以有多行，最后用空行结束此标记。
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在 Hexo 渲染前，将被转换成如下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;admonition note &#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;admonition-title&#34;</span><span class="p">&gt;</span>Hexo-admonition 插件使用示例<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>这是基于 hexo-admonition 插件渲染的一条提示信息。类型为 note，并设置了自定义标题。<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>提示内容开头留 4 个空格，可以有多行，最后用空行结束此标记。<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>最终呈现效果如下：</p>
+<p>!!! note Hexo-admonition 插件使用示例
+这是基于 hexo-admonition 插件渲染的一条提示信息。类型为 note，并设置了自定义标题。
+提示内容开头留 4 个空格，可以有多行，最后用空行结束此标记。</p>
+<h3 id="支持的类型" class="headerLink">
+    <a href="#%e6%94%af%e6%8c%81%e7%9a%84%e7%b1%bb%e5%9e%8b" class="header-mark"></a>支持的类型</h3><p>提示类型 <code>type</code> 将用作 CSS 类名称，暂支持如下类型：</p>
+<ul>
+<li><code>note</code></li>
+<li><code>info, todo</code></li>
+<li><code>warning, attention, caution</code></li>
+<li><code>error, failure, missing, fail</code></li>
+</ul>
+<h3 id="设置隐藏标题" class="headerLink">
+    <a href="#%e8%ae%be%e7%bd%ae%e9%9a%90%e8%97%8f%e6%a0%87%e9%a2%98" class="header-mark"></a>设置/隐藏标题</h3><p>标题 <code>title</code> 是可选的，当未设置时，将以 <code>type</code> 作为默认值:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">!!! warning
+</span></span><span class="line"><span class="cl">    这是一条采用默认标题的警告信息。
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>效果如下：</p>
+<p>!!! warning
+这是一条采用默认标题的警告信息。</p>
+<p>如果不想显示标题，可以将 <code>title</code> 设置为 <code>&quot;&quot;</code>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">!!! Warning &#34;&#34;
+</span></span><span class="line"><span class="cl">    这是一条不带标题的警告信息。
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>效果如下：</p>
+<p>!!! Warning &quot;&quot;
+这是一条不带标题的警告信息。</p>
+<h2 id="卡片演示" class="headerLink">
+    <a href="#%e5%8d%a1%e7%89%87%e6%bc%94%e7%a4%ba" class="header-mark"></a>卡片演示</h2><blockquote>
+<p>主要四种类型：info, warning, error, note</p>
+</blockquote>
+<p>!!! note Hexo-admonition 插件使用示例
+这是基于 hexo-admonition 插件渲染的一条提示信息。类型为 note，并设置了自定义标题。</p>
+<pre><code>提示内容开头留 4 个空格，可以有多行，最后用空行结束此标记。
+</code></pre>
+<p>!!! warning Hexo-admonition 插件使用示例
+这是基于 hexo-admonition 插件渲染的一条提示信息。类型为 warning，并设置了自定义标题。</p>
+<pre><code>提示内容开头留 4 个空格，可以有多行，最后用空行结束此标记。
+</code></pre>
+<p>!!! error Hexo-admonition 插件使用示例
+这是基于 hexo-admonition 插件渲染的一条提示信息。类型为 error，并设置了自定义标题。</p>
+<pre><code>提示内容开头留 4 个空格，可以有多行，最后用空行结束此标记。
+</code></pre>
+<p>!!! info Hexo-admonition 插件使用示例
+这是基于 hexo-admonition 插件渲染的一条提示信息。类型为 info，并设置了自定义标题。</p>
+<pre><code>提示内容开头留 4 个空格，可以有多行，最后用空行结束此标记。
+</code></pre>
+<p>!!! todo Hexo-admonition 插件使用示例
+这是基于 hexo-admonition 插件渲染的一条提示信息。类型为 todo，并设置了自定义标题。</p>
+<pre><code>提示内容开头留 4 个空格，可以有多行，最后用空行结束此标记。
+</code></pre>
+<p>!!! attention Hexo-admonition 插件使用示例
+这是基于 hexo-admonition 插件渲染的一条提示信息。类型为 attention，并设置了自定义标题。</p>
+<pre><code>提示内容开头留 4 个空格，可以有多行，最后用空行结束此标记。
+</code></pre>
+]]></description></item><item><title>国内环境搭建 MacOS K8s 开发环境</title><link>https://samzong.me/posts/%E5%9B%BD%E5%86%85%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-macos-k8s-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</link><pubDate>Tue, 17 May 2022 10:09:02 +0000</pubDate><author><name>Samzong Lu</name></author><guid>https://samzong.me/posts/%E5%9B%BD%E5%86%85%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-macos-k8s-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid><description><![CDATA[<h2 id="minikube" class="headerLink">
+    <a href="#minikube" class="header-mark"></a>Minikube</h2><p>在 Mac 上搭建开发环境，这里主要使用了 Kubernetes 官方推荐的 minikube 和 docker-for-desktop 环境</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">minikube start --image-mirror-country cn <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --registry-mirror<span class="o">=</span>https://vbj8usl3.mirror.aliyuncs.com
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>MacOS隐藏Dock栏中特定应用</title><link>https://samzong.me/posts/macos%E9%9A%90%E8%97%8Fdock%E6%A0%8F%E4%B8%AD%E7%89%B9%E5%AE%9A%E5%BA%94%E7%94%A8/</link><pubDate>Sat, 07 May 2022 14:57:54 +0000</pubDate><author><name>Samzong Lu</name></author><guid>https://samzong.me/posts/macos%E9%9A%90%E8%97%8Fdock%E6%A0%8F%E4%B8%AD%E7%89%B9%E5%AE%9A%E5%BA%94%E7%94%A8/</guid><description><![CDATA[<h2 id="背景说明" class="headerLink">
+    <a href="#%e8%83%8c%e6%99%af%e8%af%b4%e6%98%8e" class="header-mark"></a>背景说明</h2><p>MacOS Dock 栏的空间是有限的，而且绝大部分应用都会占用一个 Dock 的槽位；但并不是所有软件都提供了 <code>Hidden  in Dock</code> 的能力，所以从来不点击，但一直存在，挺痛苦的。</p>
+<p style="color:red;font-size=16px">为不具备隐藏 Dock Icon 的应用附加隐藏能力</p>
+<blockquote>
+<p>符合这类特征的软件： a. 常驻应用，开机自启动，基本不会打开； b. 像我这样的 Alfred 爱好者</p>
+</blockquote>
+<p>之前了解到一些软件对系统的影响都比较大，基本上都是要接管 整个<code>Dock</code>，要关闭 <code>SIP</code>，使用成本太好，基本不值得采用。</p>
+<h2 id="全球同性交友网站" class="headerLink">
+    <a href="#%e5%85%a8%e7%90%83%e5%90%8c%e6%80%a7%e4%ba%a4%e5%8f%8b%e7%bd%91%e7%ab%99" class="header-mark"></a>全球同性交友网站</h2><p>下午在闲逛的时候，发现了这个仓库： <a href="https://github.com/FirePanther/MacOS-Hide-Dock-Icon" target="_blank" rel="noopener noreferrer">https://github.com/FirePanther/MacOS-Hide-Dock-Icon</a> ，一个非常简单的 PHP 脚本，貌似可以提供这个能力，于是我就简单的 Download ，按照 README.md 的方法执行了一下。</p>
+<p>很神奇的！ 满足了我的需求！ 所以，我在这里记录和分享给大家，如果你也需要的话。</p>
+<h2 id="操作步骤" class="headerLink">
+    <a href="#%e6%93%8d%e4%bd%9c%e6%ad%a5%e9%aa%a4" class="header-mark"></a>操作步骤</h2><blockquote>
+<p>当然，你也可以直接 从这切换到 官方仓库的 <code>README.md</code> 去操作</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 下载 脚本文件</span>
+</span></span><span class="line"><span class="cl">➜  ~ wget https://raw.githubusercontent.com/FirePanther/MacOS-Hide-Dock-Icon/master/hideDockIcon.php -O hideDockIcon.php
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 备份地址</span>
+</span></span><span class="line"><span class="cl">➜  ~ wget https://raw.githubusercontent.com/SAMZONG/MacOS-Hide-Dock-Icon/master/hideDockIcon.php -O hideDockIcon.php
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>确保你的 Mac 内装有 PHP</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">brew install php   <span class="c1"># just one command</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>接下就是操作步骤了： 在此之前，你需要完全退出被隐藏的软件**</p>
+<p><a class="lightgallery" href="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/image-20220507152104232.png?x-oss-process=image/resize,w_960,m_lfit" title="image-20220507152104232" data-thumbnail="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/image-20220507152104232.png?x-oss-process=image/resize,w_960,m_lfit">
+        
+    </a></p>
+<p>下方是脚本的执行过程：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">➜  ~ sudo php hideDockIcon.php
+</span></span><span class="line"><span class="cl">App name: BaiduNetdisk_mac
+</span></span><span class="line"><span class="cl">Cracking app BaiduNetdisk_mac
+</span></span><span class="line"><span class="cl">Info.plist successfully injected
+</span></span><span class="line"><span class="cl">Signing ------
+</span></span><span class="line"><span class="cl">/Applications/BaiduNetdisk_mac.app: replacing existing signature
+</span></span><span class="line"><span class="cl">------
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Finished  <span class="c1"># 看到这个就是成功了</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>执行成功后，再次打开App，App会先在Dock栏跳动加载，加载完后图标自动消失，但App依旧在运行。</p>
+<p>以上，你就成功的隐藏这个需要的软件，经过在测试，脚本的健壮性很好:</p>
+<p>支持的 PC : <strong>2022 年 M1 Max MacOS12.3.1</strong></p>
+<h2 id="注意事项" class="headerLink">
+    <a href="#%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9" class="header-mark"></a>注意事项</h2><h3 id="确认对的-app-name" class="headerLink">
+    <a href="#%e7%a1%ae%e8%ae%a4%e5%af%b9%e7%9a%84-app-name" class="header-mark"></a>确认对的 App Name</h3><p><a class="lightgallery" href="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/image-20220507153226027.png?x-oss-process=image/resize,w_960,m_lfit" title="image-20220507153226027" data-thumbnail="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/image-20220507153226027.png?x-oss-process=image/resize,w_960,m_lfit">
+        
+    </a></p>
+<h3 id="恢复被隐藏的应用" class="headerLink">
+    <a href="#%e6%81%a2%e5%a4%8d%e8%a2%ab%e9%9a%90%e8%97%8f%e7%9a%84%e5%ba%94%e7%94%a8" class="header-mark"></a>恢复被隐藏的应用</h3><p><strong>首先 &gt;</strong> 还是要退出App，这时Dock栏也不显示了，菜单栏也没有，所以不好使用 <code>邮件退出的方式</code>，那么接下来我们要找到下方这个软件：</p>
+<p><a class="lightgallery" href="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/image-20220507153525040.png?x-oss-process=image/resize,w_960,m_lfit" title="image-20220507153525040" data-thumbnail="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/image-20220507153525040.png?x-oss-process=image/resize,w_960,m_lfit">
+        
+    </a></p>
+<p>打开软件后，等待加载完成，通过搜索窗口利用 App name 找到被隐藏的软件</p>
+<p><a class="lightgallery" href="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/image-20220507154000558.png?x-oss-process=image/resize,w_960,m_lfit" title="image-20220507154000558" data-thumbnail="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/image-20220507154000558.png?x-oss-process=image/resize,w_960,m_lfit">
+        
+    </a></p>
+<p>然后使用上方的，<code>X</code> 关闭按钮，在弹窗中，选择 <code>Quit</code></p>
+<p>然后 &gt; 再去执行下 <code>hideDockIcon.php</code> 这个脚本:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">➜  sudo php hideDockIcon.php
+</span></span><span class="line"><span class="cl">Password:
+</span></span><span class="line"><span class="cl">App name: BaiduNetDisk_mac
+</span></span><span class="line"><span class="cl">Cracking app BaiduNetDisk_mac
+</span></span><span class="line"><span class="cl">This app should be invisible in the Dock
+</span></span><span class="line"><span class="cl">Would you like to show it? <span class="o">(</span>y/n<span class="o">)</span> y
+</span></span><span class="line"><span class="cl">Info.plist successfully injected
+</span></span><span class="line"><span class="cl">Signing ------
+</span></span><span class="line"><span class="cl">/Applications/BaiduNetDisk_mac.app: replacing existing signature
+</span></span><span class="line"><span class="cl">------
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Finished
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后再次启动 App，那么就会出现在 Dock 栏并且不再隐藏</p>
+<h2 id="结语" class="headerLink">
+    <a href="#%e7%bb%93%e8%af%ad" class="header-mark"></a>结语</h2><p>没事儿还是要逛逛 Github</p>
+]]></description></item><item><title>满足预期的文档站 Mkdocs</title><link>https://samzong.me/posts/%E6%BB%A1%E8%B6%B3%E9%A2%84%E6%9C%9F%E7%9A%84%E6%96%87%E6%A1%A3%E7%AB%99-mkdocs/</link><pubDate>Fri, 06 May 2022 17:25:04 +0000</pubDate><author><name>Samzong Lu</name></author><guid>https://samzong.me/posts/%E6%BB%A1%E8%B6%B3%E9%A2%84%E6%9C%9F%E7%9A%84%E6%96%87%E6%A1%A3%E7%AB%99-mkdocs/</guid><description><![CDATA[<h2 id="组合三件套" class="headerLink">
+    <a href="#%e7%bb%84%e5%90%88%e4%b8%89%e4%bb%b6%e5%a5%97" class="header-mark"></a>组合三件套</h2><ul>
+<li>Mkdocs	# 热门的静态博客框架</li>
+<li>Mkdocs-material	# Mkdocs 颜值担当的主题</li>
+<li>MkDocs Awesome Pages Plugin   # Mkdocs 动态的 Navgation 插件</li>
+</ul>
+<h3 id="依赖的插件" class="headerLink">
+    <a href="#%e4%be%9d%e8%b5%96%e7%9a%84%e6%8f%92%e4%bb%b6" class="header-mark"></a>依赖的插件</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">pip install mkdocs 
+</span></span><span class="line"><span class="cl">pip install mkdocs-material 
+</span></span><span class="line"><span class="cl">pip install mkdocs-git-revision-date-plugin 
+</span></span><span class="line"><span class="cl">pip install mkdocs-mermaid2-plugin 
+</span></span><span class="line"><span class="cl">pip install mkdocs-rss-plugin 
+</span></span><span class="line"><span class="cl">pip install mkdocs-minify-plugin 
+</span></span><span class="line"><span class="cl">pip install mkdocs-macros-plugin 
+</span></span><span class="line"><span class="cl">pip install mkdocs-git-revision-date-localized-plugin 
+</span></span><span class="line"><span class="cl">pip install mkdocs-awesome-pages-plugin 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="github-repo" class="headerLink">
+    <a href="#github-repo" class="header-mark"></a>Github repo</h3><p>Private Teamplate <a href="https://github.com/SAMZONG/mkdocs-template" target="_blank" rel="noopener noreferrer">https://github.com/SAMZONG/mkdocs-template</a></p>
+<h3 id="awesome-plugin-常用参数" class="headerLink">
+    <a href="#awesome-plugin-%e5%b8%b8%e7%94%a8%e5%8f%82%e6%95%b0" class="header-mark"></a>Awesome Plugin 常用参数</h3><blockquote>
+<p>在文档内的路径展示</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="sb">```</span>sh
+</span></span><span class="line"><span class="cl">docs
+</span></span><span class="line"><span class="cl">├── .pages.yaml     <span class="c1"># 站点顶部导航配置文件，控制顺序和名称，一般不增加</span>
+</span></span><span class="line"><span class="cl">├── README.md       <span class="c1"># 默认情况下 目录下 README.md 作为 default 页面</span>
+</span></span><span class="line"><span class="cl">├── SUMMARY.md
+</span></span><span class="line"><span class="cl">├── dce5.0          <span class="c1"># 子文件夹，支持多级目录，自动检测配置</span>
+</span></span><span class="line"><span class="cl">│   ├── .pages.yaml
+</span></span><span class="line"><span class="cl">│   ├── 01kpanda.md <span class="c1"># 子文件自动检测，可以通过文件名前缀数字控制排序</span>
+</span></span><span class="line"><span class="cl">│   ├── 02ghippo.md
+</span></span><span class="line"><span class="cl">│   ├── 03clusterpedia.md
+</span></span><span class="line"><span class="cl">│   ├── ...
+</span></span><span class="line"><span class="cl">├── design
+</span></span><span class="line"><span class="cl">│   ├── .pages.yaml <span class="c1"># 每个目录下都有一个 `.pages.yaml` 用来进行目录的配置</span>
+</span></span><span class="line"><span class="cl">│   ├── README.md
+</span></span><span class="line"><span class="cl">│   ├── ...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>通过对每个文件下的特定处理，默认情况下 <code>.pages.yaml</code> 为空即可，如需要特殊处理，可以在文档添加下方参数:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">Products    </span><span class="w"> </span><span class="c"># 文件夹展示的标题</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">order</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">            </span><span class="c"># 文件夹的顺序，数字越小越靠前</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">hide</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">         </span><span class="c"># 是否隐藏，默认不隐藏</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">nav</span><span class="p">:</span><span class="w">                </span><span class="c"># 采用自定义导航</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">filename.md</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">filename2.md</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">...</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><code>nav</code> 的配置方式，还有更多高级用法，可以参考插件做的的 Github 介绍 <a href="https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin#customize-navigation" target="_blank" rel="noopener noreferrer">传送门</a></p>
+</blockquote>
+<h2 id="mkdocsyaml-的配置变更" class="headerLink">
+    <a href="#mkdocsyaml-%e7%9a%84%e9%85%8d%e7%bd%ae%e5%8f%98%e6%9b%b4" class="header-mark"></a>mkdocs.yaml 的配置变更</h2><ol>
+<li>不要设定 <code>nav</code> OR <code>page</code></li>
+<li>在 <code>plugin</code> 增加下方配置</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">plugins</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">awesome-pages</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="nt">filename</span><span class="p">:</span><span class="w"> </span><span class="l">.pages.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="nt">collapse_single_pages</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="nt">strict</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>Alfred Workflow 推荐</title><link>https://samzong.me/posts/alfred-workflow-%E6%8E%A8%E8%8D%90/</link><pubDate>Tue, 03 May 2022 20:14:49 +0000</pubDate><author><name>Samzong Lu</name></author><guid>https://samzong.me/posts/alfred-workflow-%E6%8E%A8%E8%8D%90/</guid><description><![CDATA[<h2 id="alfred-介绍" class="headerLink">
+    <a href="#alfred-%e4%bb%8b%e7%bb%8d" class="header-mark"></a>Alfred 介绍</h2><p>Alfred 是 Mac 上一款著名的效率应用，强大的功能和众多的扩展能让你在实际操作中大幅提升工作效率，网络上也有大量关于的 Alfred 的评测和技巧的文章。</p>
+<p><a class="lightgallery" href="https://cdn.sspai.com/attachment/origin/2016/02/19/311872.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" title="https://cdn.sspai.com/attachment/origin/2016/02/19/311872.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" data-thumbnail="https://cdn.sspai.com/attachment/origin/2016/02/19/311872.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+        
+    </a></p>
+<h2 id="workflow-介绍" class="headerLink">
+    <a href="#workflow-%e4%bb%8b%e7%bb%8d" class="header-mark"></a>Workflow 介绍</h2><p>Workflow 工作流；将一件事情的多个步骤，通过一个的规则相连，并依次执行，最终完成，这个方式就是工作流； Alfred Workflow 就是一个将我们日常工作流 实现的一个工具，可以让我们在 Alfred 中更加方便的完成我们的工作；现实生活中的工作流可能更为复杂，但本质还是如此。正是基于这种现实背景，alfred 从 2.0 版本起加入了 workflow，简单的示例说明。</p>
+<p><a class="lightgallery" href="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/mUZ6OI.png?x-oss-process=image/resize,w_960,m_lfit" title="mUZ6OI" data-thumbnail="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/mUZ6OI.png?x-oss-process=image/resize,w_960,m_lfit">
+        
+    </a></p>
+<h2 id="我的推荐" class="headerLink">
+    <a href="#%e6%88%91%e7%9a%84%e6%8e%a8%e8%8d%90" class="header-mark"></a>我的推荐</h2><p>整理常用的一些 Workflow 分享, 提高工作和生活的效率小技巧。</p>
+<h3 id="5-星推荐" class="headerLink">
+    <a href="#5-%e6%98%9f%e6%8e%a8%e8%8d%90" class="header-mark"></a>5 星推荐</h3><ul>
+<li><a href="https://www.packal.org/workflow/timezones-2" target="_blank" rel="noopener noreferrer">https://www.packal.org/workflow/timezones-2</a></li>
+<li><a href="https://www.packal.org/workflow/homebrew-and-cask-alfred" target="_blank" rel="noopener noreferrer">https://www.packal.org/workflow/homebrew-and-cask-alfred</a></li>
+<li><a href="https://www.packal.org/workflow/mac-app-store-search" target="_blank" rel="noopener noreferrer">https://www.packal.org/workflow/mac-app-store-search</a></li>
+<li><a href="https://github.com/xiaotu9639/alfred-yuque-workflow" target="_blank" rel="noopener noreferrer">https://github.com/xiaotu9639/alfred-yuque-workflow</a></li>
+<li><a href="https://github.com/whyliam/whyliam.workflows.youdao" target="_blank" rel="noopener noreferrer">https://github.com/whyliam/whyliam.workflows.youdao</a> 有道翻译
+<ul>
+<li>zhiyu_id: 12ba82650be566f5</li>
+<li>zhiyu_key:XWkQjLboE4llgQuWZMR1e0d03Au9w8ob</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="4-星推荐" class="headerLink">
+    <a href="#4-%e6%98%9f%e6%8e%a8%e8%8d%90" class="header-mark"></a>4 星推荐</h3><ul>
+<li><a href="https://www.packal.org/workflow/alfred-markdown-table" target="_blank" rel="noopener noreferrer">https://www.packal.org/workflow/alfred-markdown-table</a></li>
+<li><a href="https://www.packal.org/workflow/pretty-json" target="_blank" rel="noopener noreferrer">https://www.packal.org/workflow/pretty-json</a></li>
+<li><a href="https://www.packal.org/workflow/who" target="_blank" rel="noopener noreferrer">https://www.packal.org/workflow/who</a></li>
+</ul>
+<h2 id="如何获取-workflow-" class="headerLink">
+    <a href="#%e5%a6%82%e4%bd%95%e8%8e%b7%e5%8f%96-workflow-" class="header-mark"></a>如何获取 Workflow ?</h2><p>可以到这个网站 <a href="https://www.packal.org/" target="_blank" rel="noopener noreferrer">https://www.packal.org/</a>  有非常丰富的 Workflow 或者 主题可以选择，丰富你的 Alfred 使用</p>
+<p>如果你有能力制作一些优秀的 Workflow ，也可以在这里分享</p>
+<h2 id="更多关于-alfred-的使用教程" class="headerLink">
+    <a href="#%e6%9b%b4%e5%a4%9a%e5%85%b3%e4%ba%8e-alfred-%e7%9a%84%e4%bd%bf%e7%94%a8%e6%95%99%e7%a8%8b" class="header-mark"></a>更多关于 Alfred 的使用教程</h2><p>网络上已经有大量的 视频和文本的使用教程了，所以我这里直接引用我学习时使用的教程</p>
+<h2 id="视频教程" class="headerLink">
+    <a href="#%e8%a7%86%e9%a2%91%e6%95%99%e7%a8%8b" class="header-mark"></a>视频教程</h2><iframe width="640" height="360" src="//player.bilibili.com/player.html?aid=894481262&bvid=BV1GP4y1g7HJ&cid=700510300&page=1" scrolling="no" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<h2 id="文本教程" class="headerLink">
+    <a href="#%e6%96%87%e6%9c%ac%e6%95%99%e7%a8%8b" class="header-mark"></a>文本教程</h2><p><a href="https://ihtcboy.com/2020/02/09/2020-02-09_%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84macOS%E7%B3%BB%E5%88%97%EF%BC%9A%E9%AB%98%E6%95%88Alfred%E8%BF%9B%E9%98%B6/" target="_blank" rel="noopener noreferrer">程序员的macOS系列：高效Alfred进阶</a></p>
+<p>同时，也推荐下这位优秀博主，如果关注 iOS 开发，可以关注他更新的内容</p>
+]]></description></item><item><title>youtube-dl 下载 YouTube 视频</title><link>https://samzong.me/posts/youtube-dl-%E4%B8%8B%E8%BD%BD-youtube-%E8%A7%86%E9%A2%91/</link><pubDate>Tue, 03 May 2022 13:57:28 +0000</pubDate><author><name>Samzong Lu</name></author><guid>https://samzong.me/posts/youtube-dl-%E4%B8%8B%E8%BD%BD-youtube-%E8%A7%86%E9%A2%91/</guid><description><![CDATA[<blockquote>
+<p>截止 2022.5 <code>youtube-dl</code> 已经较长时间未更新了，建议采用 <a href="https://github.com/yt-dlp/yt-dlp" target="_blank" rel="noopener noreferrer"><code>yt-dlp</code></a>, 将命令进行替换即可</p>
+</blockquote>
+<h2 id="安装新版本的-yt-dlp" class="headerLink">
+    <a href="#%e5%ae%89%e8%a3%85%e6%96%b0%e7%89%88%e6%9c%ac%e7%9a%84-yt-dlp" class="header-mark"></a>安装新版本的 <code>yt-dlp</code></h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">brew install yt-dlp/taps/yt-dlp
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>yt-dlp</code> 是从 <code>youtube-dl</code> 分支出来的版本，提供持续更新和向前兼容，在友好型上做了优化；仅需要将所有安装命令中 <code>youtube-dl</code> 替换为 <code>yt-dlp</code></p>
+<p>如果你还是喜欢使用 youtube-dl，可以使用以下命令将程序默认替换，同时不影响你的使用:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">➜  ~ <span class="nb">alias</span> youtube-dl<span class="o">=</span>yt-dlp
+</span></span><span class="line"><span class="cl">➜  ~ <span class="nb">echo</span> <span class="s2">&#34;alias youtube-dl=yt-dlp&#34;</span>  &gt;&gt; ~/.zshrc  <span class="c1"># or ~/.bashrc</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<hr>
+<h2 id="youtube-dl-下载-youtube-视频" class="headerLink">
+    <a href="#youtube-dl-%e4%b8%8b%e8%bd%bd-youtube-%e8%a7%86%e9%a2%91" class="header-mark"></a>youtube-dl 下载 YouTube 视频</h2><p>视频下载命令行工具里，网友推荐通常都是『国外视频用 youtube-dl』，有这两个工具国内外主流视频网站的视频基本就横扫了，适合想收藏或者喜欢下载后用本地播放器的 Geek 群体。</p>
+<ul>
+<li><a href="http://rg3.github.io/youtube-dl/download.html" target="_blank" rel="noopener noreferrer">youtube-dl</a></li>
+</ul>
+<p>命令行工具本身其实不复杂，理解了它们的语法就能开始使用了，结合 Alfred 还可以把常用的命令设置成触发的动作，提升交互体验和效率。然而很多人一看网站的介绍估计和我最初的感受差不多，还要部署一堆使用环境啊。</p>
+<h2 id="xcode-的命令行工具" class="headerLink">
+    <a href="#xcode-%e7%9a%84%e5%91%bd%e4%bb%a4%e8%a1%8c%e5%b7%a5%e5%85%b7" class="header-mark"></a>Xcode 的命令行工具</h2><p>Homebrew 环境安装前先检查一下 Xcode 的命令行工具是否已经安装，如果 macOS 系统更新过可能也需要重新安装一次，「终端」（应用程序 - 实用工具 - 终端）中输入 <code>xcode-select --install</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">➜  ~ xcode-select --install
+</span></span><span class="line"><span class="cl">xcode-select: error: <span class="nb">command</span> line tools are already installed, use <span class="s2">&#34;Software Update&#34;</span> to install updates
+</span></span><span class="line"><span class="cl">➜  ~
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><em>先前配置时已经安装过 Xcode 命令行工具，所以会出现上面的提示信息。</em></p>
+<h2 id="homebrew-依赖" class="headerLink">
+    <a href="#homebrew-%e4%be%9d%e8%b5%96" class="header-mark"></a>Homebrew 依赖</h2><p><a href="https://brew.sh/index_zh-cn.html" target="_blank" rel="noopener noreferrer">Homebrew</a> 是一个macOS 上的软件包管理工具，通过命令行的方式安装和卸载软件，大部分的流行软件都提供了 Homebrew 的安装方式，也是开源世界里安装和更新软件的主流方式；</p>
+<h3 id="homebrewhttpsbrewshindex_zh-cnhtml" class="headerLink">
+    <a href="#homebrewhttpsbrewshindex_zh-cnhtml" class="header-mark"></a><a href="https://brew.sh/index_zh-cn.html" target="_blank" rel="noopener noreferrer">Homebrew</a></h3><p>只需要在联网的情况下运行一行命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">/usr/bin/ruby -e <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>更多关于 Homebrew 的使用相关，可以查看我的另一篇文章  <a href="https://samzong.me/2022/05/03/Mac%E4%B8%8Bhomebrew%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_blank" rel="noopener noreferrer">Mac 下 Homebrew 的使用</a></p>
+</blockquote>
+<h2 id="安装-youtube-dl" class="headerLink">
+    <a href="#%e5%ae%89%e8%a3%85-youtube-dl" class="header-mark"></a>安装 youtube-dl</h2><p>上面刚学习到的命令可以先用起来，先看看 youtube-dl 的软件信息，在终端里输入 <code>brew info youtube-dl</code>，了解一下 youtube-dl 的依存环境和需要搭档的其他应用。</p>
+
+<p>从终端运行的反馈能看到，youtube-dl 的使用环境是 Python3，合并视频片断还会用到 <code>ffmpeg</code>  这个组件，也就是说安装完 youtube-dl，还要再运行一次 <code>brew install ffmpeg</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">brew install youtube-dl
+</span></span><span class="line"><span class="cl">brew install ffmpeg
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="youtube-dl-的基本用法" class="headerLink">
+    <a href="#youtube-dl-%e7%9a%84%e5%9f%ba%e6%9c%ac%e7%94%a8%e6%b3%95" class="header-mark"></a>youtube-dl 的基本用法</h2><p>前 3 步结束已经可以用命令行下载视频了，这里介绍几个常用的命令，更多的命令用法在官网都有介绍 ，查看 Github 更全的操作指引 <a href="https://github.com/ytdl-org/youtube-dl/blob/master/README.md#description" target="_blank" rel="noopener noreferrer">Document</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">➜  ~ youtube-dl -h <span class="p">|</span> grep Options
+</span></span><span class="line"><span class="cl">Options:
+</span></span><span class="line"><span class="cl">  General Options:
+</span></span><span class="line"><span class="cl">  Network Options:
+</span></span><span class="line"><span class="cl">  Download Options:
+</span></span><span class="line"><span class="cl">  Filesystem Options:
+</span></span><span class="line"><span class="cl">  Thumbnail Options:
+</span></span><span class="line"><span class="cl">  Verbosity / Simulation Options:
+</span></span><span class="line"><span class="cl">  Video Format Options:
+</span></span><span class="line"><span class="cl">  Subtitle Options:
+</span></span><span class="line"><span class="cl">  Authentication Options:
+</span></span><span class="line"><span class="cl">  Adobe Pass Options:
+</span></span><span class="line"><span class="cl">  Post-processing Options:
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="导出视频指定文件名称" class="headerLink">
+    <a href="#%e5%af%bc%e5%87%ba%e8%a7%86%e9%a2%91%e6%8c%87%e5%ae%9a%e6%96%87%e4%bb%b6%e5%90%8d%e7%a7%b0" class="header-mark"></a>导出视频指定文件名称</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">youtube-dl https://www.youtube.com/watch?v<span class="o">=</span>Ga4UCK627nU -o <span class="s2">&#34;~/Downloads/aaa.mp4&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>youtube-dl</code> 还提供了 一些变量的方式，可以作用在文件名上，比较常用的如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># %(title)s.%(ext)s 则是指定了文件名的格式，%(title)s 是视频的标题，%(ext)s 则是视频的文件扩展名</span>
+</span></span><span class="line"><span class="cl">youtube-dl https://www.youtube.com/watch?v<span class="o">=</span>Ga4UCK627nU -o <span class="s2">&#34;~/Downloads/%(title)s.%(ext)s&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>通过 <code>视频名.扩展名</code> 这样可以规范化导出文档的名称；还有其他非常丰富的变量支持，可以去这里找到你想要的 <a href="https://github.com/ytdl-org/youtube-dl/blob/master/README.md#output-template" target="_blank" rel="noopener noreferrer">Output Template</a></p>
+<h3 id="查询视频支持的版本" class="headerLink">
+    <a href="#%e6%9f%a5%e8%af%a2%e8%a7%86%e9%a2%91%e6%94%af%e6%8c%81%e7%9a%84%e7%89%88%e6%9c%ac" class="header-mark"></a>查询视频支持的版本</h3><p>导出的画质不如意，希望自定义导出画质，可以采用这个方式，使用 <code>-F</code> 查看视频资源支持的类型，通过 <code>-f</code> 指定对应的版本进行下载</p>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">➜  ~ youtube-dl -F https://www.youtube.com/watch<span class="se">\?</span>v<span class="se">\=</span>BYkHLlKFEsM
+</span></span><span class="line"><span class="cl"><span class="o">[</span>youtube<span class="o">]</span> BYkHLlKFEsM: Downloading webpage
+</span></span><span class="line"><span class="cl"><span class="o">[</span>info<span class="o">]</span> Available formats <span class="k">for</span> BYkHLlKFEsM:
+</span></span><span class="line"><span class="cl">format code  extension  resolution note
+</span></span><span class="line"><span class="cl"><span class="m">249</span>          webm       audio only tiny   53k , webm_dash container, opus @ 53k <span class="o">(</span>48000Hz<span class="o">)</span>, 2.44MiB
+</span></span><span class="line"><span class="cl"><span class="m">250</span>          webm       audio only tiny   70k , webm_dash container, opus @ 70k <span class="o">(</span>48000Hz<span class="o">)</span>, 3.22MiB
+</span></span><span class="line"><span class="cl"><span class="m">140</span>          m4a        audio only tiny  129k , m4a_dash container, mp4a.40.2@129k <span class="o">(</span>44100Hz<span class="o">)</span>, 5.93MiB
+</span></span><span class="line"><span class="cl"><span class="m">251</span>          webm       audio only tiny  136k , webm_dash container, opus @136k <span class="o">(</span>48000Hz<span class="o">)</span>, 6.27MiB
+</span></span><span class="line"><span class="cl"><span class="m">160</span>          mp4        256x144    144p   32k , mp4_dash container, avc1.4d400c@  32k, 30fps, video only, 1.48MiB
+</span></span><span class="line"><span class="cl"><span class="m">278</span>          webm       256x144    144p   75k , webm_dash container, vp9@  75k, 30fps, video only, 3.45MiB
+</span></span><span class="line"><span class="cl"><span class="m">133</span>          mp4        426x240    240p   48k , mp4_dash container, avc1.4d4015@  48k, 30fps, video only, 2.21MiB
+</span></span><span class="line"><span class="cl"><span class="m">242</span>          webm       426x240    240p   76k , webm_dash container, vp9@  76k, 30fps, video only, 3.51MiB
+</span></span><span class="line"><span class="cl"><span class="m">134</span>          mp4        638x360    360p   80k , mp4_dash container, avc1.4d401e@  80k, 30fps, video only, 3.70MiB
+</span></span><span class="line"><span class="cl"><span class="m">243</span>          webm       638x360    360p  115k , webm_dash container, vp9@ 115k, 30fps, video only, 5.28MiB
+</span></span><span class="line"><span class="cl"><span class="m">135</span>          mp4        852x480    480p  120k , mp4_dash container, avc1.4d401f@ 120k, 30fps, video only, 5.50MiB
+</span></span><span class="line"><span class="cl"><span class="m">244</span>          webm       852x480    480p  161k , webm_dash container, vp9@ 161k, 30fps, video only, 7.41MiB
+</span></span><span class="line"><span class="cl"><span class="m">136</span>          mp4        1278x720   720p  217k , mp4_dash container, avc1.4d401f@ 217k, 30fps, video only, 9.97MiB
+</span></span><span class="line"><span class="cl"><span class="m">247</span>          webm       1278x720   720p  273k , webm_dash container, vp9@ 273k, 30fps, video only, 12.52MiB
+</span></span><span class="line"><span class="cl"><span class="m">248</span>          webm       1916x1080  1080p  896k , webm_dash container, vp9@ 896k, 30fps, video only, 41.01MiB
+</span></span><span class="line"><span class="cl"><span class="m">137</span>          mp4        1916x1080  1080p  923k , mp4_dash container, avc1.640028@ 923k, 30fps, video only, 42.24MiB
+</span></span><span class="line"><span class="cl"><span class="m">18</span>           mp4        638x360    360p  350k , avc1.42001E, 30fps, mp4a.40.2 <span class="o">(</span>44100Hz<span class="o">)</span>, 16.07MiB <span class="o">(</span>best<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">➜  ~ youtube-dl -f <span class="m">137</span> https://www.youtube.com/watch<span class="se">\?</span>v<span class="se">\=</span>BYkHLlKFEsM  <span class="c1"># 下载对应的 format code</span>
+</span></span><span class="line"><span class="cl">➜  ~ youtube-dl -f best https://www.youtube.com/watch<span class="se">\?</span>v<span class="se">\=</span>BYkHLlKFEsM  <span class="c1"># 下载最佳的版本</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="仅导出音频文件" class="headerLink">
+    <a href="#%e4%bb%85%e5%af%bc%e5%87%ba%e9%9f%b3%e9%a2%91%e6%96%87%e4%bb%b6" class="header-mark"></a>仅导出音频文件</h3><p>:::information_source: 经常拿过来做个人的歌曲库导出，<code>youtube-dl -x</code> 提供了 -x 参数来进行指定 仅导出音频，<code>--extract-audio</code> 这里需要使用到 <code>ffmpeg</code> 。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">youtube-dl -x https://www.youtube.com/watch?v<span class="o">=</span>Ga4UCK627nU -o <span class="s2">&#34;~/Downloads/%(title)s.%(ext)s&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>默认下载的音频文件类型，可能无法满足你，这个时候，可以使用 <code>--audio-format</code> 参数，来指定对应的音频格式（使用 ffmpeg 自动转码），目前支持个格式类型有：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">Specify audio format: <span class="s2">&#34;best&#34;</span>, <span class="s2">&#34;aac&#34;</span>,<span class="s2">&#34;flac&#34;</span>, <span class="s2">&#34;mp3&#34;</span>, <span class="s2">&#34;m4a&#34;</span>, <span class="s2">&#34;opus&#34;</span>, <span class="s2">&#34;vorbis&#34;</span>,or <span class="s2">&#34;wav&#34;</span><span class="p">;</span> <span class="s2">&#34;best&#34;</span> by default
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">youtube-dl -x https://www.youtube.com/watch?v<span class="o">=</span>Ga4UCK627nU -o <span class="s2">&#34;~/Downloads/%(title)s.%(ext)s&#34;</span> --audio-format mp3
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item><item><title>GitHub Pages 的妙用</title><link>https://samzong.me/posts/github-pages-%E7%9A%84%E5%A6%99%E7%94%A8/</link><pubDate>Fri, 22 Apr 2022 17:23:00 +0000</pubDate><author><name>samzong.lu</name></author><guid>https://samzong.me/posts/github-pages-%E7%9A%84%E5%A6%99%E7%94%A8/</guid><description><![CDATA[<h2 id="本来是想好好工作的" class="headerLink">
+    <a href="#%e6%9c%ac%e6%9d%a5%e6%98%af%e6%83%b3%e5%a5%bd%e5%a5%bd%e5%b7%a5%e4%bd%9c%e7%9a%84" class="header-mark"></a>本来是想好好工作的</h2><p>最近换了新工作（后面找个时间好好说说），大量接触 k8s &amp; docker，开始写了比较多的 yaml 和 Dockerfile；散落在电脑上的话，还是很不方便，有个仓库管理起来的话，就会很方便了，于是有了这个项目 <a href="https://github.com/SAMZONG/k8s-yaml" target="_blank" rel="noopener noreferrer">samzong/k8s-yaml</a></p>
+<p>k8s-yaml 一开始的定义就是 public ，希望给更多其他的人提供帮助，索性就再增加了一个网页吧</p>
+<h2 id="一分钟快速搭建网站" class="headerLink">
+    <a href="#%e4%b8%80%e5%88%86%e9%92%9f%e5%bf%ab%e9%80%9f%e6%90%ad%e5%bb%ba%e7%bd%91%e7%ab%99" class="header-mark"></a>一分钟快速搭建网站</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git branch gh-pages
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;## Hello gh-pages&#34;</span> &gt; index.md
+</span></span><span class="line"><span class="cl">git push origin gh-pages
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>eeen&hellip;. 这样就 ok ！</p>
+<p><code>gh-pages</code> 是每个 GitHub 仓库的默认 github pages 分支，当你创建这个分支并推动到 GitHub 时，会自动触发 Pages 的构建任务，大约30s 左右，你就会得到一个网站</p>
+<blockquote>
+<p>http://[github_username].github.io/[github_repo_name]</p>
+</blockquote>
+<h2 id="简单的配置" class="headerLink">
+    <a href="#%e7%ae%80%e5%8d%95%e7%9a%84%e9%85%8d%e7%bd%ae" class="header-mark"></a>简单的配置</h2><p><a class="lightgallery" href="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/X4tbDt.png?x-oss-process=image/resize,w_960,m_lfit" title="X4tbDt" data-thumbnail="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/X4tbDt.png?x-oss-process=image/resize,w_960,m_lfit">
+        
+    </a></p>
+<p>上图简单指引了如何打开 GitHub Pages 的配置路径，下面对主要的几个模块进行说明:</p>
+<ol>
+<li>Source  - 指定的 以那个分支作为 built 源和文件夹，默认是 gh-pages, 建议不动，统一认知</li>
+<li>Theme Chooser - 选择对应的博客主题，大概有 10 个，都比较普通，根据自己喜好来，可以自定义，这里不展开 (Google Jekyll themes 一大堆</li>
+<li>Custom Domain - 可以指定默认的特定的域名，需要配置 <code>/CNAME</code>，需要和这里的域名一致，同时域名解析需要配置好 CNAME</li>
+<li>Enforce HTTPS - 启用 HTTPS，默认不启动，建议启用</li>
+</ol>
+<blockquote>
+<p>CNAME 配置，将指定的域名指向到 <code>[github_username].github.io</code></p>
+</blockquote>
+<p>经过简单的配置，这个仓库的网站，已经完成了你想要的； 在 <code>index.md</code> 内修改为你想要的内容。</p>
+<h2 id="高级功能结合-github-issue-的评论功能" class="headerLink">
+    <a href="#%e9%ab%98%e7%ba%a7%e5%8a%9f%e8%83%bd%e7%bb%93%e5%90%88-github-issue-%e7%9a%84%e8%af%84%e8%ae%ba%e5%8a%9f%e8%83%bd" class="header-mark"></a>高级功能：结合 GitHub issue 的评论功能</h2><p>这里采用的 评论组件是 <a href="https://utteranc.es/" target="_blank" rel="noopener noreferrer">utterances</a>, 提供轻量级的博客评论功能，并且评论是直接创建 GitHub issue，方便管理</p>
+<p>这里不赘述安装细节的，比较简单，直接去看下面几个网站即可</p>
+<ul>
+<li><a href="https://utteranc.es/" target="_blank" rel="noopener noreferrer">https://utteranc.es/</a></li>
+<li><a href="https://roife.github.io/2021/02/12/use-utterances-for-comment/" target="_blank" rel="noopener noreferrer">https://roife.github.io/2021/02/12/use-utterances-for-comment/</a></li>
+<li><a href="https://www.evanlin.com/jekyll-remove-disqus/" target="_blank" rel="noopener noreferrer">https://www.evanlin.com/jekyll-remove-disqus/</a></li>
+</ul>
+<blockquote>
+<p>注意需要增加的文件</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl">mkdir _layouts
+</span></span><span class="line"><span class="cl">wget https://raw.githubusercontent.com/SAMZONG/k8s-yaml/gh-pages/_layouts/post.html -o _layouts/post.html
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>index.md 增加 layout 参数，追加在最顶部</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">layout: post
+</span></span><span class="line"><span class="cl">---
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git add _layouts/post.html
+</span></span><span class="line"><span class="cl">git add index.md
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;add comment module with utterances&#34;</span>
+</span></span><span class="line"><span class="cl">git push origin gh-pages
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="end" class="headerLink">
+    <a href="#end" class="header-mark"></a>End</h2><p>以上就是全部的部署内容了，可以去看下我的网站和项目</p>
+<ul>
+<li><a href="https://k8s-yaml.samzong.me" target="_blank" rel="noopener noreferrer">https://k8s-yaml.samzong.me</a></li>
+</ul>
+<p>如果你觉得喜欢，求 fork，求 star</p>
+]]></description></item><item><title>需要了解的 K8s 发行版本</title><link>https://samzong.me/posts/%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E7%AB%9E%E5%93%81/</link><pubDate>Tue, 19 Apr 2022 18:11:00 +0000</pubDate><author><name>samzong.lu</name></author><guid>https://samzong.me/posts/%E9%9C%80%E8%A6%81%E4%BA%86%E8%A7%A3%E7%9A%84%E7%AB%9E%E5%93%81/</guid><description><![CDATA[<h2 id="k8s-的发行版本" class="headerLink">
+    <a href="#k8s-%e7%9a%84%e5%8f%91%e8%a1%8c%e7%89%88%e6%9c%ac" class="header-mark"></a>K8s 的发行版本</h2><p><a class="lightgallery" href="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/6ngC8v.png" title="6ngC8v" data-thumbnail="http://ipic-typora-samzong.oss-cn-qingdao.aliyuncs.com//uPic/6ngC8v.png">
+        
+    </a></p>
+<p>开始学习喜欢的东西，上面的每一个都要了解</p>
+]]></description></item><item><title>CKA 考试准备</title><link>https://samzong.me/posts/cka-%E8%80%83%E8%AF%95%E5%87%86%E5%A4%87/</link><pubDate>Mon, 18 Apr 2022 06:00:00 +0000</pubDate><author><name>samzong.lu</name></author><guid>https://samzong.me/posts/cka-%E8%80%83%E8%AF%95%E5%87%86%E5%A4%87/</guid><description><![CDATA[<h2 id="汇总" class="headerLink">
+    <a href="#%e6%b1%87%e6%80%bb" class="header-mark"></a>汇总</h2><p>本来预计 4 月 10 号左右，可以开始准备 CKA 的考试了，因为疫情在家办公，再加上报名去做志愿者，所以这个时间耽搁到了现在才开始</p>
+<h3 id="时间成本" class="headerLink">
+    <a href="#%e6%97%b6%e9%97%b4%e6%88%90%e6%9c%ac" class="header-mark"></a>时间成本</h3><p>在这里记录下整个学习过程，也给大家预估下，不走培训机构，自学大概需要多久的时间</p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>事项</th>
+<th>耗费时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2022-04-16</td>
+<td>了解什么是 CKA 和考试内容,捡起来 Docker 的知识, 个人项目转为 Docker Image 并推送到 dockerhub</td>
+<td>1d</td>
+</tr>
+<tr>
+<td>2022-04-17</td>
+<td>在个人电脑上成功运行起来 K8s 的环境，并完成个人项目部署</td>
+<td>1d</td>
+</tr>
+</tbody>
+</table>
+<h3 id="体会" class="headerLink">
+    <a href="#%e4%bd%93%e4%bc%9a" class="header-mark"></a>体会</h3><ul>
+<li>有段时间没回过头来弄代码了，平时写比较多是项目上的小脚本，系统化把一个项目改造为 Docker image，再来了一遍，整个优化过程的感觉还是很舒服的</li>
+</ul>
+<h2 id="学习资料" class="headerLink">
+    <a href="#%e5%ad%a6%e4%b9%a0%e8%b5%84%e6%96%99" class="header-mark"></a>学习资料</h2><h3 id="培训机构的大纲" class="headerLink">
+    <a href="#%e5%9f%b9%e8%ae%ad%e6%9c%ba%e6%9e%84%e7%9a%84%e5%a4%a7%e7%ba%b2" class="header-mark"></a>培训机构的大纲</h3><p>大致培训时间是 3 天，给自己预估的学习时间大概是 一周左右的时间</p>
+<ul>
+<li>CKA最新考纲解读与Kubernetes入门（Day 1/上午）
+<ul>
+<li>CKA考试大纲解读</li>
+<li>Kubernetes基本概念与应用场景</li>
+<li>Kubernetes主要功能特性、集群架构与组件</li>
+<li>使用kubeadm安装集群与版本升级</li>
+<li>etcd数据备份与还原</li>
+<li>kubectl使用、shell自动补</li>
+</ul>
+</li>
+<li>Kubernetes工作负载、调度与Helm（Day 1/下午）
+<ul>
+<li>Pod基本操作、生命周期、回调与探针</li>
+<li>初始化与临时容器</li>
+<li>使用Deployment部署自修复无状态服务</li>
+<li>使用Deployment滚动更新/回滚/扩缩无状态服务</li>
+<li>使用StatefulSet部署有状态服务</li>
+<li>使用DaemonSet部署守护进程</li>
+<li>深入理解控制器工作原理</li>
+<li>使用ConfigMaps和Secrets配置应用程序</li>
+<li>Kubernetes调度策略实践</li>
+<li>资源限制如何影响Pod调度</li>
+<li>理解调度器工作原理</li>
+<li>各种调度策略使用场景总结</li>
+<li>使用Helm部署/升级/回滚/下线服务</li>
+<li>Helm回调与Chart编写</li>
+</ul>
+</li>
+<li>Kubernetes服务与网络（Day 2/上午）
+<ul>
+<li>定义Service与Endpoint</li>
+<li>Service Iptables与IPVS代理模式</li>
+<li>通过Service名称与ClusterIP集群内互访</li>
+<li>通过NodePort、Ingress、LoadBalancer集群外访问</li>
+<li>CoreDNS原理介绍</li>
+<li>配置和使用CoreDNS</li>
+<li>同Pod/同Node/跨Node/跨集群互通性</li>
+<li>常见网络接口插件工作原理与适用场景</li>
+<li>常见网络故障排查</li>
+</ul>
+</li>
+<li>Kubernetes存储与安全（Day 2/下午）
+<ul>
+<li>Volume、PV、PVC、StorageClass</li>
+<li>卷模式、访问模式和卷回收策略</li>
+<li>理解持久容量声明原语</li>
+<li>了解如何配置具有持久性存储的应用程序</li>
+<li>认证、授权与鉴权</li>
+<li>管理基于角色的访问控制（RBAC）</li>
+<li>Pod和容器操作权限安全策略</li>
+<li>Network Policy</li>
+</ul>
+</li>
+<li>Kubernetes监控日志、故障排查（Day 3/上午）
+<ul>
+<li>如何监控一个Kubenetes应用</li>
+<li>查看与管理集群和节点日志</li>
+<li>管理容器标准输出和标准错误日志</li>
+<li>如何解决应用程序故障</li>
+<li>对群集组件故障进行故障排除</li>
+<li>Kubernetes其他常见问题定位</li>
+</ul>
+</li>
+<li>CKA考试注意事项与模拟演练（Day 3/下午）
+<ul>
+<li>CKA真题演练与解析【重点】</li>
+<li>CKA考试注意事项及应试答疑</li>
+</ul>
+</li>
+</ul>
+]]></description></item><item><title>Dockerfile Run at M1 processor build failed</title><link>https://samzong.me/posts/docker-run-at-apple-silicon-m1/</link><pubDate>Sun, 17 Apr 2022 20:32:00 +0000</pubDate><author><name>samzong.lu</name></author><guid>https://samzong.me/posts/docker-run-at-apple-silicon-m1/</guid><description><![CDATA[<h2 id="apple-m1-processor" class="headerLink">
+    <a href="#apple-m1-processor" class="header-mark"></a>Apple M1 processor</h2><p>在使用了 Apple M1 的笔记本后，在 docker 使用遇到了一些问题，这里做些笔记记录下来</p>
+<h2 id="pull-image-error" class="headerLink">
+    <a href="#pull-image-error" class="header-mark"></a>pull image error</h2><blockquote>
+<p>Error &ldquo;no matching manifest for linux/arm64/v8 in the manifest list entries&rdquo;</p>
+</blockquote>
+<p>在我尝试想要 pull 下来时，得到上面的一个错误；同样的问题，我在编写 Dockerfile 和 docker-compose.yml 都遇到这样的问题</p>
+<h3 id="docker-composeyml" class="headerLink">
+    <a href="#docker-composeyml" class="header-mark"></a>docker-compose.yml</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.9&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Database</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">db</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">mysql-server:5.7</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">db_data:/var/lib/mysql</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">MYSQL_ROOT_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l">pass</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">MYSQL_DATABASE</span><span class="p">:</span><span class="w"> </span><span class="l">wp</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">MYSQL_USER</span><span class="p">:</span><span class="w"> </span><span class="l">wp</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">MYSQL_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l">wp</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">wpsite    </span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="解决思路" class="headerLink">
+    <a href="#%e8%a7%a3%e5%86%b3%e6%80%9d%e8%b7%af" class="header-mark"></a>解决思路</h3><p>需要指定下 <code>plaform</code> ，当我运行在 Apple M1上，变更部分如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">services:
+</span></span><span class="line"><span class="cl">  # Database
+</span></span><span class="line"><span class="cl">  db:
+</span></span><span class="line"><span class="cl">    platform: linux/x86_64  # set platform
+</span></span><span class="line"><span class="cl">    image: mysql-server:5.7
+</span></span><span class="line"><span class="cl">    ...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果只是在 docker pull 时，增加指定参数即可：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker pull --plaform linux/x84_64 mysql-server:5.7
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description></item></channel></rss>
